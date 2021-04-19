@@ -7,4 +7,6 @@
   border: 2px solid var(--second-font-color);
   font-size: var(--regular-font-size);
   color: var(--main-font-color);
+  cursor: pointer;
 }
+

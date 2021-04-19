@@ -1,11 +1,13 @@
 .hero {
-  position: absolute;
-  top: 0;
-  z-index: -1;
+  height: 100vh;
+  /* position: absolute;
+  top: 0; */
 }
 
 .hero__img__container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  z-index: -1;
   /* height: 500px; */
 }
 

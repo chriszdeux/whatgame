@@ -21,3 +21,15 @@ html {
   background: linear-gradient(180deg, rgba(238,238,238,0) 0%, rgba(5,5,5,0.8718535469107551) 58%);
 }
 
+body {
+  background-color: var(--dark-color);
+}
+
+.main__container {
+  width: 100%;
+}
+
+.second__container {
+  width: 90%;
+  margin: 0 auto;
+}

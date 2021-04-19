@@ -1,9 +1,11 @@
 :root {
   /* backkground colors */
-  --dark-color: #373A40;
+  /* --dark-color: #373A40; */
+  --dark-color: #151618;
   --dark-gray-color: #686D76;
   
   --active-color: #25F3FB;
+  --active-shadow-color: rgba(37, 243, 251, 0.3);
   /* rating colors */
   --high-rating-color: #78BB68;
   --medium-rating-color: #D4DA90;
