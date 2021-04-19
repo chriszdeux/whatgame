@@ -1,0 +1,10 @@
+
+
+.check--button {
+  width: 150px;
+  height: 40px;
+  background-color: rgba(0,0,0,0);
+  border: 2px solid var(--second-font-color);
+  font-size: var(--regular-font-size);
+  color: var(--main-font-color);
+}
