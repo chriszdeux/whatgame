@@ -1,12 +1,14 @@
 :root {
   /* backkground colors */
   /* --dark-color: #373A40; */
-  --dark-color: #151618;
+  --dark-color: #000000d0;
+  /* --dark-color: #000000d0; */
   --dark-gray-color: #686D76;
   
   --active-color: #25F3FB;
   --active-shadow-color: rgba(37, 243, 251, 0.3);
   /* rating colors */
+  --rating-stars-color: #fcf082;
   --high-rating-color: #78BB68;
   --medium-rating-color: #D4DA90;
   --low-rating-color: #D27F50;
@@ -20,11 +22,12 @@
   --main-font-color: #EEEEEE;
   --second-font-color: #19D3DA;
   /* font weight */
-  --regular-font-weight: 300;
-  --heavy-font-weight: 400;
+  --regular-font-weight: 500;
+  --heavy-font-weight: 700;
   /* font-size */
   --small-font-size: 16px;
   --regular-font-size: 20px;
   --large-font-size: 25px;
   --extra-large-font-size: 30px;
+  --jumbo-font-size: 40px;
 }
