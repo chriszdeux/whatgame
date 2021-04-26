@@ -5,7 +5,7 @@
   height: 40px;
   background-color: rgba(0,0,0,0);
   border: 2px solid var(--second-font-color);
-  box-shadow: 0 0 11px -1px var(--active-color);
+  box-shadow: var(--shadow-button-color);
   font-size: var(--regular-font-size);
   color: var(--main-font-color);
   cursor: pointer;

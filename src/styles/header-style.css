@@ -1,7 +1,118 @@
 .header {
   display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   color: var(--main-font-color);
 }
+
+.modal {
+  /* display: none; */
+}
+
+.menu--overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-color);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.drop__menu {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+  width: auto;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* border-left: 1px solid var(--active-shadow-color);
+  border-bottom: 1px solid var(--active-shadow-color);
+  border-bottom-left-radius: 10px; */
+  z-index: 2;
+  padding: 15px;
+  background-color: var(--background-menu-color);
+  box-shadow: var(--box-shadow-color);
+  font-size: var(--large-font-size);
+}
+
+.search__bar {
+  display: flex;
+  align-items: center;;
+  margin: 30px 0;
+  background-color: var(--border-color);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: var(--box-shadow-color);
+}
+
+.search--input {
+  width: 80%;
+  height: 30px;
+  text-align: center;
+  padding: 20px 0;
+  outline-style: none;
+  color: var(--second-font-color);
+  font-size: var(--large-font-size);
+}
+
+.search__bar .search--icon {
+  width: 20%;
+}
+
+.search__bar .search--icon:hover {
+  color: var(--second-font-color);
+  /* text-shadow: var(--box-shadow-color); */
+}
+
+/* .drop__menu ~ {
+  margin-bottom: 20px;
+} */
+
+
+
+.menu__list {
+  display: block;
+  color: var(--second-font-color);
+  border: 3px solid var(--border-color) ;
+  box-shadow: var(--box-shadow-color);
+  padding: 5px;
+  padding: 20px;
+}
+
+.list--item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.list--item:hover {
+  color: var(--active-color);
+  font-weight: var(--heavy-font-weight);
+  /* border-bottom: 1px solid var(--active-color); */
+}
+
+.drop__down__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  justify-content: flex-end;
+  /* background-color: var(--border-color); */
+  border-bottom: 1px solid var(--active-color);
+  margin-bottom: 30px;
+  margin-left: 15px
+  ;
+  font-family: var(--second-font);
+  /* padding-left: 15px; */
+}
+

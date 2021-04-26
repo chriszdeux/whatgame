@@ -4,6 +4,9 @@
   --dark-color: #000000d0;
   /* --dark-color: #000000d0; */
   --dark-gray-color: #686D76;
+  --background-menu-color: rgba(1, 1, 1, 0.507);
+  --overlay-color: #1d1e20;
+  --border-color: #19d4da6b;
   
   --active-color: #25F3FB;
   --active-shadow-color: rgba(37, 243, 251, 0.3);
@@ -30,4 +33,8 @@
   --large-font-size: 25px;
   --extra-large-font-size: 30px;
   --jumbo-font-size: 40px;
+
+  /*BOX SHADOW*/
+  --shadow-button-color: 0 0 11px -1px var(--active-color);
+  --box-shadow-color: 0 0 11px 2px var(--active-color);
 }

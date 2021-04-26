@@ -37,6 +37,10 @@ body {
   background-color: var(--dark-color);
 }
 
+body::after {
+  background-color: red;
+}
+
 .main__container {
   width: 100%;
 }
@@ -52,9 +56,15 @@ body {
   position: absolute;
   right: 10px;
   top: 10px;
-  font-size: var(--jumbo-font-size);
+  font-size: var(--large-font-size);
   color: var(--second-font-color);
   /* justify-self: flex-end; */
+  cursor: pointer;
+}
+
+.close--icon:hover {
+  font-weight: var(--heavy-font-weight);
+  /* font-weight: var(--heavy-font-weight); */
 }
 
 .star--icon {
@@ -64,4 +74,19 @@ body {
   font-size: var(--large-font-size);
   color: var(--active-color);
   /* color: var(--rating-stars-color); */
+}
+
+.icon--menu {
+  font-size: var(--large-font-size);
+  color: var(--active-color);
+}
+
+.search--icon {
+  font-size: var(--large-font-size);
+}
+
+.down--arrow {
+  cursor: pointer;
+}
+.down--arrow:hover {
 }
