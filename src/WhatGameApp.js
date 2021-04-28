@@ -1,4 +1,5 @@
 import React from 'react'
+import { GamePage } from './components/game-page/GamePage'
 import { Header } from './components/header/Header'
 import { Hero } from './components/hero/Hero'
 import { ModalCard } from './components/modal/ModalCard'
@@ -9,10 +10,11 @@ export const WhatGameApp = () => {
     <>
       <Header />
       <Hero />
+      {/* <GameList/>
       <GameList/>
-      <GameList/>
-      <GameList/>
+      <GameList/> */}
       <ModalCard />
+      <GamePage />
     </>
   )
 }

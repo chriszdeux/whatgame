@@ -1,10 +1,10 @@
 :root {
   /* backkground colors */
   /* --dark-color: #373A40; */
-  --dark-color: #000000d0;
+  --dark-color: #131313;
   /* --dark-color: #000000d0; */
-  --dark-gray-color: #686D76;
-  --background-menu-color: rgba(1, 1, 1, 0.507);
+  --dark-gray-color: #383838b7;
+  --background-menu-color: rgba(1, 1, 1, 0.876);
   --overlay-color: #1d1e20;
   --border-color: #19d4da6b;
   
