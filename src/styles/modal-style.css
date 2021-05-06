@@ -35,6 +35,7 @@
 }
 
 .card__info {
+
   /* display: flex;
   justify-content: center; */
   /* display: flex;
@@ -54,21 +55,21 @@
 }
 
 .card__hero {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-flow: column;
 }
 
 .card__hero .submit--button {
   /* float: right; */
-  align-self: flex-end;
-  margin: 15px 0;
+  align-self: center;
+  margin: 30px 0;
 }
 
 .game__img {
   display: flex;
   justify-content: center;
-  position: relative;
+  /* position: relative; */
   height: auto;
   /* opacity: .8; */
 }
@@ -87,6 +88,7 @@
 .card--title {
   position: absolute;
   bottom: 70px;
+  font-size: var(--extra-large-font-size);
   font-family: var(--second-font);
 }
 
@@ -96,14 +98,17 @@
   width: 100%;
   height: auto;
   position: absolute;
-  bottom: 20px;
+  bottom: 40%;
   /* border: 1px solid green; */
 }
 
 .game__info {
   margin-top: 20px;
+  font-size: var(--regular-font-size);
 }
 .info--title {
+  display: flex;
+  justify-content: center;
   font-weight: var(--heavy-font-weight);
   font-family: var(--second-font);
 }
@@ -113,24 +118,22 @@
   color: var(--second-font-color);
 }
 
-.game__description {
-
-}
 
 .game--subtitles {
-  font-size: var(--large-font-size);
+  font-size: var(--extra-large-font-size);
   margin: 20px 0;
 }
 
 .game--description {
+  font-size: var(--regular-font-size);
     letter-spacing: 2px;
     text-align: justify;
-    font-size: var(--small-font-size);
     line-height: 29px;
-}
-
+  }
+  
 .game__gallery {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
   height: auto;
@@ -141,26 +144,33 @@
 }
 
 .main__image__gallery {
+  position: relative;
   width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   /* background: linear-gradient(180deg, rgba(0,0,0,0.45702030812324934) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 66%, rgba(5,5,5,0.46262254901960786) 100%); */
 }
 
 .main--gallery--image {
+  /* position: absolute;
+  bottom: -40px; */
   width: 100%;
   height: 400px;
   object-fit: cover;
   text-align: center;
   border-radius: 10px;
-  background: rgb(0,0,0);
+  /* background: rgb(0,0,0); */
 }
 
 .game__gallery__selection {
   display: flex;
+  /* position: absolute; */
+  bottom: -20px;
   overflow-x: auto;
+  /* height: 430px; */
   /* z-index: 10; */
   opacity: .8;
+  padding-top: 50px;
 }
 
 .selection--image {
@@ -168,6 +178,7 @@
   height: 120px;
   object-fit: cover;
   margin-right: 10px;
+  transition: .3s ease;
 }
 
 .active--selection {
@@ -176,6 +187,7 @@
 .selection--image:hover {
   border: 2px solid var(--active-color);
   box-shadow: 0 0 11px -1px var(--active-color);
+  transform: translateY(-40px);
 }
 
 .game__platforms {
@@ -188,6 +200,7 @@
 
 .platform--item {
   margin-right: 15px;
+  font-size: var(--large-font-size);
   font-weight: var(--heavy-font-weight);
   color: var(--second-font-color);
 }
@@ -241,6 +254,7 @@
   /* width: 50%; */
   flex-shrink: 0;
   margin-right: 20px;
+  font-size: var(--regular-font-size);
 }
 
 .square--exceptional{
@@ -266,4 +280,128 @@
   height: 10px;
   background-color: var(--bad-rating-color);
   margin-left: 20px;
+}
+
+/*MEDIA QUERYS*/
+
+
+@media only screen and ( max-width: 767px ) and (max-height: 823px) {
+  .ratin__stars {
+    bottom: 40%;
+  }
+}
+
+@media only screen and ( min-width: 768px ) {
+  
+  .card__hero {
+    /* position: relative; */
+    display: flex;
+    flex-flow: column;
+    margin-top: 20px;
+  }
+  
+  .card__main__content {
+    margin-top: 20px;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .card--image {
+    max-width: 350px;
+    /* height: 500px; */
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: .7;
+    /* height: 100%; */
+    /* position: absolute;
+    object-fit: cover; */
+    /* position: relative; */
+  }
+
+
+  .game__img {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    bottom: 25%;
+    /* opacity: .8; */
+  }
+  .game__info {
+    margin-top: 0;
+    position: relative;
+  }
+  .info--title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 40px;
+    font-size: var(--jumbo-font-size);
+    font-weight: var(--heavy-font-weight);
+    font-family: var(--second-font);
+  }
+
+  .ratin__stars {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+    position: absolute;
+    bottom: 30%;
+    right: 0;
+    /* border: 1px solid green; */
+  }
+  .card--title {
+    position: absolute;
+    bottom: 70px;
+    font-size: var(--jumbo-font-size);
+    font-family: var(--second-font);
+  }
+
+  .card__hero .submit--button {
+    align-self: flex-end;
+    position: absolute;
+    top: 45%;
+  }
+
+  .main--gallery--image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    text-align: center;
+    border-radius: 10px;
+    /* background: rgb(0,0,0); */
+  }
+
+  .selection--image {
+    min-width: 200px;
+    min-height: 350px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .game--subtitles {
+    font-size: var(--jumbo-font-size);
+    margin: 20px 0;
+  }
+
+  .rating--tag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* width: 50%; */
+    flex-shrink: 0;
+    margin-right: 20px;
+    font-size: var(--large-font-size);
+  }
+
+  .game--description {
+    font-size: var(--large-font-size);
+    letter-spacing: 2px;
+    text-align: justify;
+    line-height: 29px;
+  }
+  
 }

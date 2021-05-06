@@ -9,7 +9,7 @@
 html {
   font-family: var(--main-font);
   font-size: 62.5%;
-  font-size: var(--regular-font-size);
+  /* font-size: var(--regular-font-size); */
 }
 
 ul, li, ol {
@@ -73,8 +73,9 @@ body::after {
   /* position: absolute;
   bottom: 20px; */
   margin-right: 10px;
-  font-size: var(--large-font-size);
-  color: var(--active-color);
+  font-size: var(--jumbo-font-size);
+  /* color: var(--active-color); */
+  color: var(--rating-stars-color);
   /* color: var(--rating-stars-color); */
 }
 

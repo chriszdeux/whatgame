@@ -1,19 +1,22 @@
 import React from 'react'
 import Horizon from '../../assets/horizon.jpg';
-import { HiEmojiHappy as Like, HiEmojiSad as Dislike, HiPlay as Play } from 'react-icons/hi';
-import { RiAddCircleFill as Add } from 'react-icons/ri';
+import { RatingStar } from '../modal/RatingStar';
+import { InteractiveButtons } from './InteractiveButtons';
+
 export const GameMediumCard = () => {
   return (
     <article className="game__medium__card">
       <figure className="game__medium__container">
         <img className="game--image--medium" src={Horizon} alt="videogame" />
-        <div className="bottom--fade"></div>
-        <div className="interactive__buttons">
-          <Play />
-          <Like />
-          <Dislike />
-          <Add />
+        {/* <InteractiveButtons /> */}
+        {/* <div className="bottom--fade"></div> */}
+      <div className="game__content">
+        <h2 className="list--title">Videogame Name</h2>
+        <div className="card__medium__info">
+          <h2 className="calification">8.9</h2>
+          <RatingStar />
         </div>
+      </div>
       </figure>
     </article>
   )

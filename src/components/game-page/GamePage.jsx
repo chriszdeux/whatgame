@@ -4,7 +4,7 @@ import { ResultHeader } from './ResultHeader'
 
 export const GamePage = () => {
   return (
-    <section className="main__container games__list">
+    <section className="second__container games__list">
       <ResultHeader />  
       <div className="cards__medium__container">
           <GameMediumCard />

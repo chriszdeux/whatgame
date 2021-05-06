@@ -12,6 +12,30 @@ export const GameList = () => {
           <GameSmallCard />
           <GameSmallCard />
           <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
+          <GameSmallCard />
       </div>
     </section>
   )

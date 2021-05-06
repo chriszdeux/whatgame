@@ -9,8 +9,10 @@ export const CardContent = () => {
   return (
     <div className="card__info">
         <div className="card__hero">
-          <HeroImageModal Horizon={ Horizon }/>
-          <GeneralInfo />
+          <div className="card__main__content">
+            <HeroImageModal Horizon={ Horizon }/>
+            <GeneralInfo />
+          </div>
           <button className="submit--button">Read more</button>
           <GameDescription />
           <GameGallery Horizon={ Horizon } />

@@ -24,7 +24,8 @@
   bottom: 200px;
   width: 100%;
   /* height: 300px; */
-  font-size: var(--large-font-size);
+  font-size: var(--extra-large-font-size);
+  /* font-size: 24px; */
   color: var(--main-font-color);
 }
 
@@ -33,11 +34,28 @@
 }
 
 .check__now {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 0 30px;
   position: absolute;
   bottom: 10px;
   color: white;
-  display: flex;
-  justify-content: space-between;
+  font-size: var(--regular-font-size);
+}
+
+/*HERO QUERIES*/
+
+@media only screen and (min-width: 768px) {
+  .hero__text__content {
+    justify-content: center;
+    font-size: var(--jumbo-font-size);
+  }
+
+  .check__now {
+    justify-content: space-around;
+    align-items: center;
+    font-size: var(--jumbo-font-size);
+  }
 }

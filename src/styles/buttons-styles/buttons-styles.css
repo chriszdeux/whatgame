@@ -3,6 +3,7 @@
 .submit--button {
   width: 150px;
   height: 40px;
+  margin: 0 30px;
   background-color: rgba(0,0,0,0);
   border: 2px solid var(--second-font-color);
   box-shadow: var(--shadow-button-color);
