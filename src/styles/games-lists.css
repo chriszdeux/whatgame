@@ -14,12 +14,15 @@
   justify-content: center; */
   /* width: 100%; */
   /* position: relative; */
+  /* margin-10px */
   height: auto;
 }
 
 .list--title {
   font-size: var(--large-font-size);
   color: var(--main-font-color);
+  margin-left: 15px;
+  margin-bottom: 10px;
   /* margin-bottom: 15px; */
 }
 
@@ -33,7 +36,8 @@
   display: flex;
   /* width: 100%; */
   /* height: 400px; */
-  padding: 30px 0;
+  /* padding: 30px 0; */
+  margin-bottom: 15px;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-x: auto;
@@ -57,11 +61,12 @@
 .game__small__card {
   display: flex;
   margin-right: 10px;
+  opacity: .8;
+  transition: transform, .5s;
 }
 
 
 .game__small__container {
-  
   width: 200px;
   height: 300px;
 }
@@ -78,19 +83,31 @@
   min-height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform, .5s;
-  opacity: 0.8;
 }
 
 
-.game--image--small:hover {
-  border: 2px solid var(--active-color);
+/* .cards__container > .game__small__card:hover .game--image--small:not(:hover) {
+  opacity: .1;
+} */
+
+.game__small__card:hover{
+  /* border: 2px solid var(--active-color); */
   border-radius: 10px;
   transform: scale(1.1);
-  box-shadow: 0 0 3px 5px var(--active-shadow-color);
+  /* margin: 0 50px; */
+  margin-right: 30px;
+  margin-left: 15px;
+  /* transform: translateX(10px); */
+  /* margin-right: 30px;
+  box-shadow: 0 0 3px 5px var(--active-shadow-color); */
+  box-shadow: var(--card-shadow-color);
   opacity: 1;
   z-index: 1;
 }
+/* 
+.cards_container > .game__small__card:hover {
+  margin-right: 20px;
+} */
 
 /*MEDIUM*/
 
@@ -167,7 +184,7 @@
   /* border: 2px solid var(--active-color); */
   border-radius: 10px;
   transform: scale(1.05);
-  box-shadow: var(--box-shadow-color);
+  box-shadow: var(--card-shadow-color);
   opacity: 1;
 }
 

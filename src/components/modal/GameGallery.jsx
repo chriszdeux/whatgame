@@ -8,7 +8,14 @@ export const GameGallery = ({ Horizon }) => {
     <div className="game__gallery">
       <h3 className="game--subtitles">Gallery</h3>
       <MainImageGallery Horizon={ Horizon } />
-      <GallerySelector Horizon={ Horizon } />
+      <div className="carousel__item">
+        <GallerySelector Horizon={ Horizon } />
+        <GallerySelector Horizon={ Horizon } />
+        <GallerySelector Horizon={ Horizon } />
+        <GallerySelector Horizon={ Horizon } />
+        <GallerySelector Horizon={ Horizon } />
+        <GallerySelector Horizon={ Horizon } />
+      </div>
       <Platforms />
       <div className="game__char__rating">
         <h3 className="game--subtitles">What People Say</h3>

@@ -6,9 +6,13 @@
   margin: 0 30px;
   background-color: rgba(0,0,0,0);
   border: 2px solid var(--second-font-color);
-  box-shadow: var(--shadow-button-color);
   font-size: var(--regular-font-size);
   color: var(--main-font-color);
   cursor: pointer;
+  transition: .3s ease;
 }
 
+.submit--button:hover {
+  border: 2px solid var(--active-color);
+  box-shadow: var(--shadow-button-color);
+}
