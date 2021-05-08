@@ -23,8 +23,8 @@ ul, li, ol {
   height: 200px;
   background: rgb(238,238,238);
   background: linear-gradient(180deg, rgba(238,238,238,0) 0%, rgba(5,5,5,0.8718535469107551) 58%);
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  /* border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px; */
 }
 .top--fade {
   position: absolute;
@@ -62,10 +62,12 @@ body::after {
   color: var(--second-font-color);
   /* justify-self: flex-end; */
   cursor: pointer;
+  transition: .4s ease;
+  transform: rotate(45deg);
 }
 
 .close--icon:hover {
-  font-weight: var(--heavy-font-weight);
+  transform: scale(1.2);
   /* font-weight: var(--heavy-font-weight); */
 }
 
@@ -80,7 +82,7 @@ body::after {
 }
 
 .icon--menu {
-  font-size: var(--large-font-size);
+  font-size: var(--jumbo-font-size);
   color: var(--active-color);
 }
 

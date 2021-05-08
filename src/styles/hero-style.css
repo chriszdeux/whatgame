@@ -1,5 +1,8 @@
 .hero {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
   /* position: absolute;
   top: 0; */
 }
@@ -57,5 +60,11 @@
     justify-content: space-around;
     align-items: center;
     font-size: var(--jumbo-font-size);
+  }
+}
+
+@media only screen and ( min-width: 1024px) {
+  .check__now {
+    width: 50%;
   }
 }

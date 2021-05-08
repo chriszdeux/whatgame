@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
+import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { ListItem } from './ListItem';
 import { SearchBar } from './SearchBar';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
+import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import Horizon from '../../assets/horizon.jpg'
 import { GameDescription } from './GameDescription';
 import { GameGallery } from './GameGallery';

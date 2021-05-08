@@ -92,7 +92,7 @@
   font-family: var(--second-font);
 }
 
-.ratin__stars {
+.rating__stars {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -163,19 +163,16 @@
 }
 
 .game__gallery__selection {
-  display: flex;
-  /* position: absolute; */
-  bottom: -20px;
-  overflow-x: auto;
-  /* height: 430px; */
-  /* z-index: 10; */
+  flex-shrink: 0;
+  width: 100px;
   opacity: .8;
   padding-top: 50px;
+  margin-right: 10px;
 }
 
 .selection--image {
-  width: 80px;
-  height: 120px;
+  width: 100%;
+  height: 150px;
   object-fit: cover;
   margin-right: 10px;
   transition: .3s ease;
@@ -282,16 +279,28 @@
   margin-left: 20px;
 }
 
+.carousel__item {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  
+}
 /*MEDIA QUERYS*/
 
 
-@media only screen and ( max-width: 767px ) and (max-height: 823px) {
-  .ratin__stars {
-    bottom: 40%;
+@media only screen and ( min-width: 768px ) {
+  .rating__stars {
+    bottom: 50%;
   }
+  .game__gallery__selection {
+    width: 200px;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+  
 }
 
-@media only screen and ( min-width: 768px ) {
+@media only screen and ( min-width: 1024px ) {
   
   .card__hero {
     /* position: relative; */
@@ -310,7 +319,7 @@
   }
 
   .card--image {
-    max-width: 350px;
+   width: 100%;
     /* height: 500px; */
     object-fit: cover;
     border-radius: 10px;
@@ -327,6 +336,7 @@
     justify-content: center;
     height: auto;
     bottom: 25%;
+    padding-right: 16px;
     /* opacity: .8; */
   }
   .game__info {
@@ -343,7 +353,7 @@
     font-family: var(--second-font);
   }
 
-  .ratin__stars {
+  .rating__stars {
     display: flex;
     justify-content: center;
     width: 50%;
@@ -362,8 +372,6 @@
 
   .card__hero .submit--button {
     align-self: flex-end;
-    position: absolute;
-    top: 45%;
   }
 
   .main--gallery--image {
@@ -402,6 +410,12 @@
     letter-spacing: 2px;
     text-align: justify;
     line-height: 29px;
+  }
+
+  .game__gallery__selection {
+    width: 500px;
+    flex-shrink: 0;
+    margin-right: 10px;
   }
   
 }

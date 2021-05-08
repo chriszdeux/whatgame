@@ -37,4 +37,7 @@
   /*BOX SHADOW*/
   --shadow-button-color: 0 0 11px -1px var(--active-color);
   --box-shadow-color: 0 0 11px 2px var(--active-color);
+  --dark-shadow-color: -9px 0 15px 10px var(--dark-color);
+  --card-shadow-color: -20px 0 11px 4px var(--dark-color);
+
 }

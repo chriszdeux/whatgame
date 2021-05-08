@@ -8,8 +8,8 @@ export const Header = () => {
     <header className="main__container">
       <div className=" header">
         <h2>LogoApp</h2>
-        {/* <IconMenu className="icon--menu"/> */}
-        {/* <Navbar /> */}
+        <IconMenu className="icon--menu"/>
+        <Navbar />
       </div>
       <MenuList />
     </header>
