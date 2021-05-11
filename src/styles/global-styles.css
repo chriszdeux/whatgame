@@ -55,19 +55,23 @@ body::after {
 
 /*ICONS*/
 .close--icon {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: var(--large-font-size);
-  color: var(--second-font-color);
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  font-size: var(--jumbo-font-size);
+  color: var(--main-font-color);
   /* justify-self: flex-end; */
+  /* border-radius: 50%; */
   cursor: pointer;
-  transition: .4s ease;
-  transform: rotate(45deg);
+  transition: .6s ease;
+  border-radius: 50%;
 }
 
 .close--icon:hover {
-  transform: scale(1.2);
+  color: var(--main-font-color);
+  transform: rotate(90deg);
+  /* background-color: var(--dark-gray-color); */
+  /* transform: scale(1.2); */
   /* font-weight: var(--heavy-font-weight); */
 }
 
@@ -84,6 +88,12 @@ body::after {
 .icon--menu {
   font-size: var(--jumbo-font-size);
   color: var(--active-color);
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.icon--menu:hover {
+  transform: scale(1.1);
 }
 
 .search--icon {
@@ -95,3 +105,6 @@ body::after {
 }
 .down--arrow:hover {
 }
+
+
+/*ANIMATIONS*/

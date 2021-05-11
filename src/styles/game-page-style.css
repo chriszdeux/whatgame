@@ -4,6 +4,8 @@
   align-items: center;
   height: auto;
   margin: 15px;
+  animation: fadeIn;
+  animation-duration: 1s;
 
 }
 
@@ -17,4 +19,5 @@
   outline: none;
   /* font-size: var(--large-font-size); */
   font-size: var(--regular-font-size);
+  
 }

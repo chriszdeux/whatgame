@@ -11,6 +11,7 @@ export const CardContent = () => {
         <div className="card__hero">
           <div className="card__main__content">
             <HeroImageModal Horizon={ Horizon }/>
+            {/* <div className="bottom--fade"></div> */}
             <GeneralInfo />
           </div>
           <button className="submit--button">Read more</button>

@@ -23,6 +23,8 @@
   color: var(--main-font-color);
   margin-left: 15px;
   margin-bottom: 10px;
+  animation: fadeIn;
+  animation-duration: 1s;
   /* margin-bottom: 15px; */
 }
 
@@ -63,6 +65,8 @@
   margin-right: 10px;
   opacity: .8;
   transition: transform, .5s;
+  animation: fadeIn;
+  animation-duration: 1s;
 }
 
 
@@ -129,6 +133,8 @@
   min-height: 450px; */
   object-fit: cover;
   border-radius: 10px;
+  animation: fadeIn;
+  animation-duration: 2s;
 }
 
 

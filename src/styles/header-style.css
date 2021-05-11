@@ -10,10 +10,11 @@
   padding: 10px;
   font-size: var(--large-font-size);
   color: var(--main-font-color);
+  z-index: 1;
 }
 
 .modal {
-  display: none;
+  /* display: none; */
 }
 
 .menu--overlay {
@@ -25,6 +26,8 @@
   background-color: var(--overlay-color);
   opacity: 0.8;
   z-index: 1;
+  animation: fadeIn;
+  animation-duration: .5s;
 }
 
 .drop__menu {
@@ -44,6 +47,14 @@
   background-color: var(--background-menu-color);
   box-shadow: var(--dark-shadow-color);
   font-size: var(--large-font-size);
+  animation: fadeInRight;
+  animation-duration: .7s;
+}
+
+.main__container .close--icon {
+  top: 10px;
+  right: 10px;
+  z-index: 3;
 }
 
 .search__bar {
@@ -86,8 +97,8 @@
   color: var(--second-font-color);
   /* border: 3px solid var(--border-color) ; */
   /* box-shadow: var(--box-shadow-color); */
-  padding: 5px;
-  padding: 20px;
+  /* padding: 5px;
+  padding: 20px; */
 }
 
 .list--item {

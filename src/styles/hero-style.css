@@ -30,6 +30,8 @@
   font-size: var(--extra-large-font-size);
   /* font-size: 24px; */
   color: var(--main-font-color);
+  animation: fadeInUp;
+  animation-duration: 2s;
 }
 
 .hero--text {
@@ -46,6 +48,9 @@
   bottom: 10px;
   color: white;
   font-size: var(--regular-font-size);
+  animation: fadeIn;
+  /* animation-delay: 3s; */
+  animation-duration: 2s;
 }
 
 /*HERO QUERIES*/

@@ -1,17 +1,23 @@
-import React from 'react';
-import {  AiOutlineMenu as IconMenu } from 'react-icons/ai';
+import React, { useState } from 'react';
+import {  FiMenu as IconMenu } from 'react-icons/fi';
+import { useShowContent } from '../../hooks/useShowContent';
 import '../../styles/header-style.css'
 import { MenuList } from './MenuList';
 import { Navbar } from './Navbar';
 export const Header = () => {
+  const [showContent, handleToggleContent] = useShowContent();
   return (
     <header className="main__container">
-      <div className=" header">
+      <div className="header">
         <h2>LogoApp</h2>
-        <IconMenu className="icon--menu"/>
+        {/* <IconMenu 
+          onClick={ handleToggleContent }
+          className="icon--menu"
+        /> */}
+        <button onClick={ handleToggleContent }>menu</button>
         <Navbar />
       </div>
-      <MenuList />
+      {showContent && <MenuList useShowContent={ useShowContent }/>}
     </header>
   )
 }
