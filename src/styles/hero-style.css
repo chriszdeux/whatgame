@@ -22,12 +22,13 @@
 
 .hero__text__content {
   display: flex;
-  align-items: flex-end;
+  justify-content: center;
+  /* align-items: flex-end; */
   position: absolute;
-  bottom: 200px;
+  bottom: 100px;
   width: 100%;
   /* height: 300px; */
-  font-size: var(--extra-large-font-size);
+  font-size: var(--extra-jumbo-font-size);
   /* font-size: 24px; */
   color: var(--main-font-color);
   animation: fadeInUp;

@@ -3,7 +3,8 @@ import Horizon from '../../assets/horizon.jpg';
 import { RatingStar } from '../modal/RatingStar';
 import { InteractiveButtons } from './InteractiveButtons';
 
-export const GameMediumCard = () => {
+export const GameMediumCard = ({game}) => {
+  // debugger
   return (
     <article className="game__medium__card">
       <figure className="game__medium__container">

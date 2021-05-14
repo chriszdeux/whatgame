@@ -10,9 +10,9 @@ export const WhatGameApp = () => {
     <>
       <Header />
       <Hero />
+      {/* <GameList/>
       <GameList/>
-      <GameList/>
-      <GameList/>
+      <GameList/> */}
       <ModalCard />
       <GamePage />
     </>

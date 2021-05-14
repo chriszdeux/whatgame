@@ -24,13 +24,14 @@ export const ModalCard = () => {
             <button onClick={openModal}>Open Modal</button>
 
       <Modal
-      isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
+          isOpen={modalIsOpen}
+          // onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           // style={customStyles}
           contentLabel="Example Modal"
           className="Modal"
            overlayClassName="Overlay"
+           ariaHideApp={false}
           >
       <CardContent />
     </Modal>

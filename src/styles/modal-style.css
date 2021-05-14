@@ -7,16 +7,41 @@
   overflow-y: auto;
   /* text-align: center; */
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  background-color: var(--dark-color);
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  /* border: 1px solid red; */
+  /* background-color: red; */
   /* opacity: .3; */
   /* border: 1px solid var(--active-color); */
   /* border-radius: 10px; */
   box-shadow: 0 0 10px 40px var(--dark-color);
   /* padding: 10px; */
+  outline: none;
+  /* border-radius: 10px; */
+  background-color: var(--dark-color);
+  /* opacity: .95; */
+}
+.Modal--menu {
+  overflow-y: auto;
+  /* text-align: center; */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  /* border: 1px solid red; */
+  /* opacity: .3; */
+  /* border: 1px solid var(--active-color); */
+  /* border-radius: 10px; */
+  box-shadow: 0 0 10px 40px var(--dark-color);
+  /* padding: 10px; */
+  outline: none;
+  /* border-radius: 10px; */
+  background-color: var(--dark-color);
+  /* background-color: red; */
+  opacity: .9;
 }
 
 .Overlay {
@@ -25,13 +50,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../assets/re-v.jpg');
+  /* background-color: var(--dark-gray-color); */
+  /* background-color: var(--dark-gray-color); */
+  /* background-image: url('../assets/re-v.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  opacity: 1;
+  background-size: cover; */
+  /* opacity: .9; */
+  /* background-color: green;
+  margin: 4px solid red; */
+  /* opacity: .9; */
+  /* outline-style: none;
+  outline: none; */
   /* filter: blur(8px); */
-  /* background-color: rgba(0, 0, 0, 0.8); */
+  /* background-color: rgba(27, 179, 53, 0.8); */
 }
 
 .card__info {
@@ -43,6 +75,8 @@
   align-items: center; */
   color: rgb(228, 228, 228);
   /* z-index: 110000; */
+  animation: fadeIn;
+  animation-duration: 1s;
 }
 .card__modal {
   /* position: absolute;  PENDING*/
