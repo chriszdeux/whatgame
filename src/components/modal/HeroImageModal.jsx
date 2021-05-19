@@ -1,15 +1,15 @@
 import React from 'react'
 import { RatingStar } from './RatingStar'
 
-export const HeroImageModal = ({Horizon}) => {
+export const HeroImageModal = ( {detailsData} ) => {
+  const { slug, name, image } = detailsData;
+  // debugger
   return (
     <>
-      {/* <div className="bottom--fade"></div> */}
     <figure className="game__img">
-      <img className="card--image" src={ Horizon } alt="resident"/>
+      <img className="card--image" src={ image } alt={ slug }/>
       <div className="rating__stars">
-        {/* <div className="bottom--fade"></div> */}
-        <h2 className="card--title">Videogame name</h2>
+        <h2 className="card--title">{ name }</h2>
         <RatingStar />
       </div>
     </figure>

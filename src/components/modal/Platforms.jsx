@@ -1,14 +1,16 @@
 import React from 'react'
 
-export const Platforms = () => {
+export const Platforms = ( { platforms } ) => {
+  // debugger
   return (
     <div className="game__platforms">
       <h3 className="game--subtitles">Platforms</h3>
       <ul className="platforms">
-        <li className="platform--item">PC</li>
-        <li className="platform--item">XBOX ONE</li>
-        <li className="platform--item">PS4</li>
-        <li className="platform--item">SWITCH</li>
+        {
+          platforms.map(({ platform }) => (
+            <li key={platform.id} className="platform--item">{ platform.name }</li>
+          ))
+        }
       </ul>
     </div>
   )

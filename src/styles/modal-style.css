@@ -41,7 +41,7 @@
   /* border-radius: 10px; */
   background-color: var(--dark-color);
   /* background-color: red; */
-  opacity: .9;
+  /* opacity: .9; */
 }
 
 .Overlay {
@@ -50,6 +50,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: .9;
   /* background-color: var(--dark-gray-color); */
   /* background-color: var(--dark-gray-color); */
   /* background-image: url('../assets/re-v.jpg');
@@ -228,6 +229,7 @@
 
 .platforms {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .platform--item {
@@ -333,6 +335,9 @@
     margin-right: 10px;
   }
   
+  .card--image {
+    height: 800px;
+  }
 }
 
 @media only screen and ( min-width: 1024px ) {

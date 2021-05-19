@@ -1,37 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useGetScreenshots } from '../../hooks/useFetchGame'
 import { GallerySelector } from './GallerySelector'
 import { MainImageGallery } from './MainImageGallery'
 import { Platforms } from './Platforms'
 
-export const GameGallery = ({ Horizon }) => {
+export const GameGallery = ({ detailsData }) => {
+  const { image, image2, name, slug } = detailsData;
+  const { screenshotData, loading } = useGetScreenshots( slug )
+  // const { screenshot } = loading!== true && screenshotData[0]
+  // debugger
+  const [currentScreenshot, setCurrentScreenshot] = useState( image2 )
+
   return (
     <div className="game__gallery">
       <h3 className="game--subtitles">Gallery</h3>
-      <MainImageGallery Horizon={ Horizon } />
-      <div className="carousel__item">
-        <GallerySelector Horizon={ Horizon } />
-        <GallerySelector Horizon={ Horizon } />
-        <GallerySelector Horizon={ Horizon } />
-        <GallerySelector Horizon={ Horizon } />
-        <GallerySelector Horizon={ Horizon } />
-        <GallerySelector Horizon={ Horizon } />
-      </div>
-      <Platforms />
-      <div className="game__char__rating">
-        <h3 className="game--subtitles">What People Say</h3>
-        <ul className="game__char">
-          <li className="game--exceptional"></li>
-          <li className="game--recommended"></li>
-          <li className="game--meh"></li>
-          <li className="game--skip"></li>
-        </ul>
-        <ul className="rating__tags">
-          <li className="rating--tag">Exceptional <div className="square--exceptional"></div></li>
-          <li className="rating--tag">Recommended <div className="square--recommended"></div></li>
-          <li className="rating--tag">Meh <div className="square--meh"></div></li>
-          <li className="rating--tag">Skip <div className="square--skip"></div></li>
-        </ul>
-      </div>
+      {
+        loading
+        ? <h2>loading</h2>
+        : <div>
+            <MainImageGallery currentScreenshot={ currentScreenshot } />
+              <div className="carousel__item">
+                {
+                  screenshotData.map( screenshots => (
+                    <GallerySelector 
+                      key={screenshots.id} 
+                      screenshots={screenshots}
+                      setCurrentScreenshot={setCurrentScreenshot}
+                    />
+                  ))
+                }
+                </div>  
+            </div>
+      }
+      
+      {/* <Platforms platforms={ platforms }/> */}
+      
     </div>
   )
 }

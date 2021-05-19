@@ -5,7 +5,7 @@ import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 
 
-export const CheckNow = () => {
+export const CheckNow = ({ slug }) => {
 
   const [ openModal, handleOpenModal ] = useShowModal()
 
@@ -27,7 +27,7 @@ export const CheckNow = () => {
         overlayClassName="Overlay"
         ariaHideApp={false}
       >
-        <CardContent />
+        <CardContent slug={ slug }/>
         <CloseIcon 
           className="close--icon"
           onClick={ handleOpenModal }

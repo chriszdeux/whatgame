@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { GetGames } from "../data/fetchGames"
+import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots } from "../data/fetchGames"
 
 export const useFetchGames = () => {
   const [dataGame, setDataGame] = useState({
@@ -20,3 +20,79 @@ export const useFetchGames = () => {
   return dataGame
 }
 
+export const useFetchGenres = () => {
+  const [dataGenres, setDataGenres] = useState({
+    dataGenre: [],
+    loading: true
+  })
+
+  useEffect(() => {
+    getGenreGames()
+      .then(genre => {
+        setDataGenres({
+          dataGenre: genre,
+          loading: false
+        })
+      })
+  }, [ ])
+
+  return dataGenres
+}
+
+export const useGamesByGenre = ( genre ) => {
+  const [gamesByGenreData, setGamesByGenreData] = useState({
+    dataListGame: [],
+    loading: true
+  })
+
+  useEffect(() => {
+    getGamesByGenre(genre)
+      .then(listGame => {
+        setGamesByGenreData({
+          dataListGame: listGame,
+          loading: false
+        })
+      })
+  }, [ genre ])
+
+  return gamesByGenreData
+}
+
+export const useGetGameDetails = ( game ) => {
+  const [gameDetails, setGameDetails] = useState({
+    detailsData: { },
+    loading: true
+  })
+
+  useEffect(() => {
+    getDetailsGame(game)
+      .then(data => {
+        setGameDetails({
+          detailsData: data,
+          loading: false
+        })
+      })
+    }, [ game ]);
+    // debugger
+  return gameDetails
+}
+
+export const useGetScreenshots = ( game ) => {
+  const [screenshots, setScreenshot] = useState({
+    screenshotData: [],
+    loading: true
+  })
+
+  useEffect(() => {
+    getGameScreenshots( game )
+      .then(screenshot => {
+        setScreenshot({
+          screenshotData: screenshot,
+          loading: false
+        })
+      })
+
+  }, [ game ])
+
+  return screenshots;
+}

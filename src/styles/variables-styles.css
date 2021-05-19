@@ -13,9 +13,9 @@
   /* rating colors */
   --rating-stars-color: #fcf082;
   --high-rating-color: #78BB68;
-  --medium-rating-color: #D4DA90;
-  --low-rating-color: #D27F50;
-  --bad-rating-color: #D47F7F;
+  --medium-rating-color: #edf59b;
+  --low-rating-color: #e98f5b;
+  --bad-rating-color: #e07171;
 
   
   /* fonts */
