@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useShowModal } from '../../hooks/useShowModal';
+import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 
 
 export const CheckNow = ({ slug }) => {
 
-  const [ openModal, handleOpenModal ] = useShowModal()
+  const [ openContent, handleOpenContent ] = useShowContent()
 
   return (
     <div className="check__now">
@@ -15,14 +15,14 @@ export const CheckNow = ({ slug }) => {
       <button 
         type="button"
         className="submit--button"
-        onClick={ handleOpenModal }
+        onClick={ handleOpenContent }
       > Check Now
       </button>
       <p>Info</p>
       <Modal
-        isOpen={ openModal }
+        isOpen={ openContent }
         // onAfterOpen={ handleToggleContent }
-        onRequestClose={ handleOpenModal }
+        onRequestClose={ handleOpenContent }
         className="Modal"
         overlayClassName="Overlay"
         ariaHideApp={false}
@@ -30,7 +30,7 @@ export const CheckNow = ({ slug }) => {
         <CardContent slug={ slug }/>
         <CloseIcon 
           className="close--icon"
-          onClick={ handleOpenModal }
+          onClick={ handleOpenContent }
         />
       </Modal>
     </div>

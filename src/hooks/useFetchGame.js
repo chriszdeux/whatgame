@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots } from "../data/fetchGames"
+import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots, getGameByName } from "../data/fetchGames"
 
 export const useFetchGames = () => {
   const [dataGame, setDataGame] = useState({
@@ -95,4 +95,23 @@ export const useGetScreenshots = ( game ) => {
   }, [ game ])
 
   return screenshots;
+}
+
+export const useGetGamesByName = ( searchInput ) => {
+  const [resultData, setResultData] = useState({
+    gamesData: [],
+    loading: true
+  })
+
+  useEffect(() => {
+    getGameByName( searchInput )
+      .then(result => {
+        setResultData({
+          resultData: result,
+          loading: false
+        })
+      })
+  }, [ searchInput ])
+// debugger
+  return resultData
 }

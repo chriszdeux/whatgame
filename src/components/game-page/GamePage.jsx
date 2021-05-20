@@ -1,10 +1,17 @@
-import React from 'react'
-import { useFetchGames } from '../../hooks/useFetchGame'
+import React, { useContext, useEffect } from 'react'
+import { SearchContext } from '../../context/UseResultsGamesContext'
+import { useFetchGames, useGetGamesByName } from '../../hooks/useFetchGame'
 import { GameMediumCard } from '../videogames-lists/GameMediumCard'
 import { ResultHeader } from './ResultHeader'
 
 export const GamePage = () => {
-  const { loading, data } = useFetchGames();
+  // const { loading, data } = useFetchGames();
+  // use getGamesByName
+  const { resultData, loading } = useContext ( SearchContext )
+  // debugger
+  useEffect(() => {
+
+  }, [resultData])
   return (
     <section className="second__container games__list">
       <ResultHeader /> 
@@ -13,7 +20,7 @@ export const GamePage = () => {
           ? <h2>loading</h2>
           : <div className="cards__medium__container">
               {
-                data.map( game => (
+                resultData.map( game => (
                   <GameMediumCard game={ game }/>
                 ))
               }

@@ -5,7 +5,7 @@ import { GameDescription } from './GameDescription';
 import { GameGallery } from './GameGallery';
 import { GeneralInfo } from './GeneralInfo';
 import { HeroImageModal } from './HeroImageModal';
-import { useShowModal } from '../../hooks/useShowModal';
+import { useShowContent } from '../../hooks/useShowContent';
 import { Rating } from './Rating';
 import { Platforms } from './Platforms';
 
@@ -13,7 +13,7 @@ import { Platforms } from './Platforms';
 export const CardContent = ( { slug } ) => {
   const { detailsData, loading } = useGetGameDetails( slug );
   const { platforms } = detailsData
-  const [ openModal, handleOpenModal ] = useShowModal();
+  const [ openContent, handleOpenModal ] = useShowContent();
   // debugger
   return (
     <div className="card__info">
@@ -31,7 +31,7 @@ export const CardContent = ( { slug } ) => {
                 onClick={ handleOpenModal }
               >Read more </button>
               {
-                openModal && <GameDescription detailsData={ detailsData }/>
+                openContent && <GameDescription detailsData={ detailsData }/>
               }
               
               <GameGallery detailsData={ detailsData } />

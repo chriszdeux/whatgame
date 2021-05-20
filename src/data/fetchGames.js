@@ -28,6 +28,7 @@ export const GetGames = async () => {
   }
 }
 
+
 export const getGenreGames = async () => {
   const response = await fetch(`${mainUrl}${queryGenres}${api_key}`);
   const { results } = await response.json();
@@ -109,3 +110,23 @@ export const getGameScreenshots = async ( game ) => {
  }
   
 }
+
+export const getGameByName = async ( searchInput = '' ) => {
+  const gameToSearch = searchInput.replace(/\s/g, '-')
+  const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${gameToSearch}`);
+  const { results } = await response.json();
+  const searchResult = results.map( result => {
+    return {
+      name: result.name,
+      slug: result.slug,
+      released: result.released,
+      rating: result.rating,
+      rating_star: result.rating_top,
+      image: result.background_image
+    }
+  })
+  // debugger
+  return searchResult
+}
+
+getGameByName()

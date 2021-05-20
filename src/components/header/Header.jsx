@@ -4,13 +4,13 @@ import {  FiMenu as IconMenu } from 'react-icons/fi';
 import '../../styles/header-style.css'
 import { MenuList } from './MenuList';
 import { Navbar } from './Navbar';
-import { useShowModal } from '../../hooks/useShowModal';
+import { useShowContent } from '../../hooks/useShowContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc'; //YOU ARE HERE
 
 
 export const Header = () => {
   
-  const [openModal, handleOpenModal] = useShowModal()
+  const [openContent, handleOpenContent] = useShowContent()
 
   return (
     <header className="main__container">
@@ -18,17 +18,17 @@ export const Header = () => {
         <h2>LogoApp</h2>
         {/* {showContent && <MenuList />} */}
         <IconMenu 
-          onClick={ handleOpenModal }
+          onClick={ handleOpenContent }
           className="icon--menu"
         />
         <Modal
-          isOpen={ openModal }
-          onRequestClose={ handleOpenModal }
+          isOpen={ openContent }
+          onRequestClose={ handleOpenContent }
           ariaHideApp={ false }
           className="Modal--menu"
           overlayClassName="Overlay"
         >
-          <MenuList handleOpenModal={handleOpenModal}/>
+          <MenuList handleOpenContent={handleOpenContent}/>
         </Modal>
         <Navbar />
       </div>

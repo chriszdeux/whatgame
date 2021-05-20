@@ -1,42 +1,18 @@
-import React from 'react'
-import { LazyLoadComponent } from 'react-lazy-load-image-component'
-import { GamePage } from './components/game-page/GamePage'
-import { Header } from './components/header/Header'
-import { Hero } from './components/hero/Hero'
-import { ModalCard } from './components/modal/ModalCard'
-import { GameList } from './components/videogames-lists/GameList'
-import { useFetchGenres } from './hooks/useFetchGame'
+import React, { useState } from 'react'
+import { SearchContext } from './context/UseResultsGamesContext'
+import { useGetGamesByName } from './hooks/useFetchGame'
 
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { GameRouter } from './router/GameRouter';
+
 export const WhatGameApp = () => {
-  const { dataGenre, loading } = useFetchGenres()
+  const [ searchGame, setSearchGame ] = useState( );
+  const { resultData, loading } = useGetGamesByName( searchGame )
   // debugger
-  
   return (
     <>
-      <Header />
-      <Hero />
-      {
-        loading 
-        ? <h2>Loading</h2>
-        : dataGenre.map(genre => (
-          <LazyLoadComponent 
-            key={genre.id}
-            // delayTime="3000"
-          >
-            <GameList key={genre.id} genre={genre}/>
-          </LazyLoadComponent>
-        ))
-      }
-      {/* {
-        loading 
-        ? <h2>Loading</h2>
-        : dataGenre.map(genre => (
-            <GameList key={genre.id} genre={genre}/>
-        ))
-      } */}
-      <ModalCard />
-      <GamePage />
+      <SearchContext.Provider value={ {resultData, setSearchGame, loading} }>
+        <GameRouter />
+      </SearchContext.Provider>
     </>
   )
 }

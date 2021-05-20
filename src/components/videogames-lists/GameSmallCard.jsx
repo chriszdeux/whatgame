@@ -1,14 +1,14 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Horizon from '../../assets/horizon.jpg';
-import { useShowModal } from '../../hooks/useShowModal';
+import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 export const GameSmallCard = ({listGame}) => {
-  const [openModal, handleOpenModal] = useShowModal()
+  const [openContent, handleOpenModal] = useShowContent()
   // debugger
   const { image, name, slug } = listGame;
   // debugger
@@ -27,7 +27,7 @@ export const GameSmallCard = ({listGame}) => {
         />
 
         <Modal
-          isOpen={ openModal }
+          isOpen={ openContent }
           onRequestClose={ handleOpenModal }
           ariaHideApp={false}
           className="Modal "

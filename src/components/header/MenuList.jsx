@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc'; //YOU ARE HERE
-import { useShowModal } from '../../hooks/useShowModal';
+import { Link } from 'react-router-dom';
+import { useShowContent } from '../../hooks/useShowContent';
 import { ListItem } from './ListItem';
 import { SearchBar } from './SearchBar';
-
-export const MenuList = ( {handleOpenModal} ) => {
-  // const [showContent, handleToggleContent] = useShowModal()
-  // debugger
+import { useGetGamesByName } from '../../hooks/useFetchGame';
+import { SearchContext } from '../../context/UseResultsGamesContext';
+export const MenuList = ( { handleOpenContent} ) => {
   return (
       // <div className="modal">
       // <div className="menu--overlay"></div>
       <div className="drop__menu">
         <CloseIcon 
           className="close--icon" 
-          onClick={ handleOpenModal }
+          onClick={ handleOpenContent }
         />
-        <SearchBar />
+          <SearchBar handleOpenContent={ handleOpenContent }/>
+        {/* <Link to="/results" className="input--link">
+        </Link> */}
         <ListItem />      
         </div>
     // </div>

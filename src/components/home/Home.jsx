@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import resident from '../../assets/re-v.jpg';
 import { useFetchGames, useGetGameDetails } from '../../hooks/useFetchGame';
-import '../../styles/hero-style.css';
+import '../../styles/home-style.css';
 import { CheckNow } from './CheckNow';
 
-export const Hero = () => {
+export const Home = () => {
   const { loading, data } = useFetchGames()
   // let random = 0
   
@@ -27,7 +27,7 @@ export const Hero = () => {
   // debugger
   // const { detailsData } = useGetGameDetails( slug )
   return (
-    <section className="main__container hero ">
+    <section className="main__container home ">
       {
         loading 
           ? <h2>loading</h2>
