@@ -4,12 +4,12 @@ import { GenreCard } from './GenreCard'
 
 export const GenresGrid = () => {
   
-  const { dataGenre, seeStateGenre } = useContext( DataContext )
+  const { data, setStateGenre } = useContext( DataContext )
   // debugger
   return (
     <section className="genre__grid">
       {
-        dataGenre.map(genre => (
+        data.map(genre => (
           <GenreCard genre={ genre }/>
         ))
       }

@@ -10,7 +10,7 @@ export const WhatGameApp = () => {
   const { resultData, loading } = useGetGamesByName( searchGame )
 
   const [stateGenre, setStateGenre] = useState( )
-  const { dataGenre, loading: genreLoading } = useFetchGenres()
+  const { data, loading: genreLoading } = useFetchGenres()
   // debugger
 
   const [ openContent, handleOpenContent ] = useShowContent()
@@ -23,7 +23,7 @@ export const WhatGameApp = () => {
           searchGame, 
           setSearchGame, 
           loading,
-          dataGenre,
+          data,
           setStateGenre,
           openContent,
           handleOpenContent
