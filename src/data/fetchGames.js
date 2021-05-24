@@ -80,6 +80,7 @@ export const getDetailsGame = async ( game ) => {
     metacritic: data?.metacritic,
     released: data?.released,
     image: data?.background_image,
+    genre: data?.genres,
     image2: data?.background_image_additional,
     rating: data?.rating,
     rating_star: data?.rating_top,
@@ -128,5 +129,3 @@ export const getGameByName = async ( searchInput = '' ) => {
   // debugger
   return searchResult
 }
-
-getGameByName()

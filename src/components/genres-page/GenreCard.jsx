@@ -1,32 +1,28 @@
-import React from 'react';
-import Modal from 'react-modal';
-import Horizon from '../../assets/horizon.jpg';
-import { useShowContent } from '../../hooks/useShowContent';
+import React from 'react'
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useShowContent } from '../../hooks/useShowContent'
+import Modal from 'react-modal'
 
+export const GenreCard = ({ genre }) => {
+  const [openContent, handleOpenModal] = useShowContent();
 
-export const GameSmallCard = ({listGame}) => {
-  const [openContent, handleOpenModal] = useShowContent()
-  // debugger
-  const { image, name, slug } = listGame;
-  // debugger
- 
+  const { image, name } =  genre
   return (
-    <article className="game__small__card">
-      
+    <article className="genre__card">
       <figure 
-        className="game__small__container"
+        className="gender__img"
       >
+        <div className="fade--bottom"></div>
         <LazyLoadImage 
-          className="game--image--small" 
+          className="gender--image" 
           src={ image } 
           alt={ name }
-          onClick={ handleOpenModal } 
+          // onClick={ handleOpenModal } 
           effect="opacity"
         />
-
+        
         <Modal
           isOpen={ openContent }
           onRequestClose={ handleOpenModal }
@@ -39,10 +35,10 @@ export const GameSmallCard = ({listGame}) => {
             className="close--icon animate__animated animate__fadeIn"
             onClick={ handleOpenModal }
           />
-          <CardContent slug={ slug }/>
+          {/* <CardContent slug={ slug }/> */}
         </Modal>
+        <caption className="genre--name">{name}</caption>
       </figure>
-      
     </article>
   )
 }

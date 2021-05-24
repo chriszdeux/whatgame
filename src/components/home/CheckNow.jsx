@@ -3,12 +3,14 @@ import Modal from 'react-modal';
 import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
+import { useGetGameDetails } from '../../hooks/useFetchGame';
 
 
 export const CheckNow = ({ slug }) => {
 
   const [ openContent, handleOpenContent ] = useShowContent()
-
+  const { detailsData, loading } = useGetGameDetails( slug );
+  // debugger
   return (
     <div className="check__now">
       <p>Add</p>
@@ -26,8 +28,13 @@ export const CheckNow = ({ slug }) => {
         className="Modal"
         overlayClassName="Overlay"
         ariaHideApp={false}
+        style={{ backgroundImage:`url(${detailsData.image})` }}
       >
-        <CardContent slug={ slug }/>
+        {
+          loading 
+            ? <h2>LOADING</h2>
+            : <CardContent detailsData={ detailsData }/>
+        }
         <CloseIcon 
           className="close--icon"
           onClick={ handleOpenContent }

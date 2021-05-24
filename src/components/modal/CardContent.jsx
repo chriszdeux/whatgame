@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Horizon from '../../assets/horizon.jpg'
 import { useGetGameDetails } from '../../hooks/useFetchGame';
 import { GameDescription } from './GameDescription';
@@ -8,12 +8,14 @@ import { HeroImageModal } from './HeroImageModal';
 import { useShowContent } from '../../hooks/useShowContent';
 import { Rating } from './Rating';
 import { Platforms } from './Platforms';
+import { DataContext } from '../../context/DataFetchContext';
 
 
 export const CardContent = ( { slug } ) => {
   const { detailsData, loading } = useGetGameDetails( slug );
   const { platforms } = detailsData
-  const [ openContent, handleOpenModal ] = useShowContent();
+  // const { openContent, handleOpenModal } = useContext(DataContext)
+const  [openContent, handleOpenModal] = useShowContent()
   // debugger
   return (
     <div className="card__info">
@@ -29,7 +31,9 @@ export const CardContent = ( { slug } ) => {
               <button 
                 className="submit--button"
                 onClick={ handleOpenModal }
-              >Read more </button>
+              > {
+                !openContent ? 'Read More' : 'Read Less'
+              } </button>
               {
                 openContent && <GameDescription detailsData={ detailsData }/>
               }

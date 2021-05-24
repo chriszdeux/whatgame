@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useShowContent } from '../../hooks/useShowContent';
 import { ListDropDown } from './ListDropDown';
 
-export const ListItem = () => {
+export const ListItem = ( { handleOpenContent } ) => {
   const menuList = [
     {
       name: 'Home',
@@ -35,7 +35,15 @@ export const ListItem = () => {
 
   const [genres, setGenres] = useState(false)
 
-  const [ openContent, handleOpenContent ] = useShowContent()
+  // const [ openContent, handleOpenContent ] = useShowContent()
+
+  const handleClickSubmit = (e) => {
+    e.preventDefault()
+    handleOpenContent(false)
+    console.log('click')
+    // unmountComponentAtNode(document.getElementById('root'));
+
+  }
   return (
     <ul className="menu__list">
       {
@@ -43,9 +51,9 @@ export const ListItem = () => {
           <li 
             key={ name }
             className="list--item"
-            onClick={ handleOpenContent }
+            onClick={ handleClickSubmit }
           >
-            <Link to={ page }>
+            <Link to={ page } >
               { name }
             </Link>
             {/* <DownArrow className="down--arrow"/> */}

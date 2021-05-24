@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
-import { AiOutlineSearch as SearchIcon } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import { SearchContext } from '../../context/UseResultsGamesContext';
+import { unmountComponentAtNode } from 'react-dom'
+import { Link, useHistory } from 'react-router-dom';
+import { DataContext } from '../../context/DataFetchContext';
 import { useGetGamesByName } from '../../hooks/useFetchGame';
-
+import { SearchButton } from './SearchButton';
 
 export const SearchBar = ( { handleOpenContent } ) => {
-  const { setSearchGame } = useContext( SearchContext )
+
+  const history = useHistory();
+  const { setSearchGame } = useContext( DataContext )
   const [inputValue, setInputValue] = useState('')
   // const { setSearchGame } = useContext( SearchContext );
   // setSearchGame({
@@ -17,14 +19,18 @@ export const SearchBar = ( { handleOpenContent } ) => {
     setInputValue(e.target.value)
     // console.log(e.target.value)
   }
-  
+
+
   const handleSubmit = ( e ) => {
     e.preventDefault();
     if(inputValue.length > 2) {
       setSearchGame( inputValue )
       setInputValue('')
       handleOpenContent(false)
+      history.push('./games', null)
     }
+    // debugger
+    // history.push('./genres')
     // debugger
     // e.history.pushState(inputValue, 'New page', './genres')
   }
@@ -35,7 +41,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
     <form 
       className="search__bar"
       onSubmit={ handleSubmit }
-      to="/genres"
+      to="/games"
     >
       <input 
         className="search--input" 
@@ -43,11 +49,9 @@ export const SearchBar = ( { handleOpenContent } ) => {
         value={ inputValue }
         onChange={ handleOnChange }
       />
-      <Link to="/genres"> 
-        <SearchIcon className="search--icon"/>
-       {/* <button type="submit" className="button--submit">
-       </button> */}
-      </Link>
+      {/* <Link to="/genres"> 
+      </Link> */}
+      <SearchButton />
     </form>
         </>
   )

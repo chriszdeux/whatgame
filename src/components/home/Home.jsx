@@ -9,23 +9,12 @@ export const Home = () => {
   // let random = 0
   
 
-  const [random, setRandom] = useState( 0 )
-
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      let randomNumber = Math.floor( Math.random() * data.length )
-      setRandom( randomNumber )
-      // debugger
-      console.log(`random number: ${setRandom}`)
-    }, 10000);
-    return () => clearInterval(interval)
-  }, [ ])
-  
+  // const [random, setRandom] = useState( {
+  //   randomNumber: Math.floor(Math.random() * data.length)
+  // } )
+  const random = Math.floor(Math.random() * data.length)
   const { id, name, image, slug } = !loading && data[random];
-  // const { id, name, image, slug } = !loading && data[ Math.floor(Math.random() * data.length)];
-  // debugger
-  // const { detailsData } = useGetGameDetails( slug )
+
   return (
     <section className="main__container home ">
       {

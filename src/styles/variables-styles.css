@@ -43,4 +43,7 @@
 
   /* --animate-delay: 2s; */
 
+  /*FADE CONTENTS*/
+ --fade-main-color: rgb(0,0,0);
+ --fade-gradient: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
 }

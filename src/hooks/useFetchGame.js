@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots, getGameByName } from "../data/fetchGames"
 
 export const useFetchGames = () => {
@@ -22,7 +22,7 @@ export const useFetchGames = () => {
 
 export const useFetchGenres = () => {
   const [dataGenres, setDataGenres] = useState({
-    dataGenre: [],
+    data: [],
     loading: true
   })
 
@@ -30,7 +30,7 @@ export const useFetchGenres = () => {
     getGenreGames()
       .then(genre => {
         setDataGenres({
-          dataGenre: genre,
+          data: genre,
           loading: false
         })
       })
@@ -103,9 +103,26 @@ export const useGetGamesByName = ( searchInput ) => {
     loading: true
   })
 
+  const isMounted = useRef(true)
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false
+    }
+  }, [ ])
+
   useEffect(() => {
     getGameByName( searchInput )
       .then(result => {
+        // if(isMounted.current) {
+        //   setResultData({
+        //     resultData: result,
+        //     loading: false
+        //   })
+        // } else {
+        //   console.log(`not called`)
+        // }
+
         setResultData({
           resultData: result,
           loading: false

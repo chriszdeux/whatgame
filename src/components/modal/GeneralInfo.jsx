@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const GeneralInfo = ({ detailsData }) => {
-  const { publishers, released, metacritic, clasification } = detailsData;
+  const { publishers, released, metacritic, clasification, genre } = detailsData;
   // if(clasification.name || publishers)
   // debugger
   return (
@@ -14,7 +14,7 @@ export const GeneralInfo = ({ detailsData }) => {
       {
         clasification !== null && <p className="info--title">ESRB: <span>{ clasification.name }</span></p>
       }
-      <p className="info--title">Gender: <span>Strategy</span></p>
+      <p className="info--title">Gender: <span>{ genre.map(genre => `${genre.name} `)  }</span></p>
     </div>
   )
 }

@@ -14,36 +14,43 @@ import {
 } from "react-router-dom";
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { SearchContext } from '../context/UseResultsGamesContext'
+import history from './history'
+import { GenrePage } from '../components/genres-page/GenrePage'
+
+
+
 export const GameRouter = () => {
-  const { dataGenre, loading } = useFetchGenres()
-    
+  const { data, loading } = useFetchGenres()
+  const dataSlice =  data.slice(0, 5);
   return (
     <>
-    <Router>
+    <Router history={ history }>
       <Header />
-      <Switch>
-        <Route  exact path="/">
-          <Home/>
-          {
-            loading 
-            ? <h2>Loading</h2>
-            : dataGenre.map(genre => (
-              <LazyLoadComponent 
-              key={genre.id}
-              // delayTime="3000"
-              >
-              <GameList key={genre.id} genre={genre}/>
-              </LazyLoadComponent>
-              ))
-            }
-        </Route>
+      <div>
+        <Switch>
+          <Route  exact path="/" component={ Home }>
+            <Home/>
+            {
+              loading 
+              ? <h2>Loading</h2>
+              : dataSlice.map(genre => (
+                <LazyLoadComponent 
+                key={genre.id}
+                // delayTime="3000"
+                >
+                <GameList key={genre.id} genre={genre}/>
+                </LazyLoadComponent>
+                ))
+              }
+          </Route>
 
-        <Route exact="/results">
-          <GamePage />
-        </Route>
+          <Route exact path="/genres" component={ GenrePage }>
+          </Route>
+          <Route exact path="/games" component={ GamePage }>
+          </Route>
 
-      </Switch>
+        </Switch>
+      </div>
       </Router>
     </>
   )

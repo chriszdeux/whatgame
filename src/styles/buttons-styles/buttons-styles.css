@@ -15,4 +15,5 @@
 .submit--button:hover {
   border: 2px solid var(--active-color);
   box-shadow: var(--shadow-button-color);
+  color: var(--active-color);
 }

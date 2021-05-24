@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import {  FiMenu as IconMenu } from 'react-icons/fi';
 import '../../styles/header-style.css'
@@ -6,21 +6,33 @@ import { MenuList } from './MenuList';
 import { Navbar } from './Navbar';
 import { useShowContent } from '../../hooks/useShowContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc'; //YOU ARE HERE
+import { DataContext } from '../../context/DataFetchContext';
 
 
 export const Header = () => {
   
-  const [openContent, handleOpenContent] = useShowContent()
-
+  // const [openContent, handleOpenContent] = useShowContent()
+  const { openContent, handleOpenContent } = useContext(DataContext)
+  // debugger
   return (
     <header className="main__container">
-      <div className="header">
+      <div className="header" >
         <h2>LogoApp</h2>
         {/* {showContent && <MenuList />} */}
-        <IconMenu 
-          onClick={ handleOpenContent }
-          className="icon--menu"
-        />
+        
+        {
+          (!openContent)
+            ? <IconMenu 
+                onClick={ handleOpenContent }
+                className="icon--menu animate__animated animate__fadeIn"
+              />
+            : <CloseIcon 
+                className="close--icon animate__animated animate__fadeIn" 
+                onClick={ handleOpenContent }
+              />
+            
+
+        }
         <Modal
           isOpen={ openContent }
           onRequestClose={ handleOpenContent }
@@ -29,6 +41,7 @@ export const Header = () => {
           overlayClassName="Overlay"
         >
           <MenuList handleOpenContent={handleOpenContent}/>
+          
         </Modal>
         <Navbar />
       </div>

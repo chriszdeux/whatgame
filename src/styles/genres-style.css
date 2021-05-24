@@ -1,0 +1,71 @@
+.genres {
+  width: 100%;
+  height: auto;
+  /* position: absolute; */
+  margin: 3px solid red;
+}
+
+.genres--title {
+  position: absolute;
+  font-size: var(--jumbo-font-size);
+  z-index: 1;
+}
+
+.genre__home__image {
+  position: static;
+  /* width: 50%; */
+}
+
+
+
+.genre__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-content: center;
+}
+
+.genre__card {
+  /* width: 100px; */
+  width: 100%;
+  height: auto;
+  transition: .2s ease;
+  opacity: .8;
+}
+
+.genre__card:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 1;
+}
+
+.gender__img {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.gender--image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.genre--name {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  font-family: var(--second-font);
+  font-size: var(--extra-large-font-size);
+  color: var(--second-font-color);
+}
+
+.fade--bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--fade-main-color);
+  background: var(--fade-gradient);
+  /* z-index: 1; */
+}

@@ -59,19 +59,26 @@ body::after {
   margin: 0 auto;
 }
 
+.loading {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  color: var(--active-color);
+  font-size: var(--extra-jumbo-font-size);
+}
+
 
 /*ICONS*/
 .close--icon {
   position: fixed;
-  right: 30px;
-  top: 30px;
+  right: 25px;
+  top: 25px;
+  z-index: 1;
   font-size: var(--jumbo-font-size);
-  color: var(--main-font-color);
-  /* justify-self: flex-end; */
-  /* border-radius: 50%; */
+  color: var(--active-color);
   cursor: pointer;
-  transition: .6s ease;
-  border-radius: 50%;
+  transition: .2s ease;
 }
 
 .close--icon:hover {
