@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const GameDescription = ({ detailsData }) => {
-  const { description } = detailsData;
+export const GameDescription = ({ data }) => {
+  const { description } = data;
   // debugger
   return (
     <div className="game__description animate__animated animate__fadeIn">

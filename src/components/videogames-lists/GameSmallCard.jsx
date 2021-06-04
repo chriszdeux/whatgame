@@ -5,6 +5,8 @@ import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { resizeFile } from '../../data/fetchGames';
+import { useResizeImage } from '../../hooks/useFetchGame';
 
 
 export const GameSmallCard = ({listGame}) => {
@@ -12,9 +14,11 @@ export const GameSmallCard = ({listGame}) => {
   // debugger
   const { image, name, slug } = listGame;
   // debugger
- 
+  // const { resizeImage } = useResizeImage()
+  // const { lowImage, loading } = useResizeImage(image)
+  // debugger
   return (
-    <article className="game__small__card">
+    // <article className="game__small__card">
       
       <figure 
         className="game__small__container"
@@ -43,6 +47,6 @@ export const GameSmallCard = ({listGame}) => {
         </Modal>
       </figure>
       
-    </article>
+    // </article>
   )
 }

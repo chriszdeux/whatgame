@@ -12,8 +12,8 @@ import { DataContext } from '../../context/DataFetchContext';
 
 
 export const CardContent = ( { slug } ) => {
-  const { detailsData, loading } = useGetGameDetails( slug );
-  const { platforms } = detailsData
+  const { data, loading } = useGetGameDetails( slug );
+  const { platforms } = data
   // const { openContent, handleOpenModal } = useContext(DataContext)
 const  [openContent, handleOpenModal] = useShowContent()
   // debugger
@@ -24,9 +24,9 @@ const  [openContent, handleOpenModal] = useShowContent()
           ? <h2>loading</h2>
           : <div className="card__hero">
               <div className="card__main__content">
-                <HeroImageModal detailsData={ detailsData }/>
+                <HeroImageModal data={ data }/>
                 {/* <div className="bottom--fade"></div> */}
-                <GeneralInfo detailsData={ detailsData }/>
+                <GeneralInfo data={ data }/>
               </div>
               <button 
                 className="submit--button"
@@ -35,11 +35,11 @@ const  [openContent, handleOpenModal] = useShowContent()
                 !openContent ? 'Read More' : 'Read Less'
               } </button>
               {
-                openContent && <GameDescription detailsData={ detailsData }/>
+                openContent && <GameDescription data={ data }/>
               }
               
-              <GameGallery detailsData={ detailsData } />
-              <Rating detailsData={ detailsData }/>
+              <GameGallery data={ data } />
+              <Rating data={ data }/>
               <Platforms platforms={ platforms }/>
               {/* remember to split platform and people say component then implement them right here   */}
             </div>

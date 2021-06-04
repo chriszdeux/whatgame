@@ -21,16 +21,16 @@ export const ListItem = ( { handleOpenContent } ) => {
       content: true,
       page: '/genres'
     },
-    {
-      name: 'Publishers',
-      content: true,
-      page: '/publishers'
-    },
-    {
-      name: 'Platforms',
-      content: true,
-      page: '/platforms'
-    },
+    // {
+    //   name: 'Publishers',
+    //   content: true,
+    //   page: '/publishers'
+    // },
+    // {
+    //   name: 'Platforms',
+    //   content: true,
+    //   page: '/platforms'
+    // },
   ]
 
   const [genres, setGenres] = useState(false)

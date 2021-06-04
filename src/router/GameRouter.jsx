@@ -36,7 +36,7 @@ export const GameRouter = () => {
               : dataSlice.map(genre => (
                 <LazyLoadComponent 
                 key={genre.id}
-                // delayTime="3000"
+                delayTime="3000"
                 >
                 <GameList key={genre.id} genre={genre}/>
                 </LazyLoadComponent>

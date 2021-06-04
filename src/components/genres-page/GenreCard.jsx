@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useShowContent } from '../../hooks/useShowContent'
 import Modal from 'react-modal'
+import { DataContext } from '../../context/DataFetchContext';
 
 export const GenreCard = ({ genre }) => {
   const [openContent, handleOpenModal] = useShowContent();
-
+  const { setGamesByGenre } = useContext( DataContext )
   const { image, name } =  genre
+  // debugger
   return (
     <article className="genre__card">
       <figure 
@@ -21,22 +23,10 @@ export const GenreCard = ({ genre }) => {
           alt={ name }
           // onClick={ handleOpenModal } 
           effect="opacity"
+          onClick={ () => setGamesByGenre( genre ) }
+          // onClick={ handleSubmit }
         />
         
-        <Modal
-          isOpen={ openContent }
-          onRequestClose={ handleOpenModal }
-          ariaHideApp={false}
-          className="Modal "
-          overlayClassName="Overlay"
-          
-        >
-          <CloseIcon 
-            className="close--icon animate__animated animate__fadeIn"
-            onClick={ handleOpenModal }
-          />
-          {/* <CardContent slug={ slug }/> */}
-        </Modal>
         <caption className="genre--name">{name}</caption>
       </figure>
     </article>

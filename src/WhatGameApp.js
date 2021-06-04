@@ -14,6 +14,8 @@ export const WhatGameApp = () => {
   // debugger
 
   const [ openContent, handleOpenContent ] = useShowContent()
+  
+  const [gamesByGenre, setGamesByGenre] = useState([])
   // debugger
   return (
     <>
@@ -24,9 +26,12 @@ export const WhatGameApp = () => {
           setSearchGame, 
           loading,
           data,
+          genreLoading,
           setStateGenre,
           openContent,
-          handleOpenContent
+          handleOpenContent,
+          gamesByGenre,
+          setGamesByGenre
         } 
         }>
         <GameRouter />

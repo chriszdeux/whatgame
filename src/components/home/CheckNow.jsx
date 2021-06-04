@@ -9,7 +9,7 @@ import { useGetGameDetails } from '../../hooks/useFetchGame';
 export const CheckNow = ({ slug }) => {
 
   const [ openContent, handleOpenContent ] = useShowContent()
-  const { detailsData, loading } = useGetGameDetails( slug );
+  const { data, loading } = useGetGameDetails( slug );
   // debugger
   return (
     <div className="check__now">
@@ -28,12 +28,12 @@ export const CheckNow = ({ slug }) => {
         className="Modal"
         overlayClassName="Overlay"
         ariaHideApp={false}
-        style={{ backgroundImage:`url(${detailsData.image})` }}
+        style={{ backgroundImage:`url(${data.image})` }}
       >
         {
           loading 
             ? <h2>LOADING</h2>
-            : <CardContent detailsData={ detailsData }/>
+            : <CardContent slug={ slug }/>
         }
         <CloseIcon 
           className="close--icon"

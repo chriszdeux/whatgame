@@ -15,8 +15,8 @@ export const Navbar = () => {
         <span><DownArrow />
           
         </span> </li>
-        <li className="navbar--item">Publishers <span><DownArrow /></span> </li>
-        <li className="navbar--item">Platforms <span><DownArrow /></span>  </li>
+        {/* <li className="navbar--item">Publishers <span><DownArrow /></span> </li>
+        <li className="navbar--item">Platforms <span><DownArrow /></span>  </li> */}
       </ul>
       <ListDropDown />
     </nav>

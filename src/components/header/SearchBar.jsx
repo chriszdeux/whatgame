@@ -24,7 +24,8 @@ export const SearchBar = ( { handleOpenContent } ) => {
   const handleSubmit = ( e ) => {
     e.preventDefault();
     if(inputValue.length > 2) {
-      setSearchGame( inputValue )
+      const replaceSimbols = /\s/gi
+      setSearchGame( inputValue.toLowerCase().replace(replaceSimbols, '-') )
       setInputValue('')
       handleOpenContent(false)
       history.push('./games', null)

@@ -4,8 +4,8 @@ import { GallerySelector } from './GallerySelector'
 import { MainImageGallery } from './MainImageGallery'
 import { Platforms } from './Platforms'
 
-export const GameGallery = ({ detailsData }) => {
-  const { image, image2, name, slug } = detailsData;
+export const GameGallery = ({ data }) => {
+  const { image, image2, name, slug } = data;
   const { screenshotData, loading } = useGetScreenshots( slug )
   // const { screenshot } = loading!== true && screenshotData[0]
   // debugger

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots, getGameByName } from "../data/fetchGames"
+import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots, getGameByName, resizeFile } from "../data/fetchGames"
 
 export const useFetchGames = () => {
   const [dataGame, setDataGame] = useState({
@@ -35,13 +35,13 @@ export const useFetchGenres = () => {
         })
       })
   }, [ ])
-
+  // debugger
   return dataGenres
 }
 
 export const useGamesByGenre = ( genre ) => {
   const [gamesByGenreData, setGamesByGenreData] = useState({
-    dataListGame: [],
+    data: [],
     loading: true
   })
 
@@ -49,7 +49,7 @@ export const useGamesByGenre = ( genre ) => {
     getGamesByGenre(genre)
       .then(listGame => {
         setGamesByGenreData({
-          dataListGame: listGame,
+          data: listGame,
           loading: false
         })
       })
@@ -60,15 +60,15 @@ export const useGamesByGenre = ( genre ) => {
 
 export const useGetGameDetails = ( game ) => {
   const [gameDetails, setGameDetails] = useState({
-    detailsData: { },
+    data: { },
     loading: true
   })
 
   useEffect(() => {
     getDetailsGame(game)
-      .then(data => {
+      .then(dataGame => {
         setGameDetails({
-          detailsData: data,
+          data: dataGame,
           loading: false
         })
       })
@@ -99,7 +99,7 @@ export const useGetScreenshots = ( game ) => {
 
 export const useGetGamesByName = ( searchInput ) => {
   const [resultData, setResultData] = useState({
-    gamesData: [],
+    data: [],
     loading: true
   })
 
@@ -114,17 +114,9 @@ export const useGetGamesByName = ( searchInput ) => {
   useEffect(() => {
     getGameByName( searchInput )
       .then(result => {
-        // if(isMounted.current) {
-        //   setResultData({
-        //     resultData: result,
-        //     loading: false
-        //   })
-        // } else {
-        //   console.log(`not called`)
-        // }
 
         setResultData({
-          resultData: result,
+          data: result,
           loading: false
         })
       })
@@ -132,3 +124,22 @@ export const useGetGamesByName = ( searchInput ) => {
 // debugger
   return resultData
 }
+
+// export const useResizeImage = ( image = 'https://media.rawg.io/media/screenshots/a87/a8733e877f8fbe45e4a727c22a06aa2e.jpg') => {
+//   const [resizeImage, setResizeImage] = useState({
+//     lowImage: {},
+//     loading: true
+//   })
+
+//   useEffect(() => {
+//     resizeFile(image)
+//       .then(myImage => {
+//         setResizeImage({
+//           lowImage: myImage,
+//           loading: false
+//         })
+//       })
+//   })
+//   // debugger
+//   return resizeImage
+// }

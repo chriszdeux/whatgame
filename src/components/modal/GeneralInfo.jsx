@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const GeneralInfo = ({ detailsData }) => {
-  const { publishers, released, metacritic, clasification, genre } = detailsData;
+export const GeneralInfo = ({ data }) => {
+  const { publishers, released, metacritic, clasification, genre } = data;
   // if(clasification.name || publishers)
   // debugger
   return (

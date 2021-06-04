@@ -8,26 +8,26 @@ import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 
-export const GameMediumCard = ({game}) => {
+export const GameMediumCard = ({data}) => {
   const [ openContent, handleOpenContent ] = useShowContent()
-
-  const { name, image, rating, rating_star, slug } = game
-  
+  const { name, image, calification, metacritic, rating_star,  slug } = data
   // debugger
-  let calification = []
-  if(rating >= 4) {
-    calification.push(<h2 className="calification high--rate--color">{ rating }</h2>)
-  } else if ( rating >= 3 && rating < 4 ) {
-    calification.push(<h2 className="calification medium--rate--color">{ rating }</h2>)
-  } else {
-    calification.push(<h2 className="calification low--rate--color">{ rating }</h2>)
+  // debugger
+  // debugger
+  let gameCalification = []
+  if(metacritic >= 90 ) {
+    gameCalification.push(<h2 key={1} className="calification high--rate--color">{ metacritic }</h2>)
+  } else if ( metacritic >= 70 && metacritic < 90 ) {
+    gameCalification.push(<h2 key={2} className="calification medium--rate--color">{ metacritic }</h2>)
+  } else if(metacritic < 70){
+    gameCalification.push(<h2 key={3} className="calification low--rate--color">{ metacritic }</h2>)
   }
-
+  // debugger
   return (
     <article className="game__medium__card">
       <figure className="game__medium__container">
         <LazyLoadImage 
-          className="game--image--medium" src={ image } alt="videogame"
+          className="game--image--medium animate__animated animate__fadeIn" src={ image } alt="videogame"
           effect="opacity" 
           onClick={ handleOpenContent }
         />
@@ -40,9 +40,9 @@ export const GameMediumCard = ({game}) => {
         <h2 className="list--title">{ name }</h2>
         <div className="card__medium__info">
           {
-            calification
+            gameCalification
           }
-          <RatingStar rating={ rating }/>
+          <RatingStar rating_star={ rating_star }/>
         </div>
       </div>
       </figure>

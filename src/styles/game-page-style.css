@@ -1,12 +1,14 @@
 .result {
+  margin-top: 80px;
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+.header__result {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: auto;
-  margin-top: 80px;
-  animation: fadeIn;
-  animation-duration: 1s;
-
 }
 
 .order__options {
@@ -20,4 +22,42 @@
   /* font-size: var(--large-font-size); */
   font-size: var(--regular-font-size);
   
+}
+
+.search__suggestions {
+  width: 100%;
+  height: auto;
+}
+
+.search__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.search--item {
+  /* width: auto;
+  height: auto; */
+  padding: 2px 10px;
+  color: var(--main-font-color);
+  cursor: pointer;
+  font-size: var(--large-font-size);
+  /* border: 1px solid var(--active-color); */
+}
+
+.search--item:hover {
+  color: var(--second-font-color);
+}
+
+.zooming--title {
+  /* border: 1px solid var(--active-color); */
+  padding: 15px;
+  margin-top: 5px;
+  /* text-align: center; */
+  margin-top: 25px;
+  color: var(--second-font-color);
+  font-size: var(--extra-large-font-size);
+  /* box-shadow: var(--active-shadow-color); */
+  /* box-shadow: var(--box-shadow-color); */
+  border-radius: 10px;
 }

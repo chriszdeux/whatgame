@@ -137,6 +137,7 @@
 }
 
 .drop__down__list {
+  visibility: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;

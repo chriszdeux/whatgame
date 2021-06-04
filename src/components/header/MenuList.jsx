@@ -13,7 +13,7 @@ export const MenuList = ( { handleOpenContent} ) => {
       // <div className="menu--overlay"></div>
       <div className="drop__menu">
         <CloseIcon 
-                className="close--icon animate__animated animate__fadeIn" 
+                className="close--icon " 
                 onClick={ handleOpenContent }
               />
           <SearchBar handleOpenContent={ handleOpenContent }/>

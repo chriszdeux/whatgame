@@ -12,6 +12,7 @@ import { DataContext } from '../../context/DataFetchContext';
 export const Header = () => {
   
   // const [openContent, handleOpenContent] = useShowContent()
+  
   const { openContent, handleOpenContent } = useContext(DataContext)
   // debugger
   return (

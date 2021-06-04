@@ -1,12 +1,12 @@
 import React from 'react'
 import { RiStarFill as StarIcon} from 'react-icons/ri';
 
-export const RatingStar = ({ rating, index }) => {
-  const ratingStars = []
+export const RatingStar = ({ rating_star, index }) => {
+  let ratingStars = []
   // const myRating = 
-  if( rating ) {
-    for(let i = 0; i < Math.round(rating); i++) {
-     ratingStars.push(<StarIcon key={index} className="star--icon"/>)
+  if( rating_star ) {
+    for(let i = 0; i < Math.round(rating_star); i++) {
+     ratingStars.push(<StarIcon key={i} className="star--icon"/>)
      }
   }
   // return ratingStars

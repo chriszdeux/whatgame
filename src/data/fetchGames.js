@@ -1,15 +1,41 @@
 import { useState } from "react";
+import Resizer from "react-image-file-resizer";
 
 const mainUrl = `https://api.rawg.io/api/`;
 const api_key = 'key=35df8dd5d9ad4572b98e6f1e95d73c3e';
 const queryGame = 'games?';
 const queryGenres = 'genres?';
 
+
+export const resizeFile = ( file ) => {
+  const myFile = JSON.parse(file, 2, null)
+  debugger
+  return new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      myFile,
+      300,
+      300,
+      "JPEG",
+      50,
+      0, 
+      ( uri ) => {
+        console.log(uri)
+        resolve(uri)
+      },
+      "base64",
+      200,
+      200,
+      ) 
+    })
+  }
+  
+  // debugger
 export const GetGames = async () => {
   try {
-    const response = await fetch(`${mainUrl}${queryGame}${api_key}`);
+    const response = await fetch(`${mainUrl}${queryGame}${api_key}&page=3`);
     const { results } = await response.json();
-    
+    const randomResult = results[Math.floor( Math.random() * results.length )]
+    // debugger
     const dataGame = results.map(game => {
       return {
         id: game.id,
@@ -17,10 +43,11 @@ export const GetGames = async () => {
         released: game.released,
         metacritic: game.metacritic,
         image: game.background_image,
-        slug: game.slug
+        slug: game.slug,
+        random: randomResult
       }
     })
-    
+    // debugger
     return dataGame
     
   } catch (error) {
@@ -47,8 +74,17 @@ export const getGenreGames = async () => {
 }
 
 export const getGamesByGenre = async ( genre ) => {
-  const response = await fetch(`${mainUrl}${queryGame}genres=${genre}&${api_key}`);
+  try {
+    let response;
+    
+    if(genre == undefined) {
+      response = await fetch(`${mainUrl}${queryGame}${api_key}&page=2`);
+    } else {
+      response = await fetch(`${mainUrl}${queryGame}${api_key}&genres=${genre}&page=2&page_size=30`);
+    }
+    // debugger
   const { results } = await response.json();
+  // debugger
   const gameByGenre = results.map( listGame => {
     return {
       name: listGame.name,
@@ -56,7 +92,8 @@ export const getGamesByGenre = async ( genre ) => {
       platforms: listGame.platforms,
       released: listGame.released,
       image: listGame.background_image,
-      rating: listGame.ratings_top,
+      calification: listGame.rating,
+      rating_star: listGame.rating_top,
       ratings: listGame.ratings,
       metacritic: listGame.metacritic,
       updated: listGame.updated,
@@ -66,6 +103,9 @@ export const getGamesByGenre = async ( genre ) => {
   })
 
   return gameByGenre
+  } catch (error) {
+    console.error(new Error(error))
+  }
 }
 
 export const getDetailsGame = async ( game ) => {
@@ -82,7 +122,7 @@ export const getDetailsGame = async ( game ) => {
     image: data?.background_image,
     genre: data?.genres,
     image2: data?.background_image_additional,
-    rating: data?.rating,
+    calification: data?.rating,
     rating_star: data?.rating_top,
     people_say: data?.ratings,
     platforms: data?.platforms,
@@ -112,18 +152,34 @@ export const getGameScreenshots = async ( game ) => {
   
 }
 
-export const getGameByName = async ( searchInput = '' ) => {
-  const gameToSearch = searchInput.replace(/\s/g, '-')
-  const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${gameToSearch}`);
+export const getGameByName = async ( searchInput  ) => {
+  // const gameToSearch = searchInput.replace(/\s/g, '-')
+  // debugger
+  // const replaceSimbols = /\s/gi
+  // const toLowerGameName = searchInput.toLowerCase().replace(replaceSimbols, '-')
+  // debugger
+  // let cleanGame = ''
+  // debugger
+  // if(toLowerGameName.match(':')) {
+  //   const end = toLowerGameName.indexOf
+  //   cleanGame = toLowerGameName.slice(0, end)
+  // } else {
+  //   cleanGame = toLowerGameName
+  // }
+  // debugger
+  const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${searchInput}`);
   const { results } = await response.json();
+  // debugger
   const searchResult = results.map( result => {
     return {
+      id: result.id,
       name: result.name,
       slug: result.slug,
       released: result.released,
-      rating: result.rating,
+      calification: result.rating,
       rating_star: result.rating_top,
-      image: result.background_image
+      image: result.background_image,
+      metacritic: result.metacritic
     }
   })
   // debugger
