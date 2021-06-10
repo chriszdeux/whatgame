@@ -5,6 +5,7 @@ import { useGamesByGenre } from '../../hooks/useFetchGame';
 import { IoIosArrowBack as LeftArrow, IoIosArrowForward as RightArrow } from 'react-icons/io'
 
 import { ArrowsSelectors } from './ArrowsSelectors';
+import { LoadingComponent } from '../loading/LoadingComponent';
 // import { ListItem } from '../header/ListItem';
 export const GameList = ({ genre: { slug, name } }) => {
   
@@ -49,7 +50,7 @@ const handleLeftArrow = ( moveToRight  ) => {
           <div className="cards__container" ref={ ref }>
           {
             loading
-              ? <h2>loading...</h2>
+              ? <LoadingComponent />
               : data.map(listGame => (
                 <GameSmallCard key={ listGame.slug } listGame={ listGame }/>
               ))

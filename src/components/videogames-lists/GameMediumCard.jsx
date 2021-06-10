@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
+import { LoadingComponent } from '../loading/LoadingComponent';
 
 export const GameMediumCard = ({data}) => {
   const [ openContent, handleOpenContent ] = useShowContent()
@@ -23,6 +24,9 @@ export const GameMediumCard = ({data}) => {
     gameCalification.push(<h2 key={3} className="calification low--rate--color">{ metacritic }</h2>)
   }
   // debugger
+  const handleLoading = () => {
+    return <h1>LOADING////</h1>
+  }
   return (
     <article className="game__medium__card">
       <figure className="game__medium__container">
@@ -30,6 +34,8 @@ export const GameMediumCard = ({data}) => {
           className="game--image--medium animate__animated animate__fadeIn" src={ image } alt="videogame"
           effect="opacity" 
           onClick={ handleOpenContent }
+          // beforeLoad={ () => handleLoading() }
+          // visibleByDefault={ image.src === '../../assets/horizon.jpg' }
         />
         
         

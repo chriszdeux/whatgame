@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useGetScreenshots } from '../../hooks/useFetchGame'
+import { LoadingComponent } from '../loading/LoadingComponent'
 import { GallerySelector } from './GallerySelector'
 import { MainImageGallery } from './MainImageGallery'
 import { Platforms } from './Platforms'
@@ -16,7 +17,7 @@ export const GameGallery = ({ data }) => {
       <h3 className="game--subtitles">Gallery</h3>
       {
         loading
-        ? <h2>loading</h2>
+        ? <LoadingComponent />
         : <div>
             <MainImageGallery currentScreenshot={ currentScreenshot } />
               <div className="carousel__item">

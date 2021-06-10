@@ -12,6 +12,11 @@ export const ListItem = ( { handleOpenContent } ) => {
       page: '/'
     },
     {
+      name: 'Games',
+      content: false,
+      page: '/games'
+    },
+    {
       name: 'API',
       content: false,
       page: '/'

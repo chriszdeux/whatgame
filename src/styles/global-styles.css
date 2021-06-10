@@ -162,9 +162,10 @@ body::after {
   background: linear-gradient(270deg, rgba(0,0,0,0.41220238095238093) 90%, rgba(255,255,255,1) 100%); */
 }
 
-.left--arrow:hover, .right--arrow:hover {
+.left--arrow:active, .right--arrow:active {
   color: var(--active-color);
   transform: scale(1.5);
+  border-radius: 50%;
 }
 /*ANIMATIONS*/
 

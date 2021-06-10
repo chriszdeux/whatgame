@@ -9,6 +9,7 @@ import { useShowContent } from '../../hooks/useShowContent';
 import { Rating } from './Rating';
 import { Platforms } from './Platforms';
 import { DataContext } from '../../context/DataFetchContext';
+import { LoadingComponent } from '../loading/LoadingComponent';
 
 
 export const CardContent = ( { slug } ) => {
@@ -21,8 +22,8 @@ const  [openContent, handleOpenModal] = useShowContent()
     <div className="card__info">
         {
           loading
-          ? <h2>loading</h2>
-          : <div className="card__hero">
+          ? <LoadingComponent />
+          : <div className="card__hero animate__animated animate__fadeIn">
               <div className="card__main__content">
                 <HeroImageModal data={ data }/>
                 {/* <div className="bottom--fade"></div> */}

@@ -4,6 +4,7 @@ import { useShowContent } from '../../hooks/useShowContent';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { useGetGameDetails } from '../../hooks/useFetchGame';
+import { LoadingComponent } from '../loading/LoadingComponent';
 
 
 export const CheckNow = ({ slug }) => {
@@ -32,7 +33,7 @@ export const CheckNow = ({ slug }) => {
       >
         {
           loading 
-            ? <h2>LOADING</h2>
+            ? <LoadingComponent />
             : <CardContent slug={ slug }/>
         }
         <CloseIcon 

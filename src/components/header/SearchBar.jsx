@@ -28,7 +28,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
       setSearchGame( inputValue.toLowerCase().replace(replaceSimbols, '-') )
       setInputValue('')
       handleOpenContent(false)
-      history.push('./games', null)
+      history.push('./search-result', null)
     }
     // debugger
     // history.push('./genres')

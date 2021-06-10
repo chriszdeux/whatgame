@@ -1,0 +1,429 @@
+.loading__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark-gray);
+  /* filter: blur(20px); */
+}
+
+.animation__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  /* border: 1px solid red; */
+  position: relative;
+  margin-bottom: 40px;
+}
+.loading--animation {
+  position: absolute;
+  bottom: 0;
+  min-width: 100px;
+  min-height: 100px;
+  border: 3px solid var(--active-color);
+  border-radius: 50%;
+  /* margin-bottom: 40px; */
+  box-shadow: var(--box-shadow-color);
+  animation-name: loading;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+.loading--animation2 {
+  position: absolute;
+  bottom: 0;
+  min-width: 100px;
+  min-height: 100px;
+  border: 3px solid var(--active-color);
+  border-radius: 50%;
+  /* margin-bottom: 40px; */
+  box-shadow: var(--box-shadow-color);
+  animation-name: loading2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: .2s;
+}
+.loading--animation3 {
+  position: absolute;
+  bottom: 0;
+  /* min-width: 100px; */
+  min-height: 100px;
+  border: 3px solid var(--active-color);
+  border-radius: 50%;
+  /* margin-bottom: 40px; */
+  box-shadow: var(--box-shadow-color);
+  animation-name: loading3;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: .3s;
+}
+.loading--animation4 {
+  position: absolute;
+  /* bottom: 50%;
+  top: 50%;
+  right: 50%;
+  left: 50%; */
+  min-width: 30px;
+  min-height: 30px;
+  border: 3px solid var(--active-color);
+  border-radius: 50%;
+  /* margin-bottom: 40px; */
+  background-color: var(--active-color);
+  box-shadow: var(--box-shadow-color);
+  animation-name: loading2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: .3s;
+}
+
+.loading--text {
+  font-family: var(--second-font);
+  font-size: var(--large-font-size);
+  color: var(--active-color);
+  animation-name: loading;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: .3s;
+  opacity: 0;
+}
+
+
+.loading--small--cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background-color: var(--dark-gray);
+
+  /* animation-name: loading-cards; */
+  /* animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: .3s; */
+}
+
+.circle--animation {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 10px solid var(--active-color);
+  border-radius: 50%;
+  border-bottom: 10px solid var(--dark-color);
+  border-top: 10px solid var(--dark-color);
+  animation-name: demoAnimation;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  will-change: content;
+}
+.circle--animation2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 10px solid var(--active-color);
+  border-radius: 50%;
+  border-bottom: 10px solid var(--dark-color);
+  border-top: 10px solid var(--dark-color);
+  animation-name: demoAnimation2;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  will-change: content;
+  animation-delay: .3s;
+}
+.circle--animation3 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 10px solid var(--active-color);
+  border-radius: 50%;
+  border-bottom: 10px solid var(--dark-color);
+  border-top: 10px solid var(--dark-color);
+  animation-name: demoAnimation3;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  will-change: content;
+  animation-delay: .6s;
+}
+.circle--animation4 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 10px solid var(--active-color);
+  border-radius: 50%;
+  border-bottom: 10px solid var(--dark-color);
+  border-top: 10px solid var(--dark-color);
+  animation-name: demoAnimation4;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  will-change: content;
+  animation-delay: .9s;
+}
+.circle--animation5 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  /* border: 10px solid var(--active-color); */
+  border-radius: 50%;
+  background-color: var(--second-color);
+  /* border-bottom: 10px solid var(--dark-color);
+  border-top: 10px solid var(--dark-color); */
+  animation-name: demoAnimation5;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  will-change: content;
+  animation-delay: 1.2s;
+}
+
+@keyframes demoAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    width: 300px;
+    height: 300px;
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes demoAnimation2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    width: 300px;
+    height: 300px;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes demoAnimation3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    width: 300px;
+    height: 300px;
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes demoAnimation4 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    width: 300px;
+    height: 300px;
+    border: 10px solid var(--active-color);
+    box-shadow: var(--box-shadow-color)
+    ;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes demoAnimation5 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+    transform: scale(1.2);
+    background-color: var(--active-color)
+    ;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes circle-animation {
+  0% {
+    border-top: 5px solid var(--active-color);
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+  }
+  25% {
+    border-top: none;
+    border-right: 5px solid var(--active-color);
+    border-bottom: none;
+    border-left: none;
+  }
+  50% {
+    border-top: none;
+    border-right: none;
+    border-bottom: 5px solid var(--active-color);
+    border-left: none;
+  }
+
+  75% {
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: 5px solid var(--active-color);
+  }
+  100% {
+    border-top: 5px solid var(--active-color);
+    border-right: none;
+    border-bottom: 5px solid var(--active-color);
+    border-left: none;
+    
+  }
+
+}
+@keyframes loadingnnnn {
+  /* 0% {
+    width: 100px;
+    height: 100px;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 32%;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 50%;
+  }
+  25% {
+    width: 122px;
+    height: 47px;
+    border-bottom-left-radius: 32%;
+    border-bottom-right-radius: 15%;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 10%;
+  }
+  50% {
+    width: 60px;
+    height: 80px;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 95%;
+    border-top-left-radius: 62%;
+    border-top-right-radius: 45%;
+  }
+  75% {
+    width: 40px;
+    height: 130px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 45%;
+    border-top-left-radius: 6%;
+    border-top-right-radius: 85%;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 32%;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 50%;
+  } */
+
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(1.7);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes loading2 {
+  0% {
+    transform: scale(1);
+    /* transform: scaleX(0); */
+  }
+  25% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(1.6);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+@keyframes loading3 {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: scale(1.6);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loading-cards {
+  0% {
+    background: rgb(19,19,19);
+background: linear-gradient(270deg, rgba(19,19,19,1) 85%, rgba(37,243,251,0.5074404761904762) 93%, rgba(19,19,19,1) 100%);
+  }
+
+  50% {
+    background: rgb(19,19,19);
+    background: linear-gradient(270deg, rgba(19,19,19,1) 0%, rgba(37,243,251,0.5074404761904762) 5%, rgba(19,19,19,1) 10%);
+  }
+
+  100% {
+    background: rgb(19,19,19);
+background: linear-gradient(270deg, rgba(19,19,19,1) 85%, rgba(37,243,251,0.5074404761904762) 93%, rgba(19,19,19,1) 100%);
+  }
+}
+
+@keyframes loading {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  0%{
+    opacity: 0;
+  }
+}
+.demo {
+  width: 100%;
+  height: 300px;
+  background-color: lightskyblue;
+  animation-name: demo;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes demo {
+  0% {
+    background-color: lightskyblue;
+  }
+  
+  50% {
+    background-color: lightsalmon;
+  }
+  100% {
+    background-color: lightskyblue;
+  }
+}

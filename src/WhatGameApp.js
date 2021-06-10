@@ -14,7 +14,7 @@ export const WhatGameApp = () => {
   // debugger
 
   const [ openContent, handleOpenContent ] = useShowContent()
-  
+  // debugger
   const [gamesByGenre, setGamesByGenre] = useState([])
   // debugger
   return (

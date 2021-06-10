@@ -1,21 +1,24 @@
 import { useEffect, useRef, useState } from "react"
 import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots, getGameByName, resizeFile } from "../data/fetchGames"
 
-export const useFetchGames = () => {
+export const useFetchGames = ( pagination ) => {
   const [dataGame, setDataGame] = useState({
     data: [],
     loading: true
   })
 
   useEffect(() => {
-    GetGames()
+    // debugger
+    GetGames( pagination )
       .then(game => {
-        setDataGame({
-          data: game,
-          loading: false
-        })
+        setTimeout(() => {
+          setDataGame({
+            data: game,
+            loading: false
+          })
+        }, 2000);
       })
-  }, [ ])
+  }, [ pagination ])
   // debugger
   return dataGame
 }
@@ -29,10 +32,12 @@ export const useFetchGenres = () => {
   useEffect(() => {
     getGenreGames()
       .then(genre => {
-        setDataGenres({
-          data: genre,
-          loading: false
-        })
+        setTimeout(() => {
+          setDataGenres({
+            data: genre,
+            loading: false
+          })
+        }, 2000);
       })
   }, [ ])
   // debugger
@@ -48,10 +53,12 @@ export const useGamesByGenre = ( genre ) => {
   useEffect(() => {
     getGamesByGenre(genre)
       .then(listGame => {
-        setGamesByGenreData({
-          data: listGame,
-          loading: false
-        })
+        setTimeout(() => {
+          setGamesByGenreData({
+            data: listGame,
+            loading: false
+          })
+        }, 3000);
       })
   }, [ genre ])
 
@@ -67,10 +74,12 @@ export const useGetGameDetails = ( game ) => {
   useEffect(() => {
     getDetailsGame(game)
       .then(dataGame => {
-        setGameDetails({
-          data: dataGame,
-          loading: false
-        })
+        setTimeout(() => {
+          setGameDetails({
+            data: dataGame,
+            loading: false
+          })
+        }, 2000);
       })
     }, [ game ]);
     // debugger
@@ -86,10 +95,12 @@ export const useGetScreenshots = ( game ) => {
   useEffect(() => {
     getGameScreenshots( game )
       .then(screenshot => {
-        setScreenshot({
-          screenshotData: screenshot,
-          loading: false
-        })
+        setTimeout(() => {
+          setScreenshot({
+            screenshotData: screenshot,
+            loading: false
+          })
+        }, 3000);
       })
 
   }, [ game ])
@@ -114,11 +125,12 @@ export const useGetGamesByName = ( searchInput ) => {
   useEffect(() => {
     getGameByName( searchInput )
       .then(result => {
-
-        setResultData({
-          data: result,
-          loading: false
-        })
+        setTimeout(() => {
+          setResultData({
+            data: result,
+            loading: false
+          })
+        }, 3000);
       })
   }, [ searchInput ])
 // debugger

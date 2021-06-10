@@ -11,9 +11,9 @@ export const ResultHeader = ( {cleanedGames, data} ) => {
         <h3 className="list--title">Search <span className="highlight--text">Result ...</span></h3>
         <OrderBy />
       </div>
-      {
+      {/* {
         cleanedGames.length <= 0 && <SuggestionsSearch data={ data } />
-      }
+      } */}
     </form>
   )
 }

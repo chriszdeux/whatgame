@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useFetchGenres } from '../../hooks/useFetchGame'
+import { LoadingComponent } from '../loading/LoadingComponent'
 
 export const ListDropDown = () => {
   const { data, loading } = useFetchGenres()
@@ -8,7 +9,7 @@ export const ListDropDown = () => {
     <ul className="drop__down__list">
       {
         loading
-          ? <h2>loading...</h2>
+          ? <LoadingComponent />
           : data.map(({id, name}) => (
             <li key={id} className="list--item">
               <Link>{ name }</Link>

@@ -9,6 +9,7 @@ import '../../styles/genres-style.css'
 import { useFetchGenres, useGamesByGenre } from '../../hooks/useFetchGame'
 import { GameMediumCard } from '../videogames-lists/GameMediumCard'
 import { GamesGenreGrid } from './GamesGenreGrid'
+import { LoadingComponent } from '../loading/LoadingComponent'
 
 export const GenrePage = () => {
   // const [gamesByGenre, setGamesByGenre] = useState()
@@ -28,7 +29,7 @@ export const GenrePage = () => {
     <>
       {
         loading
-          ? <h2>loading</h2>
+          ? <LoadingComponent />
           : <>
             <main className="genres">
               <h2 className="genres--title">Genres</h2>

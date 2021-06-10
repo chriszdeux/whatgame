@@ -30,10 +30,20 @@ export const resizeFile = ( file ) => {
   }
   
   // debugger
-export const GetGames = async () => {
+export const GetGames = async ( page ) => {
   try {
-    const response = await fetch(`${mainUrl}${queryGame}${api_key}&page=3`);
-    const { results } = await response.json();
+    // (page)
+    // debugger
+    const response = await fetch( 
+      (page === undefined)
+        ? `${mainUrl}${queryGame}${api_key}`
+        : page
+     );
+    //  debugger
+    // const { results, next, previous } = await response.json();
+    const {results, next, previous} = await response.json()
+    // debugger
+    // const {next, previous} = data
     const randomResult = results[Math.floor( Math.random() * results.length )]
     // debugger
     const dataGame = results.map(game => {
@@ -44,11 +54,25 @@ export const GetGames = async () => {
         metacritic: game.metacritic,
         image: game.background_image,
         slug: game.slug,
-        random: randomResult
+        rating_star: game.rating_top,
+        // random: randomResult,
+        // nextPage: next,
+        // previousPage: previous,
       }
     })
     // debugger
-    return dataGame
+    // const responseNext = await fetch(data.next)
+    // const nextPage = await responseNext.json()
+
+    // const responsePrevious = await fetch(data.previous)
+    // const previousPage = await responsePrevious.json()
+
+
+    
+    // debugger
+    return [dataGame, next, previous, randomResult]
+    // return [dataGame, nextPage, previousPage]
+    // return [dataGame, next, previous]
     
   } catch (error) {
     console.error('error on: ',  error)
@@ -152,23 +176,19 @@ export const getGameScreenshots = async ( game ) => {
   
 }
 
-export const getGameByName = async ( searchInput  ) => {
-  // const gameToSearch = searchInput.replace(/\s/g, '-')
+export const getGameByName = async ( searchInput ) => {
   // debugger
-  // const replaceSimbols = /\s/gi
-  // const toLowerGameName = searchInput.toLowerCase().replace(replaceSimbols, '-')
-  // debugger
-  // let cleanGame = ''
-  // debugger
-  // if(toLowerGameName.match(':')) {
-  //   const end = toLowerGameName.indexOf
-  //   cleanGame = toLowerGameName.slice(0, end)
-  // } else {
-  //   cleanGame = toLowerGameName
-  // }
-  // debugger
-  const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${searchInput}`);
-  const { results } = await response.json();
+  
+  const response = await fetch(
+    (searchInput && searchInput.includes('.com'))
+      ? searchInput
+      : `${mainUrl}${queryGame}${api_key}&search=${searchInput}`
+  );
+  // const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${searchInput}`);
+  const { results, next, previous } = await response.json();
+  // const responseNext = await fetch(next)
+  // const { results: }
+  // const responsePrevious = await fetch(previous)
   // debugger
   const searchResult = results.map( result => {
     return {
@@ -183,5 +203,10 @@ export const getGameByName = async ( searchInput  ) => {
     }
   })
   // debugger
-  return searchResult
+  return [searchResult,next, previous]
+}
+
+const paginationFetch = async ( page ) => {
+  const response = await fetch(page)
+  const { results } = await response.json()
 }

@@ -167,7 +167,8 @@
   width: auto;
   height: auto;
   /* margin: 1px; */
-  transition: transform, .5s;
+  /* transition: transform, .5s; */
+  transition: .2s ease;
   opacity: 0.8;
 }
 
@@ -187,6 +188,85 @@
   /* transition: transform, .5s;
   opacity: 0.8; */
 }
+
+
+
+.pagination {
+  /* display: flex;
+  justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+.pagination__list {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  align-items: center;
+  width: 80%;
+  height: auto;
+}
+
+.pagination .left--arrow, .pagination .right--arrow {
+  visibility: visible;
+  /* bottom: 50%; */
+}
+
+.pagination .left--arrow {
+  left: 20%
+}
+
+.pagination .right--arrow {
+  right: 20%
+}
+
+.page--position {
+  font-size: var(--extra-jumbo-font-size);
+  color: var(--second-font-color);
+  transition: .3s ease;
+}
+
+.page {
+  font-size: var(--extra-jumbo-font-size);
+  color: var(--second-font-color);
+  transition: .3s ease;
+
+}
+
+.pagination__list .left--arrow:active ~ .page--position {
+  transform: scale(1.3);
+}
+.pagination__list .right--arrow:active ~ .page--position {
+  transform: scale(1.3);
+}
+
+/* .pagination--page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: var(--large-font-size);
+  border: 1px solid var(--second-font-color);
+  background-color: var(--dark-color);
+  color: var(--second-font-color);
+  cursor: pointer;
+  transition: .1s ease;
+}
+
+.pagination--page:active {
+  color: var(--active-color);
+  border: 1px solid var(--active-color);
+  box-shadow: var(--box-shadow-color);
+  transform: scale(1.1);
+} */
+
 
 @keyframes zoom-image {
   0% {
@@ -242,9 +322,12 @@
 .game__medium__container:hover {
   /* border: 2px solid var(--active-color); */
   border-radius: 10px;
-  transform: scale(1.05);
+  transform: scale(1.1);
+  /* width: 100vw;
+  height: 100vh; */
   box-shadow: var(--card-shadow-color);
   opacity: 1;
+  z-index: 1;
 }
 
 .game__content {
