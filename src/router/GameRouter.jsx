@@ -23,7 +23,8 @@ import { GamePage } from '../components/game-page/GamePage'
 
 export const GameRouter = () => {
   const { data, loading } = useFetchGenres()
-  const dataSlice =  data.slice(0, 5);
+  const dataSlice =  data.slice(6, 11);
+  // debugger
   return (
     <>
     <Router history={ history }>
@@ -37,7 +38,7 @@ export const GameRouter = () => {
                 <Route  exact path="/" component={ Home }>
                   <Home/>
                   {
-                    dataSlice.map(genre => (
+                    data.map(genre => (
                       <LazyLoadComponent 
                       key={genre.id}
                       delayTime="3000"

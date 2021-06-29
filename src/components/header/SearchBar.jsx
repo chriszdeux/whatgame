@@ -3,6 +3,7 @@ import { unmountComponentAtNode } from 'react-dom'
 import { Link, useHistory } from 'react-router-dom';
 import { DataContext } from '../../context/DataFetchContext';
 import { useGetGamesByName } from '../../hooks/useFetchGame';
+import { LoadingComponent } from '../loading/LoadingComponent';
 import { SearchButton } from './SearchButton';
 
 export const SearchBar = ( { handleOpenContent } ) => {
@@ -14,6 +15,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
   // setSearchGame({
   //   name: 'arce',
   //   age: 28
+  // debugger
   // })
   const handleOnChange = ( e ) => {
     setInputValue(e.target.value)
@@ -27,8 +29,10 @@ export const SearchBar = ( { handleOpenContent } ) => {
       const replaceSimbols = /\s/gi
       setSearchGame( inputValue.toLowerCase().replace(replaceSimbols, '-') )
       setInputValue('')
-      handleOpenContent(false)
+      handleOpenContent(true)
       history.push('./search-result', null)
+      // debugger
+      return <LoadingComponent />
     }
     // debugger
     // history.push('./genres')
@@ -46,7 +50,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
     >
       <input 
         className="search--input" 
-        type="text"
+        type="search"
         value={ inputValue }
         onChange={ handleOnChange }
       />

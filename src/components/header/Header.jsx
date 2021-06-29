@@ -18,7 +18,7 @@ export const Header = () => {
   return (
     <header className="main__container">
       <div className="header" >
-        <h2>LogoApp</h2>
+        <h2 className="highlight--text">WhatGame</h2>
         {/* {showContent && <MenuList />} */}
         
         {
@@ -44,7 +44,7 @@ export const Header = () => {
           <MenuList handleOpenContent={handleOpenContent}/>
           
         </Modal>
-        <Navbar />
+        <Navbar handleOpenContent={ handleOpenContent }/>
       </div>
     </header>
   )

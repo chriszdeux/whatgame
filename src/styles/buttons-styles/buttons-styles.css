@@ -10,6 +10,8 @@
   color: var(--main-font-color);
   cursor: pointer;
   transition: .3s ease;
+  text-decoration: none;
+  transition: .2s ease;
 }
 
 .submit--button:hover {

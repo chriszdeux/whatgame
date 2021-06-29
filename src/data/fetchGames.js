@@ -2,45 +2,29 @@ import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 
 const mainUrl = `https://api.rawg.io/api/`;
-const api_key = 'key=35df8dd5d9ad4572b98e6f1e95d73c3e';
+const api_key = 'key=566bbd60217a466287e5e182d0437bc8';
 const queryGame = 'games?';
 const queryGenres = 'genres?';
+const gamePage = `${mainUrl}${queryGame}${api_key}&page_size=40`;
 
-
-export const resizeFile = ( file ) => {
-  const myFile = JSON.parse(file, 2, null)
-  debugger
-  return new Promise((resolve) => {
-    Resizer.imageFileResizer(
-      myFile,
-      300,
-      300,
-      "JPEG",
-      50,
-      0, 
-      ( uri ) => {
-        console.log(uri)
-        resolve(uri)
-      },
-      "base64",
-      200,
-      200,
-      ) 
-    })
-  }
-  
-  // debugger
 export const GetGames = async ( page ) => {
+  let tempPage = ''
   try {
-    // (page)
-    // debugger
-    const response = await fetch( 
-      (page === undefined)
-        ? `${mainUrl}${queryGame}${api_key}`
-        : page
-     );
+    // const response = await fetch( 
+    //   (page === undefined)
+    //     ? `${mainUrl}${queryGame}${api_key}&page_size=40`
+    //     : page
+    //  );
+
+      if(page === undefined || page === '') {
+        tempPage = gamePage
+      } else {
+        tempPage = page
+      }
     //  debugger
     // const { results, next, previous } = await response.json();
+    // debugger
+    const response = await fetch(tempPage)
     const {results, next, previous} = await response.json()
     // debugger
     // const {next, previous} = data
@@ -98,17 +82,24 @@ export const getGenreGames = async () => {
 }
 
 export const getGamesByGenre = async ( genre ) => {
-  try {
-    let response;
-    
-    if(genre == undefined) {
-      response = await fetch(`${mainUrl}${queryGame}${api_key}&page=2`);
-    } else {
-      response = await fetch(`${mainUrl}${queryGame}${api_key}&genres=${genre}&page=2&page_size=30`);
-    }
-    // debugger
-  const { results } = await response.json();
   // debugger
+  try {
+    let genreInput = ''
+    // debugger
+    if(genre.includes('genres=')) {
+      genreInput = genre
+      // debugger
+      debugger
+    } else {
+      genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page=1&page_size=40`
+      // debugger
+    }    
+    // debugger
+    const response = await fetch( genreInput );
+    // debugger
+    const { results, next, previous, count } = await response.json();
+    // debugger
+    // debugger
   const gameByGenre = results.map( listGame => {
     return {
       name: listGame.name,
@@ -126,7 +117,7 @@ export const getGamesByGenre = async ( genre ) => {
     }
   })
 
-  return gameByGenre
+  return [gameByGenre, next, previous, count]
   } catch (error) {
     console.error(new Error(error))
   }
@@ -177,15 +168,40 @@ export const getGameScreenshots = async ( game ) => {
 }
 
 export const getGameByName = async ( searchInput ) => {
+  let inputSearch = ''
   // debugger
-  
-  const response = await fetch(
-    (searchInput && searchInput.includes('.com'))
-      ? searchInput
-      : `${mainUrl}${queryGame}${api_key}&search=${searchInput}`
-  );
+  // switch(searchInput) {
+  //   case searchInput == undefined:
+  //     inputSearch = null
+  //     break
+      
+  //     case searchInput !== undefined:
+  //       inputSearch = `${mainUrl}${queryGame}${api_key}&search=${searchInput}`
+  //       break
+  //   case searchInput.includes('.com'):
+  //     inputSearch = searchInput
+  //     break
+  //   default:
+  //     return inputSearch
+    
+  // }
+  // debugger
+  if(searchInput && searchInput.includes('.com')){
+    inputSearch = `${searchInput}&page_size=40`
+  } else if(searchInput) {
+    inputSearch =`${mainUrl}${queryGame}${api_key}&search=${searchInput}&page_size=40`
+  } 
+  // debugger
+  const response = await fetch(inputSearch)
+  // debugger
+  // const response = await fetch(
+  //   (searchInput && searchInput.includes('.com'))
+  //     ? searchInput
+  //     : `${mainUrl}${queryGame}${api_key}&search=${searchInput}`
+  // );
   // const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${searchInput}`);
   const { results, next, previous } = await response.json();
+  // debugger
   // const responseNext = await fetch(next)
   // const { results: }
   // const responsePrevious = await fetch(previous)

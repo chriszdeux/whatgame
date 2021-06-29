@@ -1,43 +1,11 @@
 import React, { useState } from 'react'
 import { IoMdArrowDropdown as DownArrow } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { menuList } from '../../data/menu';
 import { useShowContent } from '../../hooks/useShowContent';
 import { ListDropDown } from './ListDropDown';
 
 export const ListItem = ( { handleOpenContent } ) => {
-  const menuList = [
-    {
-      name: 'Home',
-      content: false,
-      page: '/'
-    },
-    {
-      name: 'Games',
-      content: false,
-      page: '/games'
-    },
-    {
-      name: 'API',
-      content: false,
-      page: '/'
-    },
-    {
-      name: 'Genres',
-      content: true,
-      page: '/genres'
-    },
-    // {
-    //   name: 'Publishers',
-    //   content: true,
-    //   page: '/publishers'
-    // },
-    // {
-    //   name: 'Platforms',
-    //   content: true,
-    //   page: '/platforms'
-    // },
-  ]
-
   const [genres, setGenres] = useState(false)
 
   // const [ openContent, handleOpenContent ] = useShowContent()
@@ -52,7 +20,7 @@ export const ListItem = ( { handleOpenContent } ) => {
   return (
     <ul className="menu__list">
       {
-        menuList.map(({name, page}) => (
+        menuList.map(({name, page, subMenu}) => (
           <li 
             key={ name }
             className="list--item"

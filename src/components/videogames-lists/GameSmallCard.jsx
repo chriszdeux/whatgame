@@ -9,10 +9,10 @@ import { resizeFile } from '../../data/fetchGames';
 import { useResizeImage } from '../../hooks/useFetchGame';
 
 
-export const GameSmallCard = ({listGame}) => {
+export const GameSmallCard = ({data}) => {
   const [openContent, handleOpenModal] = useShowContent()
   // debugger
-  const { image, name, slug } = listGame;
+  const { image, name, slug } = data;
   // debugger
   // const { resizeImage } = useResizeImage()
   // const { lowImage, loading } = useResizeImage(image)
@@ -45,6 +45,7 @@ export const GameSmallCard = ({listGame}) => {
           />
           <CardContent slug={ slug }/>
         </Modal>
+        <caption className="game--name">{name}</caption>
       </figure>
       
     // </article>

@@ -17,23 +17,25 @@ export const GamePage = ( ) => {
     currentPage, 
     page, 
     myLoad,
-    setMyLoad } = usePagination( )
+    setMyLoad, setCurrentPage } = usePagination( )
   const { data, loading } = useFetchGames( page )
   // const [currentPage, setCurrentPage] = useState(1)
-  
+  // debugger
   // useEffect(() => {
   //   setMyLoad(loading)
   // }, [ data ])
   useEffect(() => {
     setMyLoad(loading)
-    return () => {
-      setMyLoad(loading)
-    }
   }, [ data ])
+
+  useEffect(() => {
+    setCurrentPage(currentPage)
+    setMyLoad(true)
+  }, [page])
   // debugger
   const next  = !loading && data[1]
   const previous = !loading && data[2]
-
+  // debugger
   return (
     
        <>

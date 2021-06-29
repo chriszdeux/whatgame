@@ -19,7 +19,7 @@ export const SearchPage = () => {
   }, [ searchGame ])
 
   const { data, loading } = useGetGamesByName( page )
-  
+  // debugger
   const  next  = !!data &&data[1]
   const  previous  = !!data &&data[2]
 
@@ -30,7 +30,11 @@ export const SearchPage = () => {
 
   useEffect(() => {
     setCurrentPage(1)
+    setMyLoad(true)
   }, [searchGame])
+
+  
+  // debugger
   // debugger
   let cleanedGames = [] 
   
@@ -52,7 +56,7 @@ export const SearchPage = () => {
       <>
       {
         myLoad 
-          ? <LoadingComponent />
+          ? <LoadingComponent data={ searchGame }/>
           : <section className="second__container games__list">
           <ResultHeader cleanedGames={ cleanedGames } data={ data }/> 
           <div className="cards__medium__container">
@@ -63,8 +67,8 @@ export const SearchPage = () => {
               }
             </div>
             <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/>
-      
-    </section>
+              
+            </section>
       }
             </>
   )

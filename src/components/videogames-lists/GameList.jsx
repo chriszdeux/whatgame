@@ -51,8 +51,8 @@ const handleLeftArrow = ( moveToRight  ) => {
           {
             loading
               ? <LoadingComponent />
-              : data.map(listGame => (
-                <GameSmallCard key={ listGame.slug } listGame={ listGame }/>
+              : data[0].map(data => (
+                <GameSmallCard key={ data.slug } data={ data }/>
               ))
           }
           </div>

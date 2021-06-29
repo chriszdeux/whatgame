@@ -89,6 +89,7 @@
   animation-iteration-count: infinite;
   animation-delay: .3s;
   opacity: 0;
+  text-transform: capitalize;
 }
 
 

@@ -1,7 +1,10 @@
 import React from 'react'
 import '../../styles/loading-style.css';
 
-export const LoadingComponent = () => {
+export const LoadingComponent = ({data}) => {
+  // debugger
+  // const { searchGame } = data
+  const cleanData = !!data && data.replace(/-/gi, ' ')
   return (
     <div className="loading__container">
       <div className="animation__container">
@@ -10,7 +13,7 @@ export const LoadingComponent = () => {
         <div className="loading--animation3"></div>
         <div className="loading--animation4"></div>
       </div>
-      <h2 className="loading--text">Loading</h2>
+      <h2 className="loading--text">Loading {cleanData}</h2>
     </div>
   )
 }

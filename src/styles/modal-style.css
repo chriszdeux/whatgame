@@ -23,6 +23,7 @@
   background-color: var(--dark-color);
   /* opacity: .95; */
   transition: .2s ease;
+  /* border: 2px solid red; */
 }
 .Modal--menu {
   overflow-y: auto;
@@ -43,6 +44,7 @@
   background-color: var(--dark-color);
   /* background-color: red; */
   /* opacity: .9; */
+  /* border: 5px solid red; */
 }
 
 .Overlay {
@@ -52,7 +54,7 @@
   right: 0;
   bottom: 0;
   opacity: .95;
-  z-index: 1;
+  z-index: 2;
   /* background-color: var(--dark-gray-color); */
   /* background-color: var(--dark-gray-color); */
   /* background-image: url('../assets/re-v.jpg');
@@ -70,9 +72,17 @@
 }
 
 
+.card__main__content {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
 
 .card__info {
-
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  transition-delay: 1s;
+  /* transition: .2s ease; */
   /* display: flex;
   justify-content: center; */
   /* display: flex;
@@ -109,7 +119,7 @@
 .game__img {
   display: flex;
   justify-content: center;
-  /* position: relative; */
+  position: relative;
   height: auto;
   /* opacity: .8; */
 }
@@ -145,7 +155,7 @@
   width: 100%;
   height: auto;
   position: absolute;
-  bottom: 40%;
+  bottom: 10%;
   /* border: 1px solid green; */
 }
 
@@ -345,7 +355,7 @@
 
 @media only screen and ( min-width: 768px ) {
   .rating__stars {
-    bottom: 50%;
+    /* bottom: 50%; */
   }
   .game__gallery__selection {
     width: 200px;
@@ -393,7 +403,7 @@
     display: flex;
     justify-content: center;
     height: auto;
-    bottom: 25%;
+    /* bottom: 25%; */
     padding-right: 16px;
     /* opacity: .8; */
   }
@@ -411,16 +421,7 @@
     font-family: var(--second-font);
   }
 
-  .rating__stars {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    height: auto;
-    position: absolute;
-    bottom: 30%;
-    right: 0;
-    /* border: 1px solid green; */
-  }
+  
   .card--title {
     position: absolute;
     bottom: 70px;
@@ -475,5 +476,12 @@
     flex-shrink: 0;
     margin-right: 10px;
   }
-  
+
+  .Modal--menu {
+    /* visibility: hidden; */
+    display: none;
+  }
+  /* .Overlay {
+    display: none;
+  } */
 }

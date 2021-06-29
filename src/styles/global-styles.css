@@ -122,6 +122,23 @@ body::after {
 .down--arrow:hover {
 }
 
+.dots {
+  font-size: var(--extra-jumbo-font-size);
+  color: var(--main-font-color);
+  cursor: pointer;
+  transition: .2s ease;
+  border-radius: 50%;
+}
+
+.dots:hover {
+  transform: scale(1.2);
+  color: var(--active-color);
+  /* border: 1px solid var(--active-color);
+  border-radius: 50%;
+  animation-name: dot-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
 .arrows {
   width: 100%;
   height: auto;
@@ -173,6 +190,18 @@ body::after {
   /* visibility: visible; */
   /* opacity: 0; */
   /* transition: visibility 0s linear 300ms; */
+}
+
+@keyframes dot-animation {
+  0% {
+    /* box-shadow: var(); */
+  }
+  50% {
+    box-shadow: var(--box-shadow-color);
+  }
+  100% {
+
+  }
 }
 
 @media only screen and ( min-width: 1024px ){

@@ -20,13 +20,30 @@
 }
 
 .list--title {
+  /* visibility: hidden; */
   font-size: var(--large-font-size);
   color: var(--main-font-color);
   /* margin-left: 15px; */
   margin-bottom: 10px;
   animation: fadeIn;
   animation-duration: 1s;
+  transition: .2s ease;
   /* margin-bottom: 15px; */
+}
+
+.game__medium__container:hover .game__content {
+  /* visibility: visible;
+  transition: 1s ease; */
+  visibility: visible;
+  animation-name: game-name-animation;
+
+  /* animation-name: fade-in; */
+  animation-duration: 1s;
+  /* animation-delay: 1s; */
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+  /* opacity: 1; */
 }
 
 .highlight--text {
@@ -57,6 +74,14 @@
   /* border: 1px solid red; */
 }
 
+.cards__container__game {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
 /* 
 .cards__container {
   -ms-overflow-style: none;
@@ -85,6 +110,7 @@
   color: red;
 } */
 .game__small__container {
+  position: relative;
   min-width: 200px;
   min-height: 300px;
   margin-right: 15px;
@@ -92,14 +118,15 @@
   opacity: 0.9;
 }
 
-.game__small__container:first-child {
+/* .game__small__container:first-child {
   padding-left: 10px;
 }
 
 .game__small__container:last-child {
   padding-right: 30px;
-}
+} */
 .game--image--small {
+  cursor: pointer;
   width: 100%;
   min-height: 300px;
   object-fit: cover;
@@ -110,6 +137,28 @@
   animation-direction: alternate;
   animation-timing-function: linear;
 }
+
+.game--name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--large-font-size);
+  color: var(--active-color);
+  position: absolute;
+  bottom: 0%;
+  visibility: hidden;
+  transition: .4s ease;
+  text-align: center;
+  background-color: var(--dark-gray-color);
+  width: 100%;
+  min-height: 80px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* animation-duration: 3s; */
+  /* animation-iteration-count: 1; */
+  opacity: 0;
+}
+
 
 
 /* .cards__container > .game__small__card:hover .game--image--small:not(:hover) {
@@ -130,6 +179,32 @@
   box-shadow: var(--card-shadow-color);
   opacity: 1;
   /* z-index: 1; */
+}
+
+
+.game__small__container:hover .game--name {
+  visibility: visible;
+  /* z-index: 1; */
+  animation-name: game-name-animation;
+  animation-duration: .3s;
+  animation-iteration-count: 1;
+  /* animation-delay: .3s; */
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes game-name-animation {
+  0% {
+    opacity: 0;
+    /* visibility: hidden; */
+    /* transform: scale(0); */
+  }
+  100% {
+    /* transform: scale(1); */
+    /* visibility: visible; */
+    opacity: 1;
+    /* color: red; */
+  }
 }
 /* 
 .cards_container > .game__small__card:hover {
@@ -174,7 +249,7 @@
 
 .game--image--medium {
   width: 100%;
-  min-height: 570px;
+  min-height: 350px;
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
@@ -184,6 +259,7 @@
   animation-direction: alternate;
   animation-timing-function: linear;
   /* transition: ease; */
+  cursor: pointer;
 
   /* transition: transform, .5s;
   opacity: 0.8; */
@@ -331,12 +407,16 @@
 }
 
 .game__content {
+  visibility: hidden;
   position: absolute;
   display: flex;
   justify-content: center;
   width: 100%;
-  height: auto;
+  height: 150px;
   background-color: var(--dark-gray-color);
+  bottom: 0;
+  opacity: 0;
+  /* transition: 2s ease; */
 }
 
 .rating--star {
@@ -345,7 +425,7 @@
 
 .game__medium__card .list--title {
   position: absolute;
-  bottom: 100px;
+  /* bottom: 100px; */
   font-size: var(--jumbo-font-size);
   z-index: 1;
 }
@@ -355,13 +435,8 @@
   align-items: flex-end;
   justify-content: space-around;
   width: 100%;
-  height: 150px;
   position: absolute;
-  bottom: 0px;
-  padding-bottom: 15px;
-  background-color: var(--dark-gray-color);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  bottom: 10%;
 }
 
 .calification {
@@ -385,6 +460,16 @@
   width: 100%;
   height: 100%;
   background-color: red;
+}
+
+/*ANIMATIONS*/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*MEDIA QUERYS*/
 

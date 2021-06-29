@@ -22,27 +22,26 @@ const  [openContent, handleOpenModal] = useShowContent()
     <div className="card__info">
         {
           loading
-          ? <LoadingComponent />
+          ? <LoadingComponent data={ slug }/>
           : <div className="card__hero animate__animated animate__fadeIn">
               <div className="card__main__content">
                 <HeroImageModal data={ data }/>
-                {/* <div className="bottom--fade"></div> */}
                 <GeneralInfo data={ data }/>
               </div>
-              <button 
+              <a
                 className="submit--button"
                 onClick={ handleOpenModal }
+                href="#description--game"
               > {
                 !openContent ? 'Read More' : 'Read Less'
-              } </button>
+              } </a>
               {
-                openContent && <GameDescription data={ data }/>
+                openContent && <GameDescription  data={ data }/>
               }
               
               <GameGallery data={ data } />
               <Rating data={ data }/>
               <Platforms platforms={ platforms }/>
-              {/* remember to split platform and people say component then implement them right here   */}
             </div>
         }
     </div>

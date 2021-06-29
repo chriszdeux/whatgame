@@ -11,8 +11,8 @@ export const Home = () => {
   // debugger
   // const  previous  = !loading && data[2] 
   // debugger
-  const [myRandom, setMyRandom] = useState( 0 )
-  
+  // const [myRandom, setMyRandom] = useState( 0 )
+  // debugger
   // const handleRandom = () => {
   // }
   // useEffect(() => {

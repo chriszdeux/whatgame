@@ -1,14 +1,14 @@
 import { useState } from "react"
 
-export const usePagination = ( initialState = undefined) => {
+export const usePagination = ( ) => {
   
-  const [page, setPage] = useState( initialState )
-  const [currentPage, setCurrentPage] = useState( Number )
+  const [page, setPage] = useState( '' )
+  const [currentPage, setCurrentPage] = useState( 1 )
   const [myLoad, setMyLoad] = useState( true )
   // debugger
   const handleNextPage = ( page ) => {
     if(page){
-      setPage( page )
+    setPage( page )
     setCurrentPage(currentPage + 1)
     setMyLoad(true)
   }
