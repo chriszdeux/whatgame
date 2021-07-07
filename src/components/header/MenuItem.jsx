@@ -52,7 +52,8 @@ export const MenuItem = ({list}) => {
               {
                 !loading &&
                 data.map(item => ((
-                  <li 
+                  <li
+                  key={item.slug} 
                     className="sub--menu--item"
                     onClick={ () => handleGenrePage(item.slug) }
                     

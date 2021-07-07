@@ -37,10 +37,10 @@ export const Home = () => {
           : <figure className="hero__img__container     animate__animated animate__fadeIn">
               <img className="hero--img animate__animated animate__fadeIn" src={ background_image } alt={ name }/>
               <div className="bottom--fade"></div>
-              <caption className="hero--text">{ name }</caption>
+              <p className="hero--text">{ name }</p>
+              <CheckNow slug={ slug }/> 
             </figure> 
       }
-      <CheckNow slug={ slug }/> 
       {/* <div className="hero__text__content">
         <p className="hero--text">{ name }</p>
       </div> */}

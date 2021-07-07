@@ -21,7 +21,7 @@ export const Navbar = ({ handleOpenContent }) => {
       <ul className="navbar__container">
       {
         menuList.map( list => (
-          <MenuItem list={ list }/>
+          <MenuItem key={list.name} list={ list }/>
         ))
       }
       <SearchBar handleOpenContent={handleOpenContent}/>
