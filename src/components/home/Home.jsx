@@ -35,7 +35,6 @@ export const Home = () => {
         loading 
           ? <LoadingComponent />
           : <figure className="hero__img__container     animate__animated animate__fadeIn">
-            <div className="top--fade"></div>
               <img className="hero--img animate__animated animate__fadeIn" src={ background_image } alt={ name }/>
               <div className="bottom--fade"></div>
               <caption className="hero--text">{ name }</caption>
