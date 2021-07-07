@@ -30,10 +30,13 @@ export const GameMediumCard = ({data}) => {
     return <h1>LOADING////</h1>
   }
   return (
-    <LazyLoadComponent className="game__medium__card">
+    <LazyLoadComponent className="game__medium__card" 
+    >
       <figure className="game__medium__container">
         <LazyLoadImage 
-          className="game--image--medium animate__animated animate__fadeIn" src={ image } alt="videogame"
+          // placeholderSrc="../../assets/horizon.jpg"
+          className="game--image--medium animate__animated animate__fadeIn"
+          src={ image } alt="videogame"
           effect="opacity" 
           
           // beforeLoad={ () => handleLoading() }
@@ -63,7 +66,7 @@ export const GameMediumCard = ({data}) => {
         // onAfterOpen={ handleToggleContent }
         onRequestClose={ handleOpenContent }
         className="Modal"
-        overlayClassName="Overlay"
+        overlayClassName="Overlay--cards"
         ariaHideApp={false}
       >
         <CardContent slug={ slug }/>

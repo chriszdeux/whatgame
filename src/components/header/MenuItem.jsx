@@ -16,6 +16,7 @@ export const MenuItem = ({list}) => {
   const handleGenrePage = ( genre ) => {
     // debugger
     setGamesByGenre( genre )
+    // debugger
     history.push('./genres', null)
     return <LoadingComponent />
   }

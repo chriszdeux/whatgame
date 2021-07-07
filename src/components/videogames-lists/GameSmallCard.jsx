@@ -36,7 +36,7 @@ export const GameSmallCard = ({data}) => {
           onRequestClose={ handleOpenModal }
           ariaHideApp={false}
           className="Modal "
-          overlayClassName="Overlay"
+          overlayClassName="Overlay--cards"
           
         >
           <CloseIcon 

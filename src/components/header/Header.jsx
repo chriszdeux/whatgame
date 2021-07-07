@@ -17,7 +17,7 @@ export const Header = () => {
   // debugger
   return (
     <header className="main__container">
-      <div className="header" >
+      <div className="header animate__animated animate__fadeIn" >
         <h2 className="highlight--text">WhatGame</h2>
         {/* {showContent && <MenuList />} */}
         

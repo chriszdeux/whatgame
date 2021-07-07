@@ -176,6 +176,7 @@
   /* transition: .3s ease; */
   visibility: visible;
 }
+
 .list--item a:hover {
   color: var(--active-color);
   font-weight: var(--heavy-font-weight);
@@ -219,7 +220,8 @@
   width: auto;
   height: 100%;
   text-decoration: none;
-  font-size: var(--jumbo-font-size);
+  font-size: var(--large-font-size);
+  font-weight: var(--heavy-font-weight);
   color: var(--second-font-color);
   transition: .2s ease;
   position: relative;

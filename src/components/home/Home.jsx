@@ -30,7 +30,7 @@ export const Home = () => {
 
 // debugger
   return (
-    <section className="main__container home ">
+    <section id="home" className="main__container home ">
       {
         loading 
           ? <LoadingComponent />

@@ -5,12 +5,14 @@ export const usePagination = ( ) => {
   const [page, setPage] = useState( '' )
   const [currentPage, setCurrentPage] = useState( 1 )
   const [myLoad, setMyLoad] = useState( true )
+  const [loadMoreGames, setLoadMoreGames] = useState(false)
   // debugger
   const handleNextPage = ( page ) => {
     if(page){
     setPage( page )
-    setCurrentPage(currentPage + 1)
-    setMyLoad(true)
+    setLoadMoreGames(true)
+    // setCurrentPage(currentPage + 1)
+    // setMyLoad(true)
   }
   }
   
@@ -19,11 +21,11 @@ export const usePagination = ( ) => {
     if(page) {
       setPage( page )
       setCurrentPage(currentPage - 1)
-      setMyLoad(true)
+      // setMyLoad(true)
     }
   }
   // debugger
-  return {handleNextPage, handlePreviousPage, page, myLoad, currentPage, setMyLoad, setPage, setCurrentPage}
+  return {handleNextPage, handlePreviousPage, page, myLoad, currentPage, setMyLoad, setPage, setCurrentPage, loadMoreGames, setLoadMoreGames}
 }
 
 

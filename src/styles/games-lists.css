@@ -191,6 +191,7 @@
   /* animation-delay: .3s; */
   animation-fill-mode: forwards;
   opacity: 0;
+  cursor: pointer;
 }
 
 @keyframes game-name-animation {
@@ -220,6 +221,7 @@
   justify-content: center;
   grid-gap: 20px;
   margin-top: 30px;
+  overflow: auto;
 }
 
 .game__medium__card {
@@ -265,8 +267,51 @@
   opacity: 0.8; */
 }
 
+.scroll__more {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 4.5rem 0;
+}
+
+.show--more {
+  font-family: var(--second-font);
+  border: 1px solid var(--active-color);
+  color: var(--second-font-color);
+  width: 15rem;
+  height: auto;
+  font-size: var(--large-font-size);
+  background-color: var(--dark-color);
+  padding: 10px;
+  cursor: pointer;
+  /* transition: .3s ease; */
+  animation-name: loading--button;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 
 
+  /* box-shadow: var(--box-shadow-color); */
+}
+
+.show--more:hover {
+  transition: 1s ease;
+  box-shadow: var(--box-shadow-color);
+}
+.show--more:active {
+  /* transform: scaleX(0); */
+}
+
+@keyframes loading--button {
+  0% {
+    /* box-shadow: var(--box-shadow-color); */
+  }
+  50% {
+    box-shadow: var(--box-shadow-color);
+  }
+  100% {
+    /* border: 1px solid var(--active-color); */
+  }
+}
 .pagination {
   /* display: flex;
   justify-content: center; */

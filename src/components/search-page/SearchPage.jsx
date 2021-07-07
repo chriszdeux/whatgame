@@ -8,31 +8,40 @@ import { IoIosArrowBack as LeftArrow, IoIosArrowForward as RightArrow } from 're
 import { LoadingComponent } from '../loading/LoadingComponent'
 import { Pagination } from '../pagination/Pagination'
 import { usePagination } from '../../hooks/usePagination'
+import { useFullData } from '../../hooks/useFullData'
+import { ShowMoreButton } from '../helpers/ShowMoreButton'
 
 export const SearchPage = () => {
   const { searchGame } = useContext( DataContext )
 
-  const {handleNextPage, handlePreviousPage, page, myLoad, currentPage, setMyLoad, setPage, setCurrentPage} = usePagination(  )
+  const {handleNextPage, handlePreviousPage, page, myLoad, currentPage, setMyLoad, setPage, setCurrentPage, loadMoreGames, setLoadMoreGames} = usePagination(  )
   
   useEffect(() => {
     setPage(searchGame)
   }, [ searchGame ])
 
   const { data, loading } = useGetGamesByName( page )
-  // debugger
-  const  next  = !!data &&data[1]
-  const  previous  = !!data &&data[2]
-
+  const { moreLoad, pagination, fullData, setMoreLoad } = useFullData(data)
+  
+  const { next } = !!pagination && pagination
   useEffect(() => {
     setMyLoad(loading)
-    // setCurrentPage( 1 )
   }, [ data ])
 
+  // useEffect(() => {
+    
+  // }, [ loading ])
+
   useEffect(() => {
-    setCurrentPage(1)
+    // setCurrentPage(1)
     setMyLoad(true)
+    setMoreLoad([])
+    setLoadMoreGames(false)
   }, [searchGame])
 
+  useEffect(() => {
+    setLoadMoreGames(false)
+  }, [ fullData ])
   
   // debugger
   // debugger
@@ -47,10 +56,15 @@ export const SearchPage = () => {
     })
   }
 
+  // const handleLoadingMoreGames = () => {
+
+  // }
+
   // for(let i = 1; i <=10; i++) {
   //   pages.push(i);
   // }
   // debugger
+  
   return (
     
       <>
@@ -58,18 +72,18 @@ export const SearchPage = () => {
         myLoad 
           ? <LoadingComponent data={ searchGame }/>
           : <section className="second__container games__list">
-          <ResultHeader cleanedGames={ cleanedGames } data={ data }/> 
+          <ResultHeader page={ page }/> 
           <div className="cards__medium__container">
               {
-                data[0].map( data => (
+                fullData.map( data => (
                   <GameMediumCard key={ data.id.toString() }  className="animate__animated animate__fadeIn" data={ data }/>
                 ))
               }
             </div>
-            <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/>
-              
+            {/* <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/> */}
             </section>
       }
+      <ShowMoreButton myData={ {next, handleNextPage, loadMoreGames} }/>
             </>
   )
 }

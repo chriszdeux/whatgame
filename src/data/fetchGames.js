@@ -5,7 +5,7 @@ const mainUrl = `https://api.rawg.io/api/`;
 const api_key = 'key=566bbd60217a466287e5e182d0437bc8';
 const queryGame = 'games?';
 const queryGenres = 'genres?';
-const gamePage = `${mainUrl}${queryGame}${api_key}&page_size=40`;
+const urlGamePage = `${mainUrl}${queryGame}${api_key}&page_size=40`;
 
 export const GetGames = async ( page ) => {
   let tempPage = ''
@@ -17,7 +17,7 @@ export const GetGames = async ( page ) => {
     //  );
 
       if(page === undefined || page === '') {
-        tempPage = gamePage
+        tempPage = urlGamePage
       } else {
         tempPage = page
       }
@@ -25,7 +25,7 @@ export const GetGames = async ( page ) => {
     // const { results, next, previous } = await response.json();
     // debugger
     const response = await fetch(tempPage)
-    const {results, next, previous} = await response.json()
+    const {results, next, previous, count} = await response.json()
     // debugger
     // const {next, previous} = data
     const randomResult = results[Math.floor( Math.random() * results.length )]
@@ -52,9 +52,9 @@ export const GetGames = async ( page ) => {
     // const previousPage = await responsePrevious.json()
 
 
-    
     // debugger
-    return [dataGame, next, previous, randomResult]
+    // debugger
+    return [dataGame, next, previous, randomResult, count]
     // return [dataGame, nextPage, previousPage]
     // return [dataGame, next, previous]
     
@@ -89,7 +89,7 @@ export const getGamesByGenre = async ( genre ) => {
     if(genre.includes('genres=')) {
       genreInput = genre
       // debugger
-      debugger
+      // debugger
     } else {
       genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page=1&page_size=40`
       // debugger

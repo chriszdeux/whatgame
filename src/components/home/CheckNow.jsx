@@ -27,7 +27,7 @@ export const CheckNow = ({ slug }) => {
         // onAfterOpen={ handleToggleContent }
         onRequestClose={ handleOpenContent }
         className="Modal"
-        overlayClassName="Overlay"
+        overlayClassName="Overlay--cards"
         ariaHideApp={false}
         style={{ backgroundImage:`url(${data.image})` }}
       >
