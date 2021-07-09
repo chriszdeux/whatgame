@@ -253,7 +253,7 @@
   flex-shrink: 0;
   width: 100px;
   opacity: .8;
-  padding-top: 50px;
+  padding-top: 10px;
   margin-right: 10px;
 }
 
@@ -271,7 +271,7 @@
 .selection--image:hover {
   border: 2px solid var(--active-color);
   box-shadow: 0 0 11px -1px var(--active-color);
-  transform: translateY(-40px);
+  transform: translateY(-10px);
 }
 
 .game__platforms {
@@ -389,6 +389,14 @@
   .card--image {
     height: 800px;
   }
+
+  .game__info {
+    width: 50%;
+    /* margin-top: 0; */
+    align-self: flex-start;
+    position: relative;
+    margin: 15px 0;
+  }
 }
 
 @media only screen and ( min-width: 1024px ) {
@@ -433,8 +441,10 @@
     /* opacity: .8; */
   }
   .game__info {
+    width: 50%;
     margin-top: 0;
     position: relative;
+    margin: 0;
   }
   .info--title {
     display: flex;

@@ -57,6 +57,7 @@ export const GameMediumCard = ({data}) => {
         </div>
       </div>
         
+      <div className="game--medium--name animate__animated animate__fadeIn">{ name }</div>
 
         {/* <InteractiveButtons /> */}
         {/* <div className="bottom--fade"></div> */}

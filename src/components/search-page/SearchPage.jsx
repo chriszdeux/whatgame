@@ -80,10 +80,10 @@ export const SearchPage = () => {
                 ))
               }
             </div>
+            <ShowMoreButton className="animate__animated animate__fadeIn" myData={ {next, handleNextPage, loadMoreGames} }/>
             {/* <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/> */}
             </section>
       }
-      <ShowMoreButton myData={ {next, handleNextPage, loadMoreGames} }/>
             </>
   )
 }

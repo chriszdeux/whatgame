@@ -65,7 +65,9 @@ export const GetGames = async ( page ) => {
 
 
 export const getGenreGames = async () => {
-  const response = await fetch(`${mainUrl}${queryGenres}${api_key}`);
+  // debugger
+  try {
+    const response = await fetch(`${mainUrl}${queryGenres}${api_key}`);
   const { results } = await response.json();
   
   const dataGenres = results.map(genre => {
@@ -79,6 +81,9 @@ export const getGenreGames = async () => {
   })
   
   return dataGenres
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 export const getGamesByGenre = async ( genre ) => {
@@ -168,43 +173,20 @@ export const getGameScreenshots = async ( game ) => {
 }
 
 export const getGameByName = async ( searchInput ) => {
-  let inputSearch = ''
   // debugger
-  // switch(searchInput) {
-  //   case searchInput == undefined:
-  //     inputSearch = null
-  //     break
-      
-  //     case searchInput !== undefined:
-  //       inputSearch = `${mainUrl}${queryGame}${api_key}&search=${searchInput}`
-  //       break
-  //   case searchInput.includes('.com'):
-  //     inputSearch = searchInput
-  //     break
-  //   default:
-  //     return inputSearch
-    
-  // }
-  // debugger
+  try {
+    let inputSearch = ''
+    // debugger
   if(searchInput && searchInput.includes('.com')){
     inputSearch = `${searchInput}&page_size=40`
   } else if(searchInput) {
     inputSearch =`${mainUrl}${queryGame}${api_key}&search=${searchInput}&page_size=40`
-  } 
+  } else {
+    return inputSearch
+  }
   // debugger
   const response = await fetch(inputSearch)
-  // debugger
-  // const response = await fetch(
-  //   (searchInput && searchInput.includes('.com'))
-  //     ? searchInput
-  //     : `${mainUrl}${queryGame}${api_key}&search=${searchInput}`
-  // );
-  // const response = await fetch(`${mainUrl}${queryGame}${api_key}&search=${searchInput}`);
   const { results, next, previous } = await response.json();
-  // debugger
-  // const responseNext = await fetch(next)
-  // const { results: }
-  // const responsePrevious = await fetch(previous)
   // debugger
   const searchResult = results.map( result => {
     return {
@@ -218,8 +200,10 @@ export const getGameByName = async ( searchInput ) => {
       metacritic: result.metacritic
     }
   })
-  // debugger
   return [searchResult,next, previous]
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 const paginationFetch = async ( page ) => {

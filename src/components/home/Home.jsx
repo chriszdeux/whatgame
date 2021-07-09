@@ -3,6 +3,7 @@ import resident from '../../assets/re-v.jpg';
 import { useFetchGames, useGetGameDetails } from '../../hooks/useFetchGame';
 import '../../styles/home-style.css';
 import { LoadingComponent } from '../loading/LoadingComponent';
+import { GamesMap } from '../videogames-lists/GamesMap';
 import { CheckNow } from './CheckNow';
 
 export const Home = () => {
@@ -27,9 +28,23 @@ export const Home = () => {
   const { id, name, background_image, slug } = !loading && random;
   // debugger
   // debugger
+  
+  let vh = window.innerHeight * 0.01;
+  // Then we set the value in the --vh custom property to the root of the document
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  // We listen to the resize event
+  window.addEventListener('resize', () => {
+    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
+
 
 // debugger
   return (
+    <>
     <section id="home" className="main__container home ">
       {
         loading 
@@ -39,12 +54,14 @@ export const Home = () => {
               <img className="hero--img animate__animated animate__fadeIn" src={ background_image } alt={ name }/>
               <div className="bottom--fade"></div>
               <caption className="hero--text">{ name }</caption>
+              <CheckNow slug={ slug }/> 
             </figure> 
       }
-      <CheckNow slug={ slug }/> 
       {/* <div className="hero__text__content">
         <p className="hero--text">{ name }</p>
       </div> */}
     </section>
+      <GamesMap />
+  </>
   )
 }

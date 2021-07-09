@@ -1,24 +1,35 @@
 .home {
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  /* position: relative; */
   /* position: absolute;
   top: 0; */
 }
 
 .hero__img__container {
   /* position: absolute; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   top: 0;
-  z-index: -1;
+  z-index: -1; */
   /* height: 500px; */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
 }
 
 .hero--img {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100%;
+  height: 100%; */
+  /* height: 100vh; */
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   object-fit: cover;
   transition: .3s ease;
 }
@@ -30,6 +41,7 @@
   position: absolute;
   bottom: 100px;
   width: 100%;
+  position: relative;
   /* height: 300px; */
   /* font-size: 24px; */
 }
@@ -51,13 +63,12 @@
 
 .check__now {
   display: flex;
-  position: absolute;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   padding: 0 30px;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   color: white;
   font-size: var(--regular-font-size);
   animation: fadeIn;

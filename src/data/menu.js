@@ -2,7 +2,7 @@ export const menuList = [
   {
     name: 'Home',
     content: false,
-    page: '/',
+    page: '/home',
     subMenu: false
   },
   {

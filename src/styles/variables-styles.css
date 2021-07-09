@@ -8,6 +8,7 @@
   --overlay-color: #1d1e20;
   --border-color: #19d4da6b;
   
+  /* --active-color: #25f4fb78; */
   --active-color: #25F3FB;
   --active-shadow-color: rgba(37, 243, 251, 0.3);
   /* rating colors */
@@ -46,4 +47,7 @@
   /*FADE CONTENTS*/
  --fade-main-color: rgb(0,0,0);
  --fade-gradient: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+
+ /*FIX VIEWPORT*/
+ --vh: 0.01;
 }

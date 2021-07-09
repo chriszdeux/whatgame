@@ -18,48 +18,32 @@ import history from './history'
 import { GenrePage } from '../components/genres-page/GenrePage'
 import { LoadingComponent } from '../components/loading/LoadingComponent'
 import { GamePage } from '../components/game-page/GamePage'
+import { GamesMap } from '../components/videogames-lists/GamesMap'
 
 
 
 export const GameRouter = () => {
-  const { data, loading } = useFetchGenres()
-  const dataSlice =  data.slice(6, 11);
+  // const dataSlice =  data.slice(6, 11);
   // debugger
   return (
     <>
     <Router history={ history }>
-      {
-        loading
-          ? <LoadingComponent />
-          :<> 
-            <Header />
-            <div>
-              <Switch>
-                <Route  exact path="/" component={ Home }>
-                  <Home/>
-                  {
-                    data.map(genre => (
-                      <LazyLoadComponent 
-                      key={genre.id}
-                      delayTime="3000"
-                      >
-                      <GameList key={genre.id} genre={genre}/>
-                      </LazyLoadComponent>
-                      ))
-                    }
-                </Route>
-                <Route exact path="/games" component={ GamePage }>
+      <Header />
+      <Switch>
+        <Route  exact path="/" component={ Home }>
+          <Home/>
+        </Route>
+        <Route  exact path="/home" component={ Home }>
+          <Home/>
+        </Route>
+        <Route exact path="/games" component={ GamePage }>
 
-                </Route>
-                <Route exact path="/genres" component={ GenrePage }>
-                </Route>
-                <Route exact path="/search-result" component={ SearchPage }>
-                </Route>
-      
-              </Switch>
-            </div>
-          </> 
-      }
+        </Route>
+        <Route exact path="/genres" component={ GenrePage }>
+        </Route>
+        <Route exact path="/search-result" component={ SearchPage }>
+        </Route>
+      </Switch>
       </Router>
     </>
   )

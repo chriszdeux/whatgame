@@ -32,7 +32,7 @@ const handleLeftArrow = ( moveToRight  ) => {
   }, [ data ])
   // debugger
   return (
-    <section className="main__container games__list">
+    <section className="main__container games__list animate__animated animate__fadeIn">
       <h2 className="list--title">Best <span className="highlight--text">{ name }</span> Games</h2>
       {/* <button onClick={() => handleScroll(1000) }>Click to move</button> */}
           {/* <div className="cards__container" ref={ ref }> */}
