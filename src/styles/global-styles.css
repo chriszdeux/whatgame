@@ -185,6 +185,11 @@ body::after {
   transform: scale(1.5);
   border-radius: 50%;
 }
+.left--arrow:active, .right--arrow:hover {
+  color: var(--active-color);
+  transform: scale(1.5);
+  border-radius: 50%;
+}
 /*ANIMATIONS*/
 
 .my-fade-out {

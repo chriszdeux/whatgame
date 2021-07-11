@@ -274,9 +274,7 @@
   transform: translateY(-10px);
 }
 
-.game__platforms {
-  /* display: flex; */
-}
+
 
 .platforms {
   display: flex;
@@ -397,6 +395,12 @@
     position: relative;
     margin: 15px 0;
   }
+
+  /* .game__platforms {
+    position: absolute;
+    right: 20%;
+    bottom: 12%;
+  } */
 }
 
 @media only screen and ( min-width: 1024px ) {

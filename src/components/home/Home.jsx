@@ -40,8 +40,14 @@ export const Home = () => {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 
+  const [myCheckNow, setMyCheckNow] = useState()
 
-
+  const handleCheck = () => {
+    setTimeout(() => {
+      setMyCheckNow(<CheckNow slug={ slug }/>)
+    }, 4000);
+  }
+  handleCheck()
 // debugger
   return (
     <>
@@ -54,8 +60,12 @@ export const Home = () => {
               <img className="hero--img animate__animated animate__fadeIn" src={ background_image } alt={ name }/>
               <div className="bottom--fade"></div>
               <caption className="hero--text">{ name }</caption>
-              <CheckNow slug={ slug }/> 
             </figure> 
+      }
+      {/* <CheckNow slug={ slug }/>  */}
+
+      {
+        myCheckNow
       }
       {/* <div className="hero__text__content">
         <p className="hero--text">{ name }</p>

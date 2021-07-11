@@ -50,6 +50,7 @@
 .loading--animation3 {
   position: absolute;
   bottom: 0;
+  width: 10rem;
   /* min-width: 100px; */
   min-height: 100px;
   border: 3px solid var(--active-color);
@@ -74,10 +75,10 @@
   /* margin-bottom: 40px; */
   background-color: var(--active-color);
   box-shadow: var(--box-shadow-color);
-  animation-name: loading2;
+  animation-name: loading4;
   animation-duration: 5s;
   animation-iteration-count: infinite;
-  animation-delay: .3s;
+  animation-delay: .5s;
 }
 
 .loading--text {
@@ -92,13 +93,22 @@
   text-transform: capitalize;
 }
 
+.animation__small__container {
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  width: 100vw;
+  height: 100vh;
+  /* position: relative; */
+}
 
-.loading--small--cards {
+.loading__small__cards {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 300px;
+  /* position:  */
+  width: 100px;
+  height: 100px;
   background-color: var(--dark-gray);
 
   /* animation-name: loading-cards; */
@@ -181,10 +191,11 @@
 @keyframes demoAnimation {
   0% {
     transform: scale(1);
+    transform: rotate(-180deg);
   }
   50% {
-    width: 300px;
-    height: 300px;
+    
+    transform: scale(1.3);
     transform: rotate(180deg);
   }
   100% {
@@ -192,32 +203,33 @@
   }
 }
 @keyframes demoAnimation2 {
-  0% {
-    transform: scale(1);
+  /* 0% {
+    transform: scale(1.2);
   }
   50% {
     width: 300px;
     height: 300px;
   }
   100% {
-    transform: scale(1);
-  }
+    transform: scale(1.4);
+  } */
 }
 @keyframes demoAnimation3 {
-  0% {
-    transform: scale(1);
+  /* 0% {
+    transform: scale(1.1);
+    transform: rotate(180deg);
   }
   50% {
-    width: 300px;
-    height: 300px;
+    
+    transform: scale(1.2);
     transform: rotate(180deg);
   }
   100% {
-    transform: scale(1);
-  }
+    transform: scale(1.3);
+  } */
 }
 @keyframes demoAnimation4 {
-  0% {
+  /* 0% {
     transform: scale(1);
   }
   50% {
@@ -229,7 +241,7 @@
   }
   100% {
     transform: scale(1);
-  }
+  } */
 }
 @keyframes demoAnimation5 {
   0% {
@@ -353,6 +365,7 @@
   }
   50% {
     transform: scale(1.2);
+    /* background-color: red; */
   }
   75% {
     transform: scale(1.6);
@@ -371,12 +384,40 @@
   50% {
     transform: scale(1.1);
     transform: rotate(180deg);
+    border-radius: 50%;
   }
   75% {
     transform: scale(1.6);
   }
   0% {
     transform: scale(1);
+  }
+}
+
+@keyframes loading4 {
+  0% {
+    transform: scale(1);
+    /* transform: scaleX(0); */
+    border-radius: 30%;
+  }
+  25% {
+    transform: scale(1.5);
+    transform: rotate(180deg);
+    border-radius: 15%;
+  }
+  50% {
+    transform: scale(1.2);
+    /* background-color: red; */
+    border-radius: 50%;
+  }
+  75% {
+    transform: scale(1.6);
+    transform: rotate(180deg);
+    border-radius: 10%;
+  }
+  0% {
+    transform: scale(1);
+    border-radius: 40%;
   }
 }
 
