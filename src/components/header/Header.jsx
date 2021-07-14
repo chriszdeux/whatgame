@@ -44,7 +44,7 @@ export const Header = () => {
           <MenuList handleOpenContent={handleOpenContent}/>
           
         </Modal>
-        <Navbar handleOpenContent={ handleOpenContent }/>
+        <Navbar />
       </div>
     </header>
   )
