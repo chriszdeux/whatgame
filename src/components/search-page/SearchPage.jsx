@@ -22,7 +22,8 @@ export const SearchPage = () => {
 
   const { data, loading } = useGetGamesByName( page )
   const { moreLoad, pagination, fullData, setMoreLoad } = useFullData(data)
-  
+  // const {next} = !data && data[1]
+  // debugger
   const { next } = !!pagination && pagination
   useEffect(() => {
     setMyLoad(loading)

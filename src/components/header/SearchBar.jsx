@@ -44,7 +44,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
   return (
     <>
     <form 
-      className="search__bar"
+      className="search__bar animate__animated animate__fadeIn"
       onSubmit={ handleSubmit }
       to="/games"
     >

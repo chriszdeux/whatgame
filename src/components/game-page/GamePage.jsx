@@ -14,6 +14,8 @@ import { useFullData } from '../../hooks/useFullData'
 import { ShowMoreButton } from '../helpers/ShowMoreButton'
 
 export const GamePage = ( ) => {
+
+  
   const {
     handleNextPage, 
     handlePreviousPage, 
@@ -24,41 +26,10 @@ export const GamePage = ( ) => {
     
   const { data, loading } = useFetchGames( page )
   const {moreLoad, pagination, fullData} = useFullData( data )
-  const { next } = !!pagination && pagination
   // debugger
-  // const { next, previuos, count, fullData } = !loading && moreLoad
-  // debugger
-  // const [moreLoad, setMoreLoad] = useState( [] )
-  // const [pagination, setPagination] = useState()
-  // // const [fullLoad, setFullLoad] = useState([])
-  // // const { next, previous, count } = pagination
-  // useEffect(() => {
-  //   setMoreLoad(c => [...c, data[0]])
-  //   setPagination({
-  //     next: data[1],
-  //     previous: data[2],
-  //     count: data[4],
-  //   })
-  // }, [ data ])
-
-  // useEffect(() => {
-  //   setFullLoad( moreLoad.flat().filter(item => {return item !== undefined}) )
-  // }, [ loading === false ])
-  // debugger    
-  // debugger
-  const results = !loading && data[0]
-  // debugger
-  // if(data !== []) {
-  //   setMoreLoad(moreLoad => [...moreLoad, results])
-  // }
-  // const next  = !loading && data[1]
-  // const previous = !loading && data[2]
-  // const count = !loading && data[4]
-  // let myData = !loading && [data => [...data, results]]
-  // let moreData = !loading && [...myData, results]
-  // let fullData = !loading && moreData.flat()
-  // const fullData = moreLoad.flat().filter(item => {return item !== undefined})
-  // debugger
+  const {next}  = !!pagination && pagination
+  // const results = !loading && data[0]
+  debugger
   useEffect(() => {
     setMyLoad(false)
     setLoadMoreGames(true)
@@ -82,20 +53,6 @@ export const GamePage = ( ) => {
           : <section id="games" className="second__container games__list">
           <GameResults /> 
           <div id="infinite__scroll" className="cards__medium__container">
-            {/* <InfiniteScroll
-            style={
-              {
-                display: 'flex',
-                flexWrap: 'wrap'
-              }
-            } 
-              dataLength={ fullData.length }
-              next={ () => handleNextPage(pagination.next) }
-              inverse={ true }
-              hasMore={ true }
-              loader={<h3>loading...</h3>}
-              scrollableTarget="infinite__scroll"
-            > */}
 
               {
                 fullData.map( data => (

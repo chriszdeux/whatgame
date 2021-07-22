@@ -12,7 +12,8 @@ import { RiUser3Fill as UserIcon } from 'react-icons/ri'
 import { useShowContent } from '../../hooks/useShowContent';
 
 export const Navbar = ( ) => {
-  const [openContent, handleOpenContent] = useShowContent()
+  const [openContent, handleOpenContent] = useShowContent(false)
+  // debugger
   return (
     <nav className="navbar">
       <ul className="navbar__container">
@@ -28,8 +29,11 @@ export const Navbar = ( ) => {
         <li className="list--item">
           <SearchIcon 
             className="search--icon"
-            // onClick={  }
+            onClick={ () => handleOpenContent(true) }
           />
+          {
+            openContent && <SearchBar handleOpenContent={ handleOpenContent }/>
+          }
         </li>
         <li className="list--item">
           <LibraryGames className="games--collection--icon"/>

@@ -61,7 +61,7 @@ export const useGamesByGenre = ( genre ) => {
         }, 3000);
       })
   }, [ genre ])
-
+  // debugger
   return gamesByGenreData
 }
 

@@ -24,7 +24,8 @@ export const GamesGenreGrid = (  ) => {
   }, [ gamesByGenre ])
     
   const { data, loading } = useGamesByGenre( page )
-  const {moreLoad, pagination, fullData, setMoreLoad} = useFullData( data )
+  // debugger
+  const {moreLoad, pagination, fullData, setMoreLoad} = useFullData( !!data && data )
   const { next } = !!pagination && pagination
 
   useEffect(() => {
