@@ -5,12 +5,14 @@ import { menuList } from '../../data/menu';
 import { useFetchGenres } from '../../hooks/useFetchGame';
 import { useHistory } from 'react-router';
 import { LoadingComponent } from '../loading/LoadingComponent';
+import { useScrollTop } from '../../hooks/useScrollTop';
 
 export const MenuItem = ({list}) => {
   const { data, loading } = useFetchGenres()
   // debugger\
   const { setGamesByGenre } = useContext
   (DataContext)
+  const { scrollTop } = useScrollTop()
   const history = useHistory()
 
   const handleGenrePage = ( genre ) => {
@@ -20,6 +22,8 @@ export const MenuItem = ({list}) => {
     history.push('./genres', null)
     return <LoadingComponent />
   }
+
+
   // debugger
   return (
 
@@ -30,6 +34,7 @@ export const MenuItem = ({list}) => {
           ? 'list--item  submenu'
           : 'list--item'
          }
+         onClick={ () => scrollTop() }
         // onClick={ handleClickSubmit }
         >
           {/* { JSON.parse((item)) } */}

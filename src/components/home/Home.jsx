@@ -8,23 +8,7 @@ import { CheckNow } from './CheckNow';
 
 export const Home = () => {
   const { loading, data } = useFetchGames()
-  // const  next  = !loading && data[1] 
-  // debugger
-  // const  previous  = !loading && data[2] 
-  // debugger
-  // const [myRandom, setMyRandom] = useState( 0 )
-  // debugger
-  // const handleRandom = () => {
-  // }
-  // useEffect(() => {
-  //   // handleRandom()
-  //   // debugger
-  // }, [ loading ])
   const  random = !loading && data[3]
-    // useEffect(() => {
-    //   setMyRandom(random)
-    // }, [data]) 
-  // setMyRandom( !loading && data[3])
   const { id, name, background_image, slug } = !loading && random;
   // debugger
   // debugger

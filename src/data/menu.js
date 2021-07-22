@@ -1,6 +1,3 @@
-import { VscLibrary as LibraryGames } from 'react-icons/vsc';
-import { AiOutlineSearch as SearchIcon } from 'react-icons/ai';
-import { RiUser3Fill as UserIcon } from 'react-icons/ri'
 
 export const menuList = [
   {
@@ -18,7 +15,7 @@ export const menuList = [
   {
     name: 'Genres',
     content: true,
-    page: '/genres',
+    // page: '',
     subMenu: true
   },
   {
@@ -36,17 +33,17 @@ export const menuList = [
   // }
 ]
 
-export const menuIcons = [
-  {
-    name: 'search',
-    icon: <SearchIcon className="search--icon"/>
-  },
-  {
-    name: 'game-collection',
-    icon: <LibraryGames className="games--collection--icon"/>
-  },
-  {
-    name: 'user',
-    icon: <UserIcon className="user--icon"/>
-  },
-]
+// export const menuIcons = [
+//   {
+//     name: 'search',
+//     icon: <SearchIcon className="search--icon"/>
+//   },
+//   {
+//     name: 'game-collection',
+//     icon: <LibraryGames className="games--collection--icon"/>
+//   },
+//   {
+//     name: 'user',
+//     icon: <UserIcon className="user--icon"/>
+//   },
+// ]
