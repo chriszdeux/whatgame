@@ -13,7 +13,7 @@ export const Header = () => {
   
   // const [openContent, handleOpenContent] = useShowContent()
   
-  const { openContent, handleOpenContent } = useContext(DataContext)
+  const { openContent, handleOpenContent, favoriteGames } = useContext(DataContext)
   // debugger
   return (
     <header className="main__container">
@@ -34,6 +34,7 @@ export const Header = () => {
             
 
         }
+        
         <Modal
           isOpen={ openContent }
           onRequestClose={ handleOpenContent }

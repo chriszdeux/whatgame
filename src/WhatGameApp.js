@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
+import { favoritesReducer } from './components/helpers/favoritesReducer';
+import { FavSubmit } from './components/helpers/FavSubmit';
 import { DataContext } from './context/DataFetchContext'
 import { useFetchGenres, useGetGamesByName } from './hooks/useFetchGame'
 import { useShowContent } from './hooks/useShowContent';
@@ -12,11 +14,19 @@ export const WhatGameApp = () => {
   const [stateGenre, setStateGenre] = useState( )
   const { data, loading: genreLoading } = useFetchGenres()
   // debugger
+  const init = () => {
+    return JSON.parse(localStorage.getItem('favoriteGames')) || []
+  }
 
   const [ openContent, handleOpenContent ] = useShowContent()
   // debugger
   const [gamesByGenre, setGamesByGenre] = useState( '' )
+  
+  const [favoriteGames, dispatch] = useReducer(favoritesReducer, [], init)
   // debugger
+  useEffect(() => {
+    localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames))
+  }, [ favoriteGames ])
   return (
     <>
       <DataContext.Provider value={ 
@@ -31,7 +41,9 @@ export const WhatGameApp = () => {
           openContent,
           handleOpenContent,
           gamesByGenre,
-          setGamesByGenre
+          setGamesByGenre,
+          favoriteGames,
+          dispatch
         } 
         }>
         <GameRouter />

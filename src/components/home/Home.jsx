@@ -28,7 +28,7 @@ export const Home = () => {
 
   const handleCheck = () => {
     setTimeout(() => {
-      setMyCheckNow(<CheckNow slug={ slug }/>)
+      setMyCheckNow(<CheckNow className="animate__animated animate__fadeInUp" slug={ slug }/>)
     }, 4000);
   }
   handleCheck()

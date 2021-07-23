@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
 import Horizon from '../../assets/horizon.jpg';
 import { RatingStar } from '../modal/RatingStar';
@@ -9,10 +9,17 @@ import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { LoadingComponent } from '../loading/LoadingComponent';
 import { CgArrowsExpandUpRight } from 'react-icons/cg'
+import { IoMdAdd as AddIcon } from 'react-icons/io'
+import { DataContext } from '../../context/DataFetchContext';
+import { FavSubmit } from '../helpers/FavSubmit';
+import { IoTrashBinSharp as DeleteIcon } from 'react-icons/io5'
+
 
 export const GameMediumCard = ({data}) => {
   const [ openContent, handleOpenContent ] = useShowContent()
   // debugger
+  const { dispatch } = useContext( DataContext )
+  const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
   const { name, image, calification, metacritic, rating_star,  slug } = data
   // debugger
   // debugger
@@ -54,6 +61,19 @@ export const GameMediumCard = ({data}) => {
             className="dots"
             onClick={ handleOpenContent }
           />
+          
+          {
+            !addToggle 
+            ? <AddIcon 
+              className="add--icon"
+              onClick={ handleAdd }
+            />
+            : <DeleteIcon 
+              className="add--icon"
+              onClick={ handleRemove }
+            />
+          }
+
         </div>
       </div>
         

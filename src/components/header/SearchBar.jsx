@@ -53,6 +53,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
         type="search"
         value={ inputValue }
         onChange={ handleOnChange }
+        autoFocus
       />
       {/* <Link to="/genres"> 
       </Link> */}

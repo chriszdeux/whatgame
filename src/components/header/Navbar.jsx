@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IoMdArrowDropdown as DownArrow } from 'react-icons/io';
 import { menuList } from '../../data/menu';
 import { ListDropDown } from './ListDropDown';
@@ -10,9 +10,11 @@ import { VscLibrary as LibraryGames } from 'react-icons/vsc';
 import { AiOutlineSearch as SearchIcon } from 'react-icons/ai';
 import { RiUser3Fill as UserIcon } from 'react-icons/ri'
 import { useShowContent } from '../../hooks/useShowContent';
+import { DataContext } from '../../context/DataFetchContext';
 
 export const Navbar = ( ) => {
   const [openContent, handleOpenContent] = useShowContent(false)
+  const { favoriteGames } = useContext( DataContext )
   // debugger
   return (
     <nav className="navbar">
@@ -37,6 +39,7 @@ export const Navbar = ( ) => {
         </li>
         <li className="list--item">
           <LibraryGames className="games--collection--icon"/>
+          <span className="items--saved">{ favoriteGames.length }</span>
         </li>
         <li className="list--item">
           <UserIcon className="user--icon"/>

@@ -13,7 +13,7 @@ export const CheckNow = ({ slug }) => {
   const { data, loading } = useGetGameDetails( slug );
   // debugger
   return (
-    <div className="check__now">
+    <div className="check__now animate__animated animate__fadeInUp">
       <p>Add</p>
       <button 
         type="button"

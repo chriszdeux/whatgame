@@ -32,6 +32,10 @@
   height: calc(var(--vh, 1vh) * 100);
   object-fit: cover;
   transition: .3s ease;
+  /* animation-name: pulse;
+  animation-iteration-count: 10;
+  animation-timing-function: ease 5s;
+  animation-delay: 2s; */
 }
 
 .hero__text__content {
@@ -50,7 +54,7 @@
   /* height: 150px; */
   width: 100%;
   position: absolute;
-  bottom: 90px;
+  bottom: 20%;
   text-align: center;
   font-size: var(--extra-jumbo-font-size);
   color: var(--main-font-color);
@@ -68,7 +72,7 @@
   width: 100vw;
   padding: 0 30px;
   position: absolute;
-  bottom: 0px;
+  bottom: 5%;
   color: white;
   font-size: var(--regular-font-size);
   animation: fadeIn;

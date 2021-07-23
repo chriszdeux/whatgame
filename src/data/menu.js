@@ -24,6 +24,14 @@ export const menuList = [
     page: '/',
     subMenu: false
   },
+  {
+    name: 'Library',
+    content: false,
+    // page: '/',
+    // subMenu: false
+    count: true
+  },
+
   // {
   //   name: 'Icon-Game',
   //   content: true,
