@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
   /* position: relative; */
   /* position: absolute;
   top: 0; */
@@ -64,6 +66,83 @@
   /* align-self: ; */
   /* bottom: 0; */
 }
+
+.home__details {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  /* bottom: 30%; */
+  transform: rotate(45deg);
+  filter: drop-shadow(2px 4px 4px black);
+  opacity: .4;
+  top: 57%;
+  left: 40%;
+}
+.home__details__reverse {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  /* bottom: 30%; */
+  /* transform: rotate(-45deg); */
+  filter: drop-shadow(2px 4px 4px black);
+  opacity: .4;
+  /* bottom: -42%; */
+  top: 57%;
+  right: 40%;
+  transform: scale(-1) rotate(-45deg);
+}
+
+.home--detail--1 {
+  width: 80px;
+  height: 100vh;
+  /* background-color: lightblue; */
+  background-color: var(--active-color);
+  animation-name: intro;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  transition: ease;
+}
+.home--detail--2 {
+  width: 80px;
+  height: 100vh;
+  background-color: var(--active-color);
+  animation-name: intro;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-delay: .5s;
+  transition: ease;
+}
+.home--detail--3 {
+  width: 80px;
+  height: 100vh;
+  background-color: var(--active-color);
+  /* background-color: lightseagreen; */
+  animation-name: intro;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  transition: ease;
+}
+
+/*------------------*/
+
+@keyframes intro {
+  0% {
+    transform: scale(1);
+    opacity: .3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: .3;
+  }
+}
+
+
+/*-------------------*/
 
 .check__now {
   display: flex;

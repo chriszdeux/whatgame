@@ -10,7 +10,7 @@ import { useResizeImage } from '../../hooks/useFetchGame';
 
 
 export const GameSmallCard = ({data}) => {
-  const [openContent, handleOpenModal] = useShowContent()
+  const [openContent, handleOpenModal, animation] = useShowContent()
   // debugger
   const { image, name, slug } = data;
   // debugger
@@ -43,7 +43,7 @@ export const GameSmallCard = ({data}) => {
             className="close--icon animate__animated animate__fadeIn"
             onClick={ handleOpenModal }
           />
-          <CardContent slug={ slug }/>
+          <CardContent values={{ slug, animation }}/>
         </Modal>
         <caption className="game--name">{name}</caption>
       </figure>

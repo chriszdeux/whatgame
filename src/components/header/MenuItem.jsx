@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../context/DataFetchContext';
 import { menuList } from '../../data/menu';
@@ -6,11 +6,13 @@ import { useFetchGenres } from '../../hooks/useFetchGame';
 import { useHistory } from 'react-router';
 import { LoadingComponent } from '../loading/LoadingComponent';
 import { useScrollTop } from '../../hooks/useScrollTop';
+import { SubMenuItem } from './SubMenuItem';
+import { useShowContent } from '../../hooks/useShowContent';
 
 export const MenuItem = ({list}) => {
-  const { data, loading } = useFetchGenres()
+  // const { data, loading } = useFetchGenres()
   // debugger\
-  const { setGamesByGenre } = useContext
+  const { setGamesByGenre, dataGenres, genreLoading } = useContext
   (DataContext)
   const { scrollTop } = useScrollTop()
   const history = useHistory()
@@ -24,7 +26,17 @@ export const MenuItem = ({list}) => {
   }
 
 
+  const [ openContent, handleOpen ] = useShowContent()
+
   // debugger
+  // debugger
+  const [openSubMenu, setOpenSubMenu] = useState(false)
+
+  const handleOpenSubMenu = () => {
+    scrollTop()
+    setOpenSubMenu(!openContent)
+
+  }
   return (
 
       <li 
@@ -47,28 +59,19 @@ export const MenuItem = ({list}) => {
               </Link>
             : <Link 
                 to={ list.page }
-          >
+                onClick={ handleOpenSubMenu }
+              >
                 { list.name }
               </Link>
           }
           {
-            list.subMenu && 
-            <ul className="sub--menu animate__animated animate__fadeIn">
-              {
-                !loading &&
-                data.map(item => ((
-                  <li 
-                    className="sub--menu--item"
-                    onClick={ () => handleGenrePage(item.slug) }
-                    
-                  >
-                    { item.name }
-                  </li>
-                )))
-              }
-            </ul>
+            !genreLoading && list.subMenu && <SubMenuItem handleGenrePage={ handleGenrePage }/>
+            
           }
       </li>
       )
   
 }
+
+
+//try to check what can I do to implement submenu genres mobile

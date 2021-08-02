@@ -42,6 +42,7 @@ export const GetGames = async ( page ) => {
         image: game.background_image,
         slug: game.slug,
         rating_star: game.rating_top,
+        checked: false
         // random: randomResult,
         // nextPage: next,
         // previousPage: previous,
@@ -213,7 +214,8 @@ export const getGameByName = async ( searchInput ) => {
       calification: result.rating,
       rating_star: result.rating_top,
       image: result.background_image,
-      metacritic: result.metacritic
+      metacritic: result.metacritic,
+      checked: false
     }
   })
   return [searchResult,next2, previous]

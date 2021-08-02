@@ -1,0 +1,125 @@
+import Masonry from 'masonry-layout';
+import React, { useContext, useEffect, useState } from 'react'
+import { DataContext } from '../../context/DataFetchContext'
+import { useScrollTop } from '../../hooks/useScrollTop';
+import { useShowContent } from '../../hooks/useShowContent';
+import '../../styles/favorite-games-page.css'
+import { GeneralInfo } from '../modal/GeneralInfo';
+import { RatingStar } from '../modal/RatingStar';
+import { FaArrowAltCircleUp as GoUp } from 'react-icons/fa';
+import Modal from 'react-modal';
+import { CardContent } from '../modal/CardContent';
+import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
+
+
+export const FavGamesPage = () => {
+  
+
+  const { favoriteGames } = useContext( DataContext )
+  const { scrollTop } = useScrollTop()
+  // const [favList, setFavList] = useState(favoriteGames)
+  const [favGame, setFavGame] = useState()
+  const [showFavGame, setShowFavGame] = useState(false)
+  // const [data, setData] = useState(favGame)
+  // const { name, image, rating_star, metacritic, calification, released } = favGame !== undefined && favGame
+  const [ openContent, handleOpenContent, animation ] = useShowContent()
+  // debugger
+  const [slug, setSlug] = useState()
+
+
+
+
+  const handleFavGameImage = ( game ) => {
+    
+    handleOpenContent()
+    setShowFavGame(false)
+    setSlug(game.slug)
+    
+    setTimeout(() => {
+      // const element = document.getElementById(`${game.name}`)
+      // element.scrollIntoView(false)
+      setFavGame(game)
+      setShowFavGame(true)
+      // setShowFavGame(!showFavGame)
+      // debugger
+    }, 200);
+    
+  }
+  
+  const handleToTop = () => {
+    scrollTop()
+  }
+  
+  
+  useEffect(() => {
+    scrollTop()
+    // scrollTop()
+  }, [  ])
+
+  useEffect(() => {
+
+  }, [ favGame ])
+  // debugger
+  return (
+    <>
+      <section className="favorite__page">
+      
+      <h2 className="favorite--games--title">Favorite Games</h2>
+      <div className="fav__games__container">
+        {
+           
+          favoriteGames.map(item => (
+            <figure
+              id={ `${item.name}` } 
+              className="fav__content animate__aniamted animate__fadeIn"
+              onClick={ () => handleFavGameImage(item) }
+            >
+              <img className="fav--image" src={item.image} alt="" />
+            </figure>
+            
+          ))
+        }
+      </div>
+      <Modal
+        isOpen={ openContent }
+        // onAfterOpen={ handleToggleContent }
+        onRequestClose={ handleOpenContent }
+        className="Modal"
+        overlayClassName="Overlay--cards"
+        ariaHideApp={false}
+      >
+        <CardContent values={{ slug, animation, handleOpenContent }}/>
+        <CloseIcon 
+          className="close--icon"
+          onClick={ handleOpenContent }
+        />
+      </Modal>
+      {/* {
+        showFavGame && 
+        <div className="fav__info">
+          <figure className={ `fav__img ${ showFavGame ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOut' }` }>
+          <img className="fav--image" src={image} alt={name} />
+          <figcaption className="fav--game--name"> 
+            { name }
+          </figcaption>
+        </figure>
+          <p className="info--title">Name: <span>{ name }</span></p>
+          <p className="info--title">Metacritic: <span>{ metacritic }</span></p>
+          <p className="info--title">Calification: <span>{ calification }</span></p>
+          <p className="info--title">Released: <span>{ released }</span></p>
+          <RatingStar rating_star={ rating_star } />
+        </div>
+      }      */}
+      <div className="to__up">
+        <GoUp 
+          className="up--arrow"
+          onClick={ handleToTop } 
+        />
+        <div className="wave"></div>
+        <div className="wave2"></div>
+        <div className="wave3"></div>
+      </div>
+    </section>
+    </>
+  )
+}

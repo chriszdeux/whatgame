@@ -7,11 +7,12 @@ import { useGetGamesByName } from '../../hooks/useFetchGame';
 import { SearchContext } from '../../context/DataFetchContext';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc'; //YOU ARE HERE
 
-export const MenuList = ( { handleOpenContent} ) => {
+export const MenuList = ( { values } ) => {
+  const { handleOpenContent, animation } = values
   return (
       // <div className="modal">
       // <div className="menu--overlay"></div>
-      <div className="drop__menu">
+      <div className={ `drop__menu ${ animation ? 'animate__animated animate__fadeInRight' : 'animate__animated animate__fadeOutRight'}` }>
         <CloseIcon 
                 className="close--icon " 
                 onClick={ handleOpenContent }

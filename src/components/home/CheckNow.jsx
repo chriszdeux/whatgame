@@ -9,7 +9,7 @@ import { LoadingComponent } from '../loading/LoadingComponent';
 
 export const CheckNow = ({ slug }) => {
 
-  const [ openContent, handleOpenContent ] = useShowContent()
+  const [ openContent, handleOpenContent, animation ] = useShowContent()
   const { data, loading } = useGetGameDetails( slug );
   // debugger
   return (
@@ -34,7 +34,7 @@ export const CheckNow = ({ slug }) => {
         {
           loading 
             ? <LoadingComponent />
-            : <CardContent slug={ slug }/>
+            : <CardContent values={{ animation, slug }}/>
         }
         <CloseIcon 
           className="close--icon"

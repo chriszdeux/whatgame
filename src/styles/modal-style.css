@@ -114,8 +114,8 @@
   color: rgb(228, 228, 228);
   /* z-index: 110000; */
   /* filter: blur(20px); */
-  animation: fadeIn;
-  animation-duration: 1s;
+  /* animation: fadeIn;
+  animation-duration: 1s; */
 }
 .card__modal {
   /* position: absolute;  PENDING*/
@@ -255,7 +255,9 @@
   opacity: .8;
   padding-top: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
+
 
 .selection--image {
   width: 100%;
@@ -389,11 +391,17 @@
   }
 
   .game__info {
-    width: 50%;
-    /* margin-top: 0; */
-    align-self: flex-start;
-    position: relative;
-    margin: 15px 0;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:0 auto;
+
+
+  }
+
+  .info--title {
+    margin: 1rem;
   }
 
   /* .game__platforms {
@@ -407,6 +415,19 @@
   .Overlay {
     display: none;
   }
+  .Modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .Overlay--cards {
+    top: 10%;
+    right: 10%;
+    bottom: 10%;
+    left: 10%;
+  }
   .card__hero {
     /* position: relative; */
     display: flex;
@@ -414,14 +435,14 @@
     margin-top: 20px;
   }
   
-  .card__main__content {
+  /* .card__main__content {
     margin-top: 20px;
     display: grid;
     position: relative;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: flex-start;
-  }
+  } */
 
   .card--image {
    width: 100%;
@@ -445,10 +466,8 @@
     /* opacity: .8; */
   }
   .game__info {
-    width: 50%;
-    margin-top: 0;
-    position: relative;
-    margin: 0;
+    /* width: 0%; */
+    margin: 0 auto;
   }
   .info--title {
     display: flex;
@@ -482,8 +501,8 @@
   }
 
   .selection--image {
-    min-width: 200px;
-    min-height: 350px;
+    /* min-width: 200px; */
+    /* min-height: 350px; */
     object-fit: cover;
     margin-right: 10px;
   }
@@ -511,9 +530,19 @@
   }
 
   .game__gallery__selection {
-    width: 500px;
+    width: 250px;
     flex-shrink: 0;
-    margin-right: 10px;
+    margin-right: 1rem;
+  }
+
+  .selection--image {
+    /* width: 200px; */
+  }
+
+  .close--icon {
+    position: relative;
+    top: 8%;
+    right: 8%;
   }
 
   .Modal--menu {

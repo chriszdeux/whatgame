@@ -16,11 +16,11 @@ import { IoTrashBinSharp as DeleteIcon } from 'react-icons/io5'
 
 
 export const GameMediumCard = ({data}) => {
-  const [ openContent, handleOpenContent ] = useShowContent()
+  const [ openContent, handleOpenContent, animation ] = useShowContent()
   // debugger
   const { dispatch } = useContext( DataContext )
   const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
-  const { name, image, calification, metacritic, rating_star,  slug } = data
+  const { name, image, calification, metacritic, rating_star,  slug, checked } = data
   // debugger
   // debugger
   // debugger
@@ -32,10 +32,7 @@ export const GameMediumCard = ({data}) => {
   } else if(metacritic < 70){
     gameCalification.push(<h2 key={3} className="calification low--rate--color">{ metacritic }</h2>)
   }
-  // debugger
-  const handleLoading = () => {
-    return <h1>LOADING////</h1>
-  }
+
   return (
     <LazyLoadComponent className="game__medium__card" 
     >
@@ -90,7 +87,7 @@ export const GameMediumCard = ({data}) => {
         overlayClassName="Overlay--cards"
         ariaHideApp={false}
       >
-        <CardContent slug={ slug }/>
+        <CardContent values={{ slug, animation, handleOpenContent }}/>
         <CloseIcon 
           className="close--icon"
           onClick={ handleOpenContent }

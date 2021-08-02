@@ -19,6 +19,7 @@ import { GenrePage } from '../components/genres-page/GenrePage'
 import { LoadingComponent } from '../components/loading/LoadingComponent'
 import { GamePage } from '../components/game-page/GamePage'
 import { GamesMap } from '../components/videogames-lists/GamesMap'
+import { FavGamesPage } from '../components/favorite-games-page/FavGamesPage'
 
 
 
@@ -42,6 +43,8 @@ export const GameRouter = () => {
         <Route exact path="/genres" component={ GenrePage }>
         </Route>
         <Route exact path="/search-result" component={ SearchPage }>
+        </Route>
+        <Route exact path="/favorite-games" component={ FavGamesPage }>
         </Route>
       </Switch>
       </Router>

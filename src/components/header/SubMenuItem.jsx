@@ -1,26 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { useFetchGenres } from '../../hooks/useFetchGame';
+import React, { useContext } from 'react'
+import { DataContext } from '../../context/DataFetchContext'
 
-export const SubMenuItem = () => {
-  const { data, loading } = useFetchGenres()
+export const SubMenuItem = ({ handleGenrePage }) => {
+  
+  const { dataGenres } = useContext(DataContext)
+  // const { genreLoading, dataGenre, handleGenrePage } = values
+  // const { dataGenre} = useContext(DataContext)
   // debugger
   return (
-    <ul className="submenu__container">
+    <>
       {
-        data.map(item => (
+        <ul className="sub--menu animate__animated animate__fadeIn">
+      {
+        dataGenres.map(item => ((
           <li 
-            // key={ list.name }
-            className="sub--list--item"
-            // onClick={ handleClickSubmit }
-            >
-              {/* { JSON.parse((item)) } */}
-              {/* <Link to={ list.page } >
-                { list.name }
-              </Link> */}
+            className="sub--menu--item"
+            onClick={ () => handleGenrePage(item.slug) }
+            
+          >
+            { item.name }
           </li>
-        ))
+        )))
       }
     </ul>
+      }
+    </>
   )
 }

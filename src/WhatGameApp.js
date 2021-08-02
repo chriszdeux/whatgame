@@ -12,13 +12,14 @@ export const WhatGameApp = () => {
   const { resultData, loading } = useGetGamesByName( searchGame )
 
   const [stateGenre, setStateGenre] = useState( )
-  const { data, loading: genreLoading } = useFetchGenres()
+  
+  const { data: dataGenres, loading: genreLoading } = useFetchGenres()
   // debugger
   const init = () => {
     return JSON.parse(localStorage.getItem('favoriteGames')) || []
   }
 
-  const [ openContent, handleOpenContent ] = useShowContent()
+  const [ openContent, handleOpenContent, animation ] = useShowContent()
   // debugger
   const [gamesByGenre, setGamesByGenre] = useState( '' )
   
@@ -35,11 +36,12 @@ export const WhatGameApp = () => {
           searchGame, 
           setSearchGame, 
           loading,
-          data,
+          dataGenres,
           genreLoading,
           setStateGenre,
           openContent,
           handleOpenContent,
+          animation,
           gamesByGenre,
           setGamesByGenre,
           favoriteGames,

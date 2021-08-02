@@ -3,15 +3,22 @@ import { useState } from "react"
 export const FavSubmit = ( data, dispatch ) => {
   // e.preventDefault()
   // const newfav = data
-  const [addToggle, setAddToggle] = useState( false )
-
+  const {checked} = data
+   const [addToggle, setAddToggle] = useState( checked )
+  // debugger
   const handleAdd = () => {
     dispatch({
       type: 'add',
-      payload: data
+      payload: data,
+      // checked: !checked
     })
 
-    setAddToggle(!addToggle)
+    setAddToggle({
+      ...data,
+      checked: checked
+    })
+
+    // debugger
   }
 
   const handleRemove = () => {

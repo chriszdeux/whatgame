@@ -15,7 +15,8 @@ import { Pagination } from '../pagination/Pagination'
 
 export const GenrePage = () => {
   // const [gamesByGenre, setGamesByGenre] = useState()
-  const { data, loading } = useFetchGenres()
+  // const { data, loading } = useFetchGenres()
+  const { dataGenres, genreLoading } = useContext(DataContext)
   const {
     handleNextPage, 
     handlePreviousPage, 
@@ -37,7 +38,7 @@ export const GenrePage = () => {
   return (
     <>
       {
-        loading
+        genreLoading
           ? <LoadingComponent />
           : <>
             <main className="genres">

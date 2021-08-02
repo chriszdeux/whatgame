@@ -15,7 +15,7 @@ export const menuList = [
   {
     name: 'Genres',
     content: true,
-    // page: '',
+    // page: '/genres',
     subMenu: true
   },
   {
@@ -28,7 +28,7 @@ export const menuList = [
     name: 'Library',
     content: false,
     // page: '/',
-    // subMenu: false
+    saved: true,
     count: true
   },
 

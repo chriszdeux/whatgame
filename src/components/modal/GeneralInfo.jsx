@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const GeneralInfo = ({ data }) => {
+  // debugger
   const { publishers, released, metacritic, clasification, genre } = data;
   // if(clasification.name || publishers)
   // debugger

@@ -54,6 +54,16 @@ export const Home = () => {
       {/* <div className="hero__text__content">
         <p className="hero--text">{ name }</p>
       </div> */}
+      <div className="home__details">
+        <div className="home--detail--1"></div>
+        <div className="home--detail--2"></div>
+        <div className="home--detail--3"></div>
+      </div>
+      <div className="home__details__reverse">
+        <div className="home--detail--1"></div>
+        <div className="home--detail--2"></div>
+        <div className="home--detail--3"></div>
+      </div>
     </section>
       <GamesMap />
   </>

@@ -25,6 +25,23 @@ a {
   height: 30px;
 }
 
+.btn__primary {
+  width: 15rem;
+  height: 5rem;
+  font-size: var(--main-font-color);
+  border: 1px solid var(--active-color);
+  box-shadow: var(--shadow-button-color);
+  /* animation-name: btn-pulse;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-iteration-count: 5; */
+}
+
+
+.btn__primary:active {
+  transform: scale(1.1);
+  background-color: var(--dark-color);
+}
 .bottom--fade {
   position: absolute;
   bottom: 0;
@@ -83,8 +100,35 @@ body::after {
   font-weight: var(--heavy-font-weight);
   border-radius: 50%;
   background-color: var(--bad-rating-color);
+  animation-name: fav-animation;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
   /* text-align: center; */
   /* font-family: var(--second-font); */
+}
+
+.items--saved--mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  width: 30px;
+  height: 30px;
+  font-size: var(--large-font-size);
+  /* bottom: 0; */
+  margin-left: 1rem;
+  font-weight: var(--heavy-font-weight);
+  border-radius: 50%;
+  background-color: var(--bad-rating-color);
+  /* text-align: center; */
+  /* font-family: var(--second-font); */
+}
+
+.library--count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*ICONS*/
@@ -144,6 +188,12 @@ body::after {
   cursor: pointer;
   transition: .2s ease;
   border-radius: 50%;
+}
+
+.eye--check {
+  font-size: var(--regular-font-size);
+  color: var(--active-color);
+  cursor: pointer;
 }
 
 .dots:hover {
@@ -213,6 +263,70 @@ body::after {
   background: linear-gradient(270deg, rgba(0,0,0,0.41220238095238093) 90%, rgba(255,255,255,1) 100%); */
 }
 
+.to__up {
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.up--arrow {
+  position: absolute;
+  /* position: absolute; */
+  /* position: fixed; */
+  font-size: var(--extra-jumbo-font-size);
+  color: var(--active-color);
+  /* z-index: 2;
+  bottom: 10%;
+  right: 10%; */
+  animation: to-up 4s ease 0s infinite;
+  z-index: 3;
+}
+
+.wave {
+  position: absolute;
+  border: 1px solid var(--active-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  /* position: fixed;
+  bottom: 10%;
+  height: 10%; */
+  animation: wave-animation 4s ease 0s infinite;
+  z-index: 2;
+  /* animation-name: ; */
+}
+.wave2 {
+  position: absolute;
+  border: 1px solid var(--active-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  /* position: fixed;
+  bottom: 10%;
+  height: 10%; */
+  animation: wave-animation2 4s ease .2s infinite;
+  z-index: 2;
+  /* animation-name: ; */
+}
+.wave3 {
+  position: absolute;
+  border: 1px solid var(--active-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  /* position: fixed;
+  bottom: 10%;
+  height: 10%; */
+  animation: wave-animation3 4s ease .4s infinite;
+  z-index: 2;
+  /* animation-name: ; */
+}
+
+
 .left--arrow:active, .right--arrow:active {
   color: var(--active-color);
   transform: scale(1.5);
@@ -251,6 +365,8 @@ body::after {
   /* transition: visibility 0s linear 300ms; */
 }
 
+
+
 /*ANIMATIONS*/
 @keyframes pulse-animation {
   0% {
@@ -265,8 +381,6 @@ body::after {
   }
 }
 
-/*MEDIA QUERIES*/
-
 @keyframes dot-animation {
   0% {
     /* box-shadow: var(); */
@@ -279,8 +393,85 @@ body::after {
   }
 }
 
+@keyframes fav-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes to-up {
+  0% {
+    transform: scale(1);
+    /* opacity: 0; */
+  }
+  70% {
+    transform: scale(1.3);
+    /* opacity: .8; */
+  }
+  100% {
+    transform: scale(1);
+    /* opacity: 1; */
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes wave-animation2 {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+@keyframes wave-animation3 {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+
+@keyframes btn-pulse {
+  0% {
+    box-shadow: var(--shadow-button-color)
+  }
+  50% {
+    box-shadow: var(--box-shadow-color)
+  }
+  100% {
+    box-shadow: var(--shadow-button-color)
+  }
+}
+/*MEDIA QUERIES*/
+
+
 @media only screen and ( min-width: 1024px ){
   .left--arrow, .right--arrow {
     visibility: visible;
+  }
+
+  .close--icon {
+    top: 8%;
+    right: 8%;
   }
 }

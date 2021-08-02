@@ -10,20 +10,24 @@ import { Rating } from './Rating';
 import { Platforms } from './Platforms';
 import { DataContext } from '../../context/DataFetchContext';
 import { LoadingComponent } from '../loading/LoadingComponent';
+import { LoadingComponentSmall } from '../loading/LoadingComponentSmall';
 
 
-export const CardContent = ( { slug } ) => {
+export const CardContent = ( { values } ) => {
+// debugger
+  const { slug, animation } = values
   const { data, loading } = useGetGameDetails( slug );
   const { platforms } = data
   // const { openContent, handleOpenModal } = useContext(DataContext)
-const  [openContent, handleOpenModal] = useShowContent()
+// const { openContent, handleOpenModal } = useContext(DataContext)
+  const [ openContent, handleOpenModal ] = useShowContent()
   // debugger
   return (
-    <div className="card__info">
+    <div className={ `card__info ${ animation }` }>
         {
           loading
-          ? <LoadingComponent data={ slug }/>
-          : <div className="card__hero animate__animated animate__fadeIn">
+          ? <LoadingComponentSmall data={ slug }/>
+          : <div className={ `card__hero ${ animation ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOut' }` }>
               <div className="card__main__content">
                 <HeroImageModal data={ data }/>
                 <GeneralInfo data={ data }/>

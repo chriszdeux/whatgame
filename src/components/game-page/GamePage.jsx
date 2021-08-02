@@ -13,7 +13,7 @@ import { Pagination } from '../pagination/Pagination'
 import { useFullData } from '../../hooks/useFullData'
 import { ShowMoreButton } from '../helpers/ShowMoreButton'
 
-export const GamePage = ( ) => {
+export const GamePage = React.memo(( ) => {
 
   
   const {
@@ -25,6 +25,7 @@ export const GamePage = ( ) => {
     setMyLoad, setCurrentPage,loadMoreGames, setLoadMoreGames } = usePagination( )
     
   const { data, loading } = useFetchGames( page )
+  
   const {moreLoad, pagination, fullData} = useFullData( data )
   // debugger
   const {next}  = !!pagination && pagination
@@ -42,7 +43,7 @@ export const GamePage = ( ) => {
   // useEffect(() => {
   //   setFullLoad( moreLoad.flat().filter(item => {return item !== undefined}) )
   // }, [ data ])
-
+  // addToggle
   // debugger
   return (
     
@@ -68,4 +69,4 @@ export const GamePage = ( ) => {
       }
             </>
   )
-}
+})

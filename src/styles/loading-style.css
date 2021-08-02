@@ -9,6 +9,28 @@
   background-color: var(--dark-gray);
   /* filter: blur(20px); */
 }
+.loading__component__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark-gray);
+  /* filter: blur(20px); */
+}
+
+/* .loading__component__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark-gray);
+} */
 
 .animation__container {
   display: flex;
@@ -467,5 +489,17 @@ background: linear-gradient(270deg, rgba(19,19,19,1) 85%, rgba(37,243,251,0.5074
   }
   100% {
     background-color: lightskyblue;
+  }
+}
+
+
+/*
+MEDIA QUERIES
+*/
+
+@media only screen and (min-width: 1024px){
+  .loading__component__container {
+    width: 70%;
+    height: 70%;
   }
 }

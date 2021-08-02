@@ -11,9 +11,9 @@ import { DataContext } from '../../context/DataFetchContext';
 
 export const Header = () => {
   
-  // const [openContent, handleOpenContent] = useShowContent()
+  const [openContent, handleOpenContent, animation] = useShowContent()
   
-  const { openContent, handleOpenContent, favoriteGames } = useContext(DataContext)
+  // const { openContent, handleOpenContent, animation } = useContext(DataContext)
   // debugger
   return (
     <header className="main__container">
@@ -34,7 +34,6 @@ export const Header = () => {
             
 
         }
-        
         <Modal
           isOpen={ openContent }
           onRequestClose={ handleOpenContent }
@@ -42,7 +41,7 @@ export const Header = () => {
           className="Modal--menu"
           overlayClassName="Overlay"
         >
-          <MenuList handleOpenContent={handleOpenContent}/>
+          <MenuList values={{handleOpenContent, animation}}/>
           
         </Modal>
         <Navbar />
