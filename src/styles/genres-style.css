@@ -55,7 +55,7 @@
 .genre__games__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .genre__card:hover {

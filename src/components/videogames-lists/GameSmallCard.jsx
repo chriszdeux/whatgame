@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import Horizon from '../../assets/horizon.jpg';
 import { useShowContent } from '../../hooks/useShowContent';
@@ -17,19 +17,30 @@ export const GameSmallCard = ({data}) => {
   // const { resizeImage } = useResizeImage()
   // const { lowImage, loading } = useResizeImage(image)
   // debugger
-  return (
-    // <article className="game__small__card">
-      
-      <figure 
-        className="game__small__container"
-      >
+  const [delayImage, setDelayImage] = useState()
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDelayImage(
         <LazyLoadImage 
-          className="game--image--small" 
+          className="game--image--small animate__animated animate__fadeIn" 
           src={ image } 
           alt={ name }
           onClick={ handleOpenModal } 
           effect="opacity"
         />
+      )
+    }, 1000);
+  }, [ data ])
+  return (
+    // <article className="game__small__card">
+      
+      <figure 
+        className="game__small__container animate__animated animate__fadeIn"
+      >
+        {
+          delayImage
+        }
 
         <Modal
           isOpen={ openContent }

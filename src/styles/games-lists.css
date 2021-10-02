@@ -42,6 +42,8 @@
 .cards__container {
   display: flex;
   position: relative;
+  flex-wrap: nowrap;
+  /* background-color: #333333; */
   /* width: 100%; */
   /* height: 400px; */
   /* padding: 30px 0; */
@@ -54,8 +56,17 @@
   justify-content: space-between;
   scroll-behavior: smooth;
   transition: ease;
-  height: 35rem;
+  height: 22rem;
   align-items: center;
+  /* border: 3px solid rgb(0,0,0);
+  ;
+  border: 3px solid inear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(157,99,99,1) 45%, rgba(236,149,149,1) 48%, rgba(154,97,97,1) 51%, rgba(0,0,0,1) 100%); */
+  padding: 1rem;
+  animation-name: border-loading;
+  animation-timing-function: ease;
+  animation-iteration-count: 10;
+  animation-duration: .5s;
+  
   /* padding-left: 10px;
   padding-right: 10px; */
   /* border: 1px solid red; */
@@ -97,14 +108,34 @@
   color: red;
 } */
 .game__small__container {
+  background-color: #292929;
   position: relative;
-  min-width: 200px;
-  min-height: 300px;
+  width: 20rem;
+  height:25rem;
   margin-right: 15px;
   transition: .3s ease;
   opacity: 0.9;
+  flex-shrink: 0;
+  animation-name: loading-card;
+  animation-iteration-count: 10;
+  animation-duration: 3s;
+  will-change: auto;
+  animation-timing-function: ease-in;
 }
 
+@keyframes loading-card {
+  0%{
+    background-color: #292929;
+  }
+  50%{
+    background-color: #2b2b2b;
+    
+  }
+  100% {
+    background-color: #292929;
+
+  }
+}
 /* .game__small__container:first-child {
   padding-left: 10px;
 }
@@ -112,12 +143,23 @@
 .game__small__container:last-child {
   padding-right: 30px;
 } */
+
+/* .lazy-load-image-background.opacity.lazy-load-image-loaded {
+  width: inherit;
+  height: inherit;
+} */
+
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+  width: inherit;
+  height: inherit;
+}
+
 .game--image--small {
   cursor: pointer;
   width: 100%;
-  height: 350px;
+  height: inherit;
   object-fit: cover;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* animation-name: zoom-image;
   animation-duration: 45s;
   animation-iteration-count: 3;
@@ -139,8 +181,8 @@
   background-color: var(--dark-gray-color);
   width: 100%;
   min-height: 80px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  /* border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
   /* animation-duration: 3s; */
   /* animation-iteration-count: 1; */
   opacity: 0;
@@ -154,7 +196,7 @@
 
 .game__small__container:hover{
   /* border: 2px solid var(--active-color); */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   transform: scale(1.1);
   /* padding: 30px 0; */
   /* margin: 0 50px; */
@@ -230,15 +272,16 @@
 
 .game__medium__container {
   position: relative;
-  width: auto;
-  height: 35.2rem;
+  width: 100%;
+  height: 25rem;
   /* margin: 1px; */
   /* transition: transform, .5s; */
   transition: .2s ease;
   opacity: 0.8;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  transition: .4s ease;
+  overflow: hidden;
+  /* border: 1px solid var(--border-color);
+  border-radius: 10px; */
+  /* transition: .4s ease; */
   /* box-shadow: var(--box-shadow-color); */
 }
 
@@ -272,12 +315,13 @@
   font-size: var(--extra-large-font-size);
   font-weight: var(--heavy-font-weight);
   background-color: var(--dark-gray-color);
-  border: 1px solid var(--active-color);
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  /* border: 1px solid var(--active-color); */
+  /* border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px; */
   color: var(--second-font-color);
   transition: 2.5s ease;
   border-bottom: none;
+  text-align: center;
 }
 
 .game__medium__container:hover .game--medium--name {
@@ -286,10 +330,10 @@
 }
 .game--image--medium {
   width: 100%;
-  height: 350px;
+  height: inherit;
   object-fit: cover;
   object-position: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* animation-name: zoom-image;
   animation-duration: 45s;
   animation-iteration-count: 3;
@@ -477,7 +521,7 @@
 
 .game__medium__container:hover {
   /* border: 2px solid var(--active-color); */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   transform: translateY(-3rem);
   /* width: 100vw;
   height: 100vh; */
@@ -571,15 +615,15 @@
   }
 
   .cards__container {
-    min-height: 400px;
+    /* height: 30rem; */
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .game__small__container {
   
-    min-width: 550px;
-    min-height: 300px;
+    width: 25rem;
+    height: 20rem;
   }
   
   .cards__medium__container {

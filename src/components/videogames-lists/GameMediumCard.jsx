@@ -48,7 +48,10 @@ export const GameMediumCard = ({data}) => {
         />
         
       <div className="game__content animate__animated animate__fadeIn">
-        <h2 className="list--title">{ name }</h2>
+        {
+          !openContent &&
+          <h2 className="list--title">{ name }</h2>
+        }
         <div className="card__medium__info">
           {
             gameCalification
@@ -73,7 +76,7 @@ export const GameMediumCard = ({data}) => {
 
         </div>
       </div>
-        
+            
       <div className="game--medium--name animate__animated animate__fadeIn">{ name }</div>
 
         {/* <InteractiveButtons /> */}
@@ -83,7 +86,7 @@ export const GameMediumCard = ({data}) => {
         isOpen={ openContent }
         // onAfterOpen={ handleToggleContent }
         onRequestClose={ handleOpenContent }
-        className="Modal"
+        className="Modal animate__animated animate__fadeIn"
         overlayClassName="Overlay--cards"
         ariaHideApp={false}
       >

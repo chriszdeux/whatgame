@@ -5,6 +5,7 @@ export const LoadingComponentSmall = ({data}) => {
   // debugger
   // const { searchGame } = data
   const cleanData = !!data && data.replace(/-/gi, ' ')
+  // debugger
   return (
     <div className="loading__component__container">
       <div className="animation__container">

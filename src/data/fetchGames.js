@@ -24,7 +24,8 @@ export const GetGames = async ( page ) => {
     //  debugger
     // const { results, next, previous } = await response.json();
     // debugger
-    const response = await fetch(tempPage)
+    const response = await fetch(`${tempPage}&ordering=-rating`)
+    // debugger
     const {results, next, previous, count} = await response.json()
     // debugger
     const response2 = await fetch(next);

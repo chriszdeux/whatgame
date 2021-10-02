@@ -17,10 +17,12 @@ export const MenuItem = ({list}) => {
   const { scrollTop } = useScrollTop()
   const history = useHistory()
 
+  const [openSubMenu, setOpenSubMenu] = useState(false)
   const handleGenrePage = ( genre ) => {
     // debugger
     setGamesByGenre( genre )
     // debugger
+    setOpenSubMenu(false)
     history.push('./genres', null)
     return <LoadingComponent />
   }
@@ -30,11 +32,10 @@ export const MenuItem = ({list}) => {
 
   // debugger
   // debugger
-  const [openSubMenu, setOpenSubMenu] = useState(false)
 
   const handleOpenSubMenu = () => {
     scrollTop()
-    setOpenSubMenu(!openContent)
+    setOpenSubMenu(!openSubMenu)
 
   }
   return (
@@ -65,7 +66,7 @@ export const MenuItem = ({list}) => {
               </Link>
           }
           {
-            !genreLoading && list.subMenu && <SubMenuItem handleGenrePage={ handleGenrePage }/>
+            openSubMenu &&  <SubMenuItem handleGenrePage={ handleGenrePage }/>
             
           }
       </li>

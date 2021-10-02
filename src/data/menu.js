@@ -27,7 +27,7 @@ export const menuList = [
   {
     name: 'Library',
     content: false,
-    // page: '/',
+    page: 'favorite-games',
     saved: true,
     count: true
   },

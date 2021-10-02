@@ -16,7 +16,7 @@ export const useFetchGames = ( pagination ) => {
             data: game,
             loading: false
           })
-        }, 2000);
+        }, 1000);
       })
   }, [ pagination ])
   // debugger
@@ -37,7 +37,7 @@ export const useFetchGenres = () => {
             data: genre,
             loading: false
           })
-        }, 2000);
+        }, 1000);
       })
   }, [ ])
   // debugger
@@ -58,7 +58,7 @@ export const useGamesByGenre = ( genre ) => {
             data: listGame,
             loading: false
           })
-        }, 3000);
+        }, 1000);
       })
   }, [ genre ])
   // debugger
@@ -79,7 +79,7 @@ export const useGetGameDetails = ( game ) => {
             data: dataGame,
             loading: false
           })
-        }, 2000);
+        }, 1000);
       })
     }, [ game ]);
     // debugger
@@ -100,7 +100,7 @@ export const useGetScreenshots = ( game ) => {
             screenshotData: screenshot,
             loading: false
           })
-        }, 3000);
+        }, 1000);
       })
 
   }, [ game ])
@@ -130,7 +130,7 @@ export const useGetGamesByName = ( searchInput ) => {
             data: result,
             loading: false
           })
-        }, 3000);
+        }, 1000);
       })
   }, [ searchInput ])
 // debugger

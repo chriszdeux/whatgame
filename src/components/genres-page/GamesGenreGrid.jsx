@@ -41,6 +41,13 @@ export const GamesGenreGrid = (  ) => {
   useEffect(() => {
     setLoadMoreGames(false)
   }, [ fullData ])
+
+  const [buttonLoad, setButtonLoad] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setButtonLoad(false)
+    }, 2000);
+  }, [])
   // debugger
   return (
     <>
@@ -66,7 +73,9 @@ export const GamesGenreGrid = (  ) => {
           {/* </InfiniteScroll> */}
         {/* <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/> */}
         </section>
-        <ShowMoreButton myData={ {next, handleNextPage, loadMoreGames} }/>
+        {
+          !buttonLoad && <ShowMoreButton myData={ {next, handleNextPage, loadMoreGames} }/>
+        }
         </>
     }
     </>
