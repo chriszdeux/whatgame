@@ -31,6 +31,9 @@ export const GamePage = React.memo(( ) => {
   const {next}  = !!pagination && pagination
   // const results = !loading && data[0]
   // debugger
+  // const {next}  = !!pagination && pagination
+  // const results = !loading && data[0]
+  debugger
   useEffect(() => {
     setMyLoad(false)
     setLoadMoreGames(true)

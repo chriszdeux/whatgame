@@ -159,7 +159,11 @@
   width: 100%;
   height: inherit;
   object-fit: cover;
+<<<<<<< HEAD
   /* border-radius: 10px; */
+=======
+  border-radius: 10px;
+>>>>>>> bbdf9a031204f64e5410cb8401133e2d20ee9dc0
   /* animation-name: zoom-image;
   animation-duration: 45s;
   animation-iteration-count: 3;
@@ -333,7 +337,11 @@
   height: inherit;
   object-fit: cover;
   object-position: center;
+<<<<<<< HEAD
   /* border-radius: 10px; */
+=======
+  border-radius: 10px;
+>>>>>>> bbdf9a031204f64e5410cb8401133e2d20ee9dc0
   /* animation-name: zoom-image;
   animation-duration: 45s;
   animation-iteration-count: 3;
@@ -526,7 +534,11 @@
   /* width: 100vw;
   height: 100vh; */
   box-shadow: var(--card-shadow-color); 
+<<<<<<< HEAD
   /* padding-top: 2rem; */
+=======
+ 
+>>>>>>> bbdf9a031204f64e5410cb8401133e2d20ee9dc0
   /* border: 1px solid var(--active-color); */
   opacity: 1;
   z-index: 1;

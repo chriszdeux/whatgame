@@ -15,7 +15,7 @@ export const menuList = [
   {
     name: 'Genres',
     content: true,
-    // page: '/genres',
+    // page: '',
     subMenu: true
   },
   {

@@ -451,7 +451,11 @@
     width: 100%;
     height: 4rem;
     border: none;
+<<<<<<< HEAD
     /* border-radius: 10px; */
+=======
+    border-radius: 10px;
+>>>>>>> bbdf9a031204f64e5410cb8401133e2d20ee9dc0
     padding: 0 1rem;
     box-shadow: var(--box-shadow-color);
   }
