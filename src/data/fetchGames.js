@@ -135,7 +135,7 @@ export const getGamesByGenre = async ( genre ) => {
     }
   })
   // debugger
-  return [gameByGenre, next2, previous, count]
+  return {gameByGenre, next2, previous, count}
   } catch (error) {
     console.error(new Error(error))
   }

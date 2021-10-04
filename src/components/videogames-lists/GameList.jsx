@@ -10,6 +10,8 @@ import { LoadingComponent } from '../loading/LoadingComponent';
 export const GameList = ({ genre: { slug, name } }) => {
   
   const { data, loading } = useGamesByGenre( slug )
+  const { gameByGenre } = !!data && data
+  // debugger
   // const handleScrollVertical = () => {
   //   return window.scroll({
   //     righ: 200,
@@ -31,6 +33,9 @@ const handleLeftArrow = ( moveToRight  ) => {
 
   }, [ data ])
   // debugger
+  if(loading === false) {
+    // debugger
+  }
   return (
     <section className="main__container games__list animate__animated animate__fadeIn">
       <h2 className="list--title">Best <span className="highlight--text">{ name }</span> Games</h2>
@@ -51,7 +56,7 @@ const handleLeftArrow = ( moveToRight  ) => {
           {
             loading
               ? <LoadingComponent />
-              : data[0].map(data => (
+              : gameByGenre.map(data => (
                 <GameSmallCard key={ data.slug } data={ data }/>
               ))
           }

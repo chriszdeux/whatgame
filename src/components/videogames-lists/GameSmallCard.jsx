@@ -12,7 +12,8 @@ import { useResizeImage } from '../../hooks/useFetchGame';
 export const GameSmallCard = ({data}) => {
   const [openContent, handleOpenModal, animation] = useShowContent()
   // debugger
-  const { image, name, slug } = data;
+  // debugger
+  const { image, name, slug } =   data;
   // debugger
   // const { resizeImage } = useResizeImage()
   // const { lowImage, loading } = useResizeImage(image)
@@ -22,25 +23,24 @@ export const GameSmallCard = ({data}) => {
   useEffect(() => {
     setTimeout(() => {
       setDelayImage(
-        <LazyLoadImage 
-          className="game--image--small animate__animated animate__fadeIn" 
-          src={ image } 
-          alt={ name }
-          onClick={ handleOpenModal } 
-          effect="opacity"
-        />
+       
       )
     }, 1000);
   }, [ data ])
+  // debugger
   return (
     // <article className="game__small__card">
       
       <figure 
         className="game__small__container animate__animated animate__fadeIn"
       >
-        {
-          delayImage
-        }
+         <LazyLoadImage 
+          className="game--image--small animate__animated animate__fadeIn" 
+          src={ image } 
+          alt={ name }
+          onClick={ handleOpenModal } 
+          effect="opacity"
+        />
 
         <Modal
           isOpen={ openContent }
