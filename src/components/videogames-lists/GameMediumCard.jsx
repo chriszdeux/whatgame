@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
 import Horizon from '../../assets/horizon.jpg';
 import { RatingStar } from '../modal/RatingStar';
@@ -21,9 +21,11 @@ export const GameMediumCard = ({data}) => {
   const { dispatch } = useContext( DataContext )
   const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
   const { name, image, calification, metacritic, rating_star,  slug, checked } = data
+  const [show, setShow] = useState(true)
   // debugger
   // debugger
   // debugger
+
   let gameCalification = []
   if(metacritic >= 90 ) {
     gameCalification.push(<h2 key={1} className="calification high--rate--color">{ metacritic }</h2>)
@@ -76,8 +78,10 @@ export const GameMediumCard = ({data}) => {
 
         </div>
       </div>
-            
-      <div className="game--medium--name animate__animated animate__fadeIn">{ name }</div>
+      {
+        show &&
+        <div className="game--medium--name animate__animated animate__fadeIn">{ name }</div>
+      }   
 
         {/* <InteractiveButtons /> */}
         {/* <div className="bottom--fade"></div> */}

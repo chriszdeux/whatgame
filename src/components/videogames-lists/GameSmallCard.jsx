@@ -15,19 +15,22 @@ export const GameSmallCard = ({data}) => {
   // debugger
   const { image, name, slug } =   data;
   // debugger
+  // debugger
   // const { resizeImage } = useResizeImage()
   // const { lowImage, loading } = useResizeImage(image)
   // debugger
-  const [delayImage, setDelayImage] = useState()
+  // const [delayImage, setDelayImage] = useState()
 
-  useEffect(() => {
-    setTimeout(() => {
-      setDelayImage(
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setDelayImage(
        
-      )
-    }, 1000);
-  }, [ data ])
+  //     )
+  //   }, 1000);
+  // }, [ data ])
   // debugger
+
+  // lazy-load-image-background opacity lazy-load-image-loaded
   return (
     // <article className="game__small__card">
       
@@ -35,7 +38,7 @@ export const GameSmallCard = ({data}) => {
         className="game__small__container animate__animated animate__fadeIn"
       >
          <LazyLoadImage 
-          className="game--image--small animate__animated animate__fadeIn" 
+          className="game--image--small" 
           src={ image } 
           alt={ name }
           onClick={ handleOpenModal } 

@@ -110,7 +110,7 @@
 .game__small__container {
   background-color: #292929;
   position: relative;
-  width: 20rem;
+  width: 15rem;
   height:25rem;
   margin-right: 15px;
   transition: .3s ease;
@@ -121,6 +121,18 @@
   animation-duration: 3s;
   will-change: auto;
   animation-timing-function: ease-in;
+}
+.game__small__container .game--image--small {
+  cursor: pointer;
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  /* border-radius: 10px; */
+  /* animation-name: zoom-image;
+  animation-duration: 45s;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+  animation-timing-function: linear; */
 }
 
 @keyframes loading-card {
@@ -144,30 +156,14 @@
   padding-right: 30px;
 } */
 
-.game__small__container .lazy-load-image-background.opacity.lazy-load-image-loaded {
-  width: inherit;
-  height: inherit;
-}
 
 
-.game--image--small {
-  cursor: pointer;
-  width: 100%;
-  height: inherit;
-  object-fit: cover;
-  /* border-radius: 10px; */
-  /* animation-name: zoom-image;
-  animation-duration: 45s;
-  animation-iteration-count: 3;
-  animation-direction: alternate;
-  animation-timing-function: linear; */
-}
 
 .game--name {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--large-font-size);
+  font-size: var(--regular-font-size);
   color: var(--active-color);
   position: absolute;
   bottom: 0%;
@@ -595,6 +591,12 @@
 /*LIST CARDS QUERYS*/
 
 /*SEARCH QUERYS*/
+
+@media only screen and ( min-width: 736px ) {
+  .cards__medium__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media only screen and (min-width: 768px) {
   .cards__medium__container {
     display: grid;
@@ -613,18 +615,25 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .game__small__container {
+  /* .game__small__container {
   
     width: 25rem;
     height: 20rem;
   }
-  
+   */
   .cards__medium__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }  
 
 
+}
+
+@media only screen and ( min-width: 1366px ) {
+  .game__small__container {
+    width: 30rem;
+    height: 20rem;
+  }
 }
 
 @media only screen and (min-width: 1920px) {
