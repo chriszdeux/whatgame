@@ -21,67 +21,70 @@ export const SearchPage = () => {
   }, [ searchGame ])
 
   const { data, loading } = useGetGamesByName( page )
-  const { moreLoad, pagination, fullData, setMoreLoad } = useFullData(data)
-  // const {next} = !data && data[1]
   // debugger
-  const { next } = !!pagination && pagination
-  useEffect(() => {
-    setMyLoad(loading)
-  }, [ data ])
+  // useEffect(() => {
+  //   setMyLoad(true)
+  // }, [data])
+  // const { dataGame } = !!data && data
+  const { moreLoad, pagination, fullData, setMoreLoad } = useFullData(!!data && data)
+// debugger
+   
+useEffect(() => {
+  setMoreLoad([])
+}, [ searchGame ])
 
+  // const [cleanGames, setCleanGames] = useState([])
+  // const {next} = !data && data[1]
+  const { next } = !!pagination && pagination
+  // useEffect(() => {
+  //   setMyLoad(loading)
+    
+  // }, [ data ])
+  
   // useEffect(() => {
     
-  // }, [ loading ])
-
-  useEffect(() => {
-    // setCurrentPage(1)
-    setMyLoad(true)
-    setMoreLoad([])
-    setLoadMoreGames(false)
-  }, [searchGame])
-
-  useEffect(() => {
-    setLoadMoreGames(false)
-  }, [ fullData ])
-  
-  // debugger
-  // debugger
-  let cleanedGames = [] 
-  
-  if(data[0]) {
-    // debugger
-    cleanedGames = data[0].filter(game => {
-        // console.log(game.slug)
-      // debugger
-      if (game.slug.includes(searchGame)) return game.rating_star >= 1
-    })
-  }
-
-  // const handleLoadingMoreGames = () => {
-
-  // }
-
-  // for(let i = 1; i <=10; i++) {
-  //   pages.push(i);
-  // }
-  // debugger
-  
-  return (
+    // }, [ loading ])
+ 
     
-      <>
+    useEffect(() => {
+      setMyLoad(true)
+      setLoadMoreGames(true)
+    }, [data])
+    
+    useEffect(() => {
+      // setMyLoad(false)
+      setLoadMoreGames(false)
+    }, [ fullData ])
+    
+    // debugger
+    // debugger
+    // debugger
+    
+    // const handleLoadingMoreGames = () => {
+      
+      // }
+      
+      // for(let i = 1; i <=10; i++) {
+        //   pages.push(i);
+        // }
+        // debugger
+        
+        return (
+          
+          <>
       {
-        myLoad 
-          ? <LoadingComponent data={ searchGame }/>
-          : <section className="second__container games__list">
-          <ResultHeader page={ page }/> 
-          <div className="cards__medium__container">
+        loading 
+        ? <LoadingComponent data={ searchGame }/>
+        : <section className="second__container games__list">
+          <ResultHeader searchGame={ searchGame }/> 
+          <div className="games__container">
               {
                 fullData.map( data => (
                   <GameMediumCard key={ data.id.toString() }  className="animate__animated animate__fadeIn" data={ data }/>
                 ))
               }
             </div>
-            <ShowMoreButton className="animate__animated animate__fadeIn" myData={ {next, handleNextPage, loadMoreGames} }/>
+            <ShowMoreButton className="animate__animated animate__fadeIn" values={ {next, handleNextPage, loadMoreGames} }/>
             {/* <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/> */}
             </section>
       }

@@ -50,6 +50,8 @@
   background-color: var(--background-menu-color);
   box-shadow: var(--dark-shadow-color);
   font-size: var(--large-font-size);
+  overflow-y: scroll;
+  behavior: smooth;
   /* animation: fadeInRight;
   animation-duration: .7s; */
 }
@@ -72,8 +74,8 @@
   align-items: center;
   margin: 50px 0;
   /* background-color: var(--border-color); */
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
   transition: .4s ease;
   /* box-shadow: var(--box-shadow-color); */
 }
@@ -129,6 +131,10 @@
   font-size: var(--jumbo-font-size);
   color: var(--second-font-color);
 }
+
+.menu__list .btn__primary {
+  font-size: var(--large-font-size);
+}
 .list--item {
   display: flex;
   position: relative;
@@ -144,6 +150,14 @@
   /* position: relative; */
   /* position: relative; */
 }
+
+.list--sub {
+  width: 100%;  
+  height: auto;
+  position: relative;
+  height: 2rem;
+}
+
 
 .list--item--icon{
   display: flex;
@@ -183,7 +197,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   position: absolute;
-  bottom: -20rem;
+  top: 5rem;
   width: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -205,6 +219,23 @@
   transition: .3s ease;
   color: var(--active-color);
 }
+
+.sub__menu__genres .genre--item {
+  width: 10rem;
+  transition: .5s ease;
+  cursor: pointer;
+  /* text-align: center; */
+  color: var(--second-font-color);
+  font-size: var(--extra-large-font-size);
+}
+
+.sub__menu__genres .genre--item:hover {
+  /* color: red; */
+  color: var(--active-color);
+  transform: translateY(-1rem);
+  font-weight: var(--heavy-font-weight);
+  /* font-size: var(--large-font-size); */
+} 
 
 .sub--menu {
   display: grid;
@@ -246,7 +277,7 @@
 /* .submenu:hover .sub--menu {
 } */
 
-.list--item a:hover {
+.list--item :hover {
   color: var(--active-color);
   font-weight: var(--heavy-font-weight);
   /* border-bottom: 1px solid var(--active-color); */
@@ -292,6 +323,11 @@
 
 .fav--game:hover .eye--check {
   opacity: 1;
+}
+
+.fav--game:hover {
+  /* color: red; */
+  transform: translateX(1rem);
 }
 
 .count__container {

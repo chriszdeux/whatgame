@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { usePagination } from '../../hooks/usePagination'
 
-export const ShowMoreButton = ( {myData} ) => {
-  const { handleNextPage, loadMoreGames, next } = !!myData && myData
+export const ShowMoreButton = ( {values} ) => {
+  const { handleNextPage, loadMoreGames, next, refGames } = !!values && values
+    // debugger
+   
     // debugger
   return (
     <div className="scroll__more">
       <button 
         className="show--more"
         onClick={() => handleNextPage(next)}
-        eslint-disable-next-line 
+        // eslint-disable-next-line 
         // className={ myLoad &&'loading--button--animation'  }
       >{
         loadMoreGames

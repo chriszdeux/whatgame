@@ -6,16 +6,21 @@ import { useShowContent } from '../../hooks/useShowContent';
 import '../../styles/favorite-games-page.css'
 import { GeneralInfo } from '../modal/GeneralInfo';
 import { RatingStar } from '../modal/RatingStar';
-import { FaArrowAltCircleUp as GoUp } from 'react-icons/fa';
 import Modal from 'react-modal';
 import { CardContent } from '../modal/CardContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
+import { GameMediumCard } from '../videogames-lists/GameMediumCard';
+import { ScrollTop } from '../helpers/ScrollTop';
+import { BackgroundAnimation } from '../animations/BackgroundAnimation';
+import { cleanup } from '@testing-library/react';
 
 
 export const FavGamesPage = () => {
   
 
   const { favoriteGames } = useContext( DataContext )
+  // const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
+  // debugger
   const { scrollTop } = useScrollTop()
   // const [favList, setFavList] = useState(favoriteGames)
   const [favGame, setFavGame] = useState()
@@ -25,10 +30,16 @@ export const FavGamesPage = () => {
   const [ openContent, handleOpenContent, animation ] = useShowContent()
   // debugger
   const [slug, setSlug] = useState()
+  const [removeRepeatElement, setRemoveRepeatElement] = useState([])
 
 
-
-
+  useEffect(() => {
+    setRemoveRepeatElement([...new Set(favoriteGames)])
+    // return () => {
+    //   cleanup(remove)
+    // }
+  }, [favoriteGames])
+  // debugger
   const handleFavGameImage = ( game ) => {
     
     handleOpenContent()
@@ -56,26 +67,20 @@ export const FavGamesPage = () => {
     // scrollTop()
   }, [  ])
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [ favGame ])
+  // }, [ favGame ])
   // debugger
   return (
     <>
       <section className="favorite__page">
       
-      <h2 className="favorite--games--title">Favorite Games</h2>
-      <div className="fav__games__container">
+      <h2 className="favorite--games--title">Favorite Games: { favoriteGames.length }</h2>
+      <div className="games__container">
         {
            
-          favoriteGames.map(item => (
-            <figure
-              id={ `${item.name}` } 
-              className="fav__content animate__aniamted animate__fadeIn"
-              onClick={ () => handleFavGameImage(item) }
-            >
-              <img className="fav--image" src={item.image} alt="" />
-            </figure>
+           removeRepeatElement.map(data => (
+            <GameMediumCard key={ data.id }  className="animate__animated animate__fadeIn" data={ data }/>
             
           ))
         }
@@ -110,15 +115,12 @@ export const FavGamesPage = () => {
           <RatingStar rating_star={ rating_star } />
         </div>
       }      */}
-      <div className="to__up">
-        <GoUp 
-          className="up--arrow"
-          onClick={ handleToTop } 
-        />
-        <div className="wave"></div>
-        <div className="wave2"></div>
-        <div className="wave3"></div>
-      </div>
+      {
+        favoriteGames.length > 10 &&
+        <ScrollTop />
+      }
+      <BackgroundAnimation />
+
     </section>
     </>
   )

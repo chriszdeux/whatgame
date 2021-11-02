@@ -3,12 +3,12 @@ import { OrderBy } from './OrderBy';
 import { SuggestionsSearch } from './SuggestionsSearch';
 
 import '../../styles/game-page-style.css';
-export const ResultHeader = ( {page} ) => {
+export const ResultHeader = ( {searchGame} ) => {
   // debugger
   return (
     <form className="result">
       <div className="header__result">
-        <h3 className="list--title">Search <span className="highlight--text">{ page }</span></h3>
+        <h3 className="list--title">Search <span className="highlight--text">{ searchGame }</span></h3>
         <OrderBy />
       </div>
       {/* {

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export const GeneralInfo = ({ data }) => {
   // debugger
+  // console.log('general--info')
   const { publishers, released, metacritic, clasification, genre } = data;
   // if(clasification.name || publishers)
   // debugger

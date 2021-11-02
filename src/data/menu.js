@@ -19,17 +19,18 @@ export const menuList = [
     subMenu: true
   },
   {
-    name: 'API',
-    content: false,
-    page: '/',
-    subMenu: false
-  },
-  {
     name: 'Library',
     content: false,
     page: 'favorite-games',
     saved: true,
     count: true
+  },
+  {
+    name: 'API',
+    content: false,
+    page: '/api',
+    subMenu: false,
+    // link: 'https://rawg.io/apidocs'
   },
 
   // {

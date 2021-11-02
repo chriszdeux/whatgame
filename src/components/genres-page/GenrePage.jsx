@@ -16,7 +16,7 @@ import { Pagination } from '../pagination/Pagination'
 export const GenrePage = () => {
   // const [gamesByGenre, setGamesByGenre] = useState()
   // const { data, loading } = useFetchGenres()
-  const { dataGenres, genreLoading } = useContext(DataContext)
+  const { dataGenres, genreLoading, gamesByGenre } = useContext(DataContext)
   const {
     handleNextPage, 
     handlePreviousPage, 
@@ -41,16 +41,18 @@ export const GenrePage = () => {
         genreLoading
           ? <LoadingComponent />
           : <>
-            <main className="genres">
+            <section className="genres">
               {/* <h2 className="genres--title">Genres</h2> */}
               {/* <HomeImage 
                 className="genre__home__img" 
                 data={ data }
-                />       */}
+              />       */}
               <div className="hero__text__content">
+              <h2 className="genre--title">{ gamesByGenre }</h2>
                 {/* <p className="hero--text">{ name }</p> */}
               </div>
-            </main>
+                <GamesGenreGrid />
+            </section>
 
           {/* <GenresGrid gamesByGenre={ gamesByGenre }/> */}
           {/* {
@@ -63,7 +65,6 @@ export const GenrePage = () => {
             ))
           } */}
           {/* <GamesGenreGrid slug={ slug } /> */}
-          <GamesGenreGrid />
           </>
       }
     </>

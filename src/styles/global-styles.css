@@ -23,8 +23,38 @@ a {
   align-items: center;
   width: 20%;
   height: 30px;
+  text-decoration: none;
 }
 
+.title {
+  font-size: var(--extra-jumbo-font-size);
+  color: var(--active-color);
+  margin: 1rem 0;
+}
+
+.subtitle {
+  font-size: var(--extra-large-font-size);
+  color: var(--active-color);
+  margin: 1rem 0;
+}
+
+.paragraph {
+  font-size: var(--large-font-size);
+  text-align:center;
+  color: var(--main-font-color);
+  margin: 1rem 0;
+}
+
+.warning {
+  font-size: var(--regular-font-size);
+  color: var(--active-color); 
+  text-align: center;
+  margin: 3rem;
+}
+
+.slider {
+  
+}
 .btn__primary {
   width: 15rem;
   height: 5rem;
@@ -71,6 +101,12 @@ body::after {
 
 .main__container {
   width: 100%;
+  margin: 0 auto;
+}
+
+.main__container .list--title {
+  text-align: start;
+  /* margin-left: 1rem; */
 }
 
 .second__container {
@@ -113,8 +149,8 @@ body::after {
   justify-content: center;
   align-items: center;
   /* position: absolute; */
-  width: 30px;
-  height: 30px;
+  width: 4rem;
+  height: 4rem;
   font-size: var(--large-font-size);
   /* bottom: 0; */
   margin-left: 1rem;

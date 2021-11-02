@@ -6,7 +6,7 @@ import { GenreCard } from './GenreCard'
 export const GenresGrid = (  ) => {
   
   const { data, gamesByGenre } = useContext( DataContext )
-  // debugger
+  debugger
   return (
     <section className="genre__grid animate__animated animate__fadeIn">
         {

@@ -11,10 +11,29 @@ export const WhatGameApp = () => {
   const [ searchGame, setSearchGame ] = useState( );
   const { resultData, loading } = useGetGamesByName( searchGame )
 
+
+  
+
+
   const [stateGenre, setStateGenre] = useState( )
   
-  const { data: dataGenres, loading: genreLoading } = useFetchGenres()
+  const { genresData, genreCollection } = useFetchGenres();
+  const { data: dataGenres, loading:genreLoading } = genresData
   // debugger
+  // const {data: dataGenres, loading: genreLoading,  genreCollection} = useFetchGenres();
+  // debugger
+
+  // const [allGenresGames, setAllGenresGames] = useState([])
+
+  // const handleAllGenresGames = (data) => {
+  //   setAllGenresGames(c => [...c, {
+
+  //   }].filter(item => item !== undefined))
+  // }
+  // const { data: dataGenres, loading: genreLoading } = useFetchGenres();
+  console.log(dataGenres)
+  // debugger
+  // console.log(dataGenres)
   const init = () => {
     return JSON.parse(localStorage.getItem('favoriteGames')) || []
   }
@@ -28,6 +47,7 @@ export const WhatGameApp = () => {
   useEffect(() => {
     localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames))
   }, [ favoriteGames ])
+  // debugger
   return (
     <>
       <DataContext.Provider value={ 
@@ -45,7 +65,11 @@ export const WhatGameApp = () => {
           gamesByGenre,
           setGamesByGenre,
           favoriteGames,
-          dispatch
+          dispatch,
+          genreCollection
+          // genreData
+          // allGenresGames,
+          // handleAllGenresGames
         } 
         }>
         <GameRouter />

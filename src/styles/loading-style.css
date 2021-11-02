@@ -110,12 +110,14 @@
   font-family: var(--second-font);
   font-size: var(--large-font-size);
   color: var(--active-color);
+  margin: 1rem;
   animation-name: loading;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-delay: .3s;
   opacity: 0;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .animation__small__container {
@@ -212,6 +214,8 @@
   will-change: content;
   animation-delay: 1.2s;
 }
+
+
 
 @keyframes demoAnimation {
   0% {

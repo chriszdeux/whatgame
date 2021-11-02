@@ -6,6 +6,7 @@
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
+  z-index: 0;
   /* position: relative; */
   /* position: absolute;
   top: 0; */
@@ -43,20 +44,33 @@
 .hero__text__content {
   display: flex;
   justify-content: center;
-  /* align-items: flex-end; */
-  position: absolute;
-  bottom: 100px;
+  align-items: center;
   width: 100%;
-  position: relative;
+  /* height: 2rem; */
+  height: 5rem;
+  margin-top: 6rem;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: flex-end; */
+  /* position: absolute; */
+  /* bottom: 100px; */
+  /* position: relative; */
+      /* border: 1px solid red; */
   /* height: 300px; */
   /* font-size: 24px; */
+}
+
+.hero__img__content .list--title {
+  margin: 0;
 }
 
 .hero--text {
   /* height: 150px; */
   width: 100%;
   position: absolute;
+  /* left: 50%; */
   bottom: 20%;
+  /* transform: translateX(-50%); */
   text-align: center;
   font-size: var(--extra-jumbo-font-size);
   color: var(--main-font-color);
@@ -70,9 +84,14 @@
 .home__animation {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
+}
+
+.hero__img__container .home__animation {
+
 }
 
 .home__details {
@@ -106,7 +125,8 @@
   /* background-color: lightblue; */
   background-color: var(--active-color);
   animation-name: intro;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 10;
+  animation-fill-mode: forwards;
   animation-duration: 3s;
   transition: ease;
 }
@@ -119,6 +139,8 @@
   animation-duration: 3s;
   animation-delay: .5s;
   transition: ease;
+  animation-iteration-count: 10;
+  animation-fill-mode: forwards;
 }
 .home--detail--3 {
   width: 50rem;
@@ -130,6 +152,8 @@
   animation-duration: 3s;
   animation-delay: 1s;
   transition: ease;
+  animation-iteration-count: 10;
+  animation-fill-mode: forwards;
 }
 
 /*------------------*/
@@ -159,13 +183,22 @@
   width: 100vw;
   padding: 0 30px;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   color: white;
   font-size: var(--regular-font-size);
   animation: fadeIn;
   /* animation-delay: 3s; */
   animation-duration: 2s;
   z-index: 2;
+}
+
+.check__now p {
+  transition: ease .2s;
+  cursor: pointer;
+}
+
+.check__now p:hover {
+  color: var(--active-color);
 }
 
 /*HERO QUERIES*/

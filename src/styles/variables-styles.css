@@ -7,16 +7,17 @@
   --background-menu-color: rgba(1, 1, 1, 0.876);
   --overlay-color: #1d1e20;
   --border-color: #19d4da6b;
+  --card-bg-color: #292929;
   
   /* --active-color: #25f4fb78; */
   --active-color: #25F3FB;
   --active-shadow-color: rgba(37, 243, 251, 0.3);
   /* rating colors */
   --rating-stars-color: #fcf082;
-  --high-rating-color: #78BB68;
-  --medium-rating-color: #edf59b;
-  --low-rating-color: #e98f5b;
-  --bad-rating-color: #e07171;
+  --high-rating-color: #49753e;
+  --medium-rating-color: #b6be5c;
+  --low-rating-color: #aa6035;
+  --bad-rating-color: #bb4848;
 
   
   /* fonts */
@@ -41,7 +42,7 @@
   --box-shadow-color: 0 0 4px 2px #476768e3;
   --dark-shadow-color: -9px 0 15px 10px var(--dark-color);
   --dark-shadow-color2: -9px 0 25px 25px var(--dark-color);
-  --card-shadow-color: -20px 0 11px 4px var(--dark-color);
+  --card-shadow-color: 7px 9px 9px -3px var(--dark-color);
 
   /* --animate-delay: 2s; */
 

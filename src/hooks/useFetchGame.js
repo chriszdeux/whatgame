@@ -2,46 +2,82 @@ import { useEffect, useRef, useState } from "react"
 import { getDetailsGame, GetGames, getGamesByGenre, getGenreGames, getGameScreenshots, getGameByName, resizeFile } from "../data/fetchGames"
 
 export const useFetchGames = ( pagination ) => {
+  const isMounted = useRef(true)
+  
   const [dataGame, setDataGame] = useState({
     data: [],
     loading: true
   })
 
+    useEffect(() => {
+      return () => {
+        isMounted.current = false
+      }
+    }, [])
   useEffect(() => {
     // debugger
     GetGames( pagination )
       .then(game => {
         setTimeout(() => {
-          setDataGame({
-            data: game,
-            loading: false
-          })
-        }, 1000);
+          if(isMounted.current) {
+            setDataGame({
+              data: game,
+              loading: false
+            })
+          }
+        }, 0);
       })
+
+      
   }, [ pagination ])
   // debugger
   return dataGame
 }
 
 export const useFetchGenres = () => {
-  const [dataGenres, setDataGenres] = useState({
+  const [genresData, setGenresData] = useState({
     data: [],
     loading: true
   })
 
+  const [genreCollection, setGenreCollection] = useState([])
+  const isMounted = useRef(true)
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false
+    }
+  }, [  ])
   useEffect(() => {
     getGenreGames()
       .then(genre => {
         setTimeout(() => {
-          setDataGenres({
-            data: genre,
-            loading: false
-          })
-        }, 1000);
+          if(isMounted.current) {
+            setGenresData({
+              data: genre,
+              loading: false
+            })
+          }
+        }, 0);
       })
   }, [ ])
+
+  useEffect(() => {
+    setTimeout(() => {
+      genresData.data.map(item => {
+        getGamesByGenre(item.slug)
+          .then(item2 => {
+            setGenreCollection(c => [...c, {
+              id: item.id,
+              genre: item.name,
+              data: item2
+            }])
+          })
+      })
+    }, 0);
+  }, [ genresData.data ])
   // debugger
-  return dataGenres
+  return {genresData, genreCollection}
 }
 
 export const useGamesByGenre = ( genre ) => {
@@ -49,18 +85,26 @@ export const useGamesByGenre = ( genre ) => {
     data: [],
     loading: true
   })
+  const isMounted = useRef(true)
 
   useEffect(() => {
+    return () => {
+      isMounted.current = false
+    }
+  }, [  ])
+  useEffect(() => {
+    setTimeout(() => {
     getGamesByGenre(genre)
       .then(listGame => {
-        setTimeout(() => {
-          setGamesByGenreData({
-            data: listGame,
-            loading: false
-          })
-        }, 1000);
-      })
-  }, [ genre ])
+          if(isMounted.current) {
+            setGamesByGenreData({
+              data: listGame,
+              loading: false
+            })
+          }
+        })
+      }, 3000);
+      }, [ genre ])
   // debugger
   return gamesByGenreData
 }
@@ -70,16 +114,27 @@ export const useGetGameDetails = ( game ) => {
     data: { },
     loading: true
   })
+  const isMounted = useRef(true)
 
+  useEffect(() => {
+    return () => {
+      isMounted.current = false
+    }
+  }, [  ])
   useEffect(() => {
     getDetailsGame(game)
       .then(dataGame => {
         setTimeout(() => {
-          setGameDetails({
-            data: dataGame,
-            loading: false
-          })
-        }, 1000);
+          if(isMounted.current) {
+            console.log(`mounted`)
+            setGameDetails({
+              data: dataGame,
+              loading: false
+            })
+          } else {
+            console.log(`dismounted`)
+          }
+        }, 0);
       })
     }, [ game ]);
     // debugger
@@ -87,20 +142,27 @@ export const useGetGameDetails = ( game ) => {
 }
 
 export const useGetScreenshots = ( game ) => {
+  const isMounted = useRef(true)
   const [screenshots, setScreenshot] = useState({
     screenshotData: [],
     loading: true
   })
-
+  useEffect(() => {
+    return () => {
+      isMounted.current = false
+    }
+  }, [  ])
   useEffect(() => {
     getGameScreenshots( game )
       .then(screenshot => {
         setTimeout(() => {
-          setScreenshot({
-            screenshotData: screenshot,
-            loading: false
-          })
-        }, 1000);
+          if(isMounted.current) {
+            setScreenshot({
+              screenshotData: screenshot,
+              loading: false
+            })
+          }
+        }, 0);
       })
 
   }, [ game ])
@@ -126,11 +188,13 @@ export const useGetGamesByName = ( searchInput ) => {
     getGameByName( searchInput )
       .then(result => {
         setTimeout(() => {
-          setResultData({
-            data: result,
-            loading: false
-          })
-        }, 1000);
+          if(isMounted.current) {
+            setResultData({
+              data: result,
+              loading: false
+            })
+          }
+        }, 0);
       })
   }, [ searchInput ])
 // debugger
@@ -155,3 +219,19 @@ export const useGetGamesByName = ( searchInput ) => {
 //   // debugger
 //   return resizeImage
 // }
+
+// setTimeout(() => {
+  //   genre.map(item => {
+  //     getGamesByGenre(item.slug)
+  //       .then(item2 => {
+  //         setGenreCollection({
+  //           data:[...data, {
+  //             genre_title: item.name,
+  //             array: item2.dataGames
+  //             // loading: true
+  //           }],
+  //           loading: false
+  //         })
+  //       })
+  //   })
+  // }, 2000);

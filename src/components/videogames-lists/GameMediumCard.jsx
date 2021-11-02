@@ -34,10 +34,14 @@ export const GameMediumCard = ({data}) => {
   } else if(metacritic < 70){
     gameCalification.push(<h2 key={3} className="calification low--rate--color">{ metacritic }</h2>)
   }
-
+  console.log('medium--card')
+  // debugger
   return (
     <LazyLoadComponent className="game__medium__card" 
     >
+      {/* <li className="game__medium__container"> */}
+      <li className="game__medium__container">
+
       <figure className="game__medium__container">
         <LazyLoadImage 
           // placeholderSrc="../../assets/horizon.jpg"
@@ -47,7 +51,7 @@ export const GameMediumCard = ({data}) => {
           
           // beforeLoad={ () => handleLoading() }
           // visibleByDefault={ image.src === '../../assets/horizon.jpg' }
-        />
+          />
         
       <div className="game__content animate__animated animate__fadeIn">
         {
@@ -62,17 +66,17 @@ export const GameMediumCard = ({data}) => {
           <CgArrowsExpandUpRight 
             className="dots"
             onClick={ handleOpenContent }
-          />
+            />
           
           {
             !addToggle 
             ? <AddIcon 
-              className="add--icon"
-              onClick={ handleAdd }
+            className="add--icon"
+            onClick={ handleAdd }
             />
             : <DeleteIcon 
-              className="add--icon"
-              onClick={ handleRemove }
+            className="add--icon"
+            onClick={ handleRemove }
             />
           }
 
@@ -86,6 +90,8 @@ export const GameMediumCard = ({data}) => {
         {/* <InteractiveButtons /> */}
         {/* <div className="bottom--fade"></div> */}
       </figure>
+      </li>
+      {/* </li> */}
       <Modal
         isOpen={ openContent }
         // onAfterOpen={ handleToggleContent }

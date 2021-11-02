@@ -1,14 +1,28 @@
 .genres {
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   height: auto;
   /* position: absolute; */
-  margin: 3px solid red;
+  /* margin: 3px solid red; */
 }
 
-.genres--title {
+.genres .home__animation {
+  z-index: -1;
+}
+/* .genres--title {
   position: absolute;
   font-size: var(--jumbo-font-size);
   z-index: 1;
+  color: var(--second-font);
+} */
+
+
+
+
+.genres .list--title {
+  margin-top: 8rem;
+  padding-left: 1rem;
+  color: var(--second-font-color);
 }
 
 .genre__home__image {
@@ -16,6 +30,13 @@
   /* width: 50%; */
 }
 
+
+.genre--title {
+  font-size: var(--extra-large-font-size);
+  text-transform: capitalize;
+  color: var(--active-color);
+  letter-spacing: 5px;
+}
 
 
 .genre__grid {
@@ -109,6 +130,6 @@
   } */
 
   .genre__games__grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }

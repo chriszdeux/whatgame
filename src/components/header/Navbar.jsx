@@ -13,6 +13,7 @@ import { useShowContent } from '../../hooks/useShowContent';
 import { DataContext } from '../../context/DataFetchContext';
 import { Link } from 'react-router-dom';
 import { SubMenuFavGames } from './SubMenuFavGames';
+import { cleanup } from '@testing-library/react';
 
 export const Navbar = ( ) => {
   const [openContent, handleOpenContent] = useShowContent(false)
@@ -27,7 +28,11 @@ export const Navbar = ( ) => {
   }
 
   useEffect(() => {
-    setRenderFavGames( <span className="items--saved">{ favoriteGames.length }</span>)
+    const myFavGames =  setRenderFavGames( <span className="items--saved">{ favoriteGames.length }</span>)
+
+    return () => {
+      cleanup(myFavGames)
+    }
   }, [ favoriteGames.length ])
 
 
@@ -35,8 +40,8 @@ export const Navbar = ( ) => {
     <nav className="navbar">
       <ul className="navbar__container">
       {
-        menuList.map( list => (
-          <MenuItem list={ list }/>
+        menuList.map( (list, index) => (
+          <MenuItem key={ index } list={ list }/>
         ))
       }
       

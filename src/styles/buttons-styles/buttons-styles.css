@@ -1,4 +1,15 @@
 
+.btn {
+  width: 15rem;
+  height: 5rem;
+  font-size: var(--regular-font-size);
+  font-weight: var(--heavy-font-weight);
+  letter-spacing: 2px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-button-color);
+  background-color: var(--border-color);
+  color: var(--main-font-color);
+}
 
 .submit--button {
   width: 150px;

@@ -17,7 +17,7 @@ export const Rating = ({data }) => {
     // console.log(orderingRating)
   }, [ data ])
   // const {}
-
+  // console.log('rating')
   // debugger
   return (
       <div className="game__char__rating">
@@ -28,7 +28,7 @@ export const Rating = ({data }) => {
           <ul className="game__char">
             {
               orderingRating.map(rating => (
-                <li key={  rating.id } className={ `game--${rating.title}` } style={{width: `${rating.percent}%`}}></li>
+                <li key={  rating.id } className={ `game--${rating.title} percent` } style={{width: `${rating.percent}%`}}></li>
               ))
             }
 
@@ -36,7 +36,11 @@ export const Rating = ({data }) => {
           <ul className="rating__tags">
             {
               orderingRating.map(rating => (
-                <li key={rating.id} className="rating--tag"> {rating.title} <div className={ `square--${rating.title}` }></div></li>
+                <li key={rating.id} className="rating--tag"> {rating.title}:  
+                <div className={ `square--${rating.title}` }>
+                </div>
+                { rating.percent }%
+                </li>
               ))
             }
           </ul>

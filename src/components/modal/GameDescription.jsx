@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export const GameDescription = ({ data }) => {
   const { description } = data;
+  // console.log('game--description')
+  // useEffect(() => {
+  // }, [data])
   // debugger
   return (
     <div id="description--game" className="game__description animate__animated animate__fadeIn">

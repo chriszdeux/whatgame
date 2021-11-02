@@ -1,16 +1,20 @@
 import { useState } from "react"
 
-export const usePagination = ( ) => {
+export const usePagination = ( ref ) => {
   
   const [page, setPage] = useState( '' )
   const [currentPage, setCurrentPage] = useState( 1 )
   const [myLoad, setMyLoad] = useState( true )
   const [loadMoreGames, setLoadMoreGames] = useState(false)
   // debugger
+  
   const handleNextPage = ( page ) => {
+    // 
+    // ref.current
     if(page){
     setPage( page )
     setLoadMoreGames(true)
+    // debugger
     // setCurrentPage(currentPage + 1)
     // setMyLoad(true)
   }

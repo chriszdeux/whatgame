@@ -6,20 +6,21 @@ export const useFullData = ( data ) => {
   const [pagination, setPagination] = useState()
   // debugger
   useEffect(() => {
-    setMoreLoad(c => [...c, data[0]])
-    // debugger
+    setMoreLoad(c => [...c, data.dataGames])
     setPagination({
-      next: data[1],
-      previous: data[2],
-      count: data[3],
+      next: data.next,
+      previous: data.previous,
+      count: data.count,
       // fullData: moreLoad.flat().filter(item => {return item !== undefined})
     })
+    // debugger
     // debugger
   }, [ data ])
   
   useEffect(() => {
-    setFullData(moreLoad?.flat().filter(item => {return item !== undefined}))
+    setFullData(moreLoad.flat().filter(item => {return item !== undefined}))
   }, [ moreLoad ])
-  // debugger
+  
+  
   return { moreLoad, pagination, fullData, setMoreLoad }
 }

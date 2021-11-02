@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/loading-style.css';
 
 export const LoadingComponent = ({data}) => {
   // debugger
   // const { searchGame } = data
-  const cleanData = !!data && data.replace(/-/gi, ' ')
+  const [cleanData, setCleanData] = useState();
+
+  useEffect(() => {
+    setCleanData(data && data.replace(/-/gi, ' '))
+  },[ data ])
+  // const cleanData = !!data && data.replace(/-/gi, ' ')
   // debugger
   return (
     <div className="loading__container">

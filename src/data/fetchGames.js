@@ -2,12 +2,13 @@ import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 
 const mainUrl = `https://api.rawg.io/api/`;
-const api_key = 'key=566bbd60217a466287e5e182d0437bc8';
+const api_key = 'key=35df8dd5d9ad4572b98e6f1e95d73c3e';
 const queryGame = 'games?';
 const queryGenres = 'genres?';
 const urlGamePage = `${mainUrl}${queryGame}${api_key}&page_size=40`;
-
+const randomPage = Math.floor(Math.random()* 100) + 1;
 export const GetGames = async ( page ) => {
+  // debugger
   let tempPage = ''
   try {
     // const response = await fetch( 
@@ -24,14 +25,15 @@ export const GetGames = async ( page ) => {
     //  debugger
     // const { results, next, previous } = await response.json();
     // debugger
-    const response = await fetch(`${tempPage}&ordering=-rating`)
+    const response = await fetch(`${tempPage}&ordering=-metacritic`)
     // debugger
     const {results, next, previous, count} = await response.json()
     // debugger
-    const response2 = await fetch(next);
-    const { results:results2, next:next2 } = await response2.json()
+    // debugger
+    // const response2 = await fetch(next);
+    // const { results:results2, next:next2 } = await response2.json()
     // const {next, previous} = data
-    let mixGames = [...results, ...results2]
+    let mixGames = [...results]
     const randomResult = results[Math.floor( Math.random() * results.length )]
     // debugger
     const dataGames = mixGames.map(game => {
@@ -60,7 +62,7 @@ export const GetGames = async ( page ) => {
 
     // debugger
     // debugger
-    return [dataGames, next2, previous, randomResult, count]
+    return {dataGames, next, previous, randomResult, count}
     // return [dataGame, nextPage, previousPage]
     // return [dataGame, next, previous]
     
@@ -76,7 +78,7 @@ export const getGenreGames = async () => {
     const response = await fetch(`${mainUrl}${queryGenres}${api_key}`);
   const { results } = await response.json();
   
-  const dataGenres = results.map(genre => {
+  const dataGames = results.map(genre => {
     return {
       id: genre.id,
       slug: genre.slug,
@@ -85,11 +87,67 @@ export const getGenreGames = async () => {
       image: genre.image_background
     }
   })
+  let genreCollection = []
+
+  const handleGamesByGenre = async ( genre ) => {
+    const resp = await fetch(`${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&ordering=-metacritic`)
+    const {results} = await resp.json()
+    const tempResults = {
+      genre: genre,
+      dataByGenre: results
+    }
+
+    return genreCollection.push(tempResults)
+    // return results
+    // debugger
+    // return  genreCollection
+  }
+  const temp = dataGames.forEach(item=> {
+    // debugger
+    return  handleGamesByGenre(item.slug)
+  });
   
-  return dataGenres
+  console.log(genreCollection)
+  // const dataGenreCollection = await dataGames.map(async (item) => {
+  //   const temp = await handleGamesByGenre(item.slug).then(item => {
+  //     return {
+  //       genre: item.slug,
+  //       genreData: item
+  //     }
+  //   })
+  //   // debugger
+
+  //   return temp
+  //   // debugger
+  // })
+  // debugger
+  // let gettingGamesByGenre
+  // setTimeout(() => {
+  //    gettingGamesByGenre = dataGames.map((item) => {
+    
+  //     const myData = fetch(`${mainUrl}${queryGame}${api_key}&genres=${item.slug}&page_size=40&ordering=-metacritic`).then((data) => data.json().catch((error) => console.log(error)))
+  //     debugger
+  //     // gettingGamesByGenre = [...myData]
+  //     // const myData = data.map(item => {
+  //     //   console.log(item)
+  //     // })
+  //     // const myPromise = data.then(item => {
+  //     //   console.log(item)
+  //     // })
+  //     // return data
+  //   })
+    
+  // }, 2000);
+  // console.log(gettingGamesByGenre)
+  // debugger
+  // debugger
+  // console.log(gettingGamesByGenre)
+  // debugger
+  return dataGames
   } catch (error) {
     console.error(error)
   }
+  
 }
 
 export const getGamesByGenre = async ( genre ) => {
@@ -102,23 +160,24 @@ export const getGamesByGenre = async ( genre ) => {
       // debugger
       // debugger
     } else {
-      genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page=1&page_size=40`
+      genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&ordering=-metacritic`
       // debugger
     }    
     // debugger
     const response = await fetch( genreInput );
     // debugger
     const { results, next, previous, count } = await response.json();
+    // debugger
     
     
     
-    const response2 = await fetch(next);
-    const { results: results2, next: next2 } = await response2.json()
+    // const response2 = await fetch(next);
+    // const { results: results2, next: next2 } = await response2.json()
     // debugger
-    const mixResults = [...results, ...results2]
+    const mixResults = [...results]
     // debugger
     // debugger
-  const gameByGenre = mixResults.map( listGame => {
+  const dataGames = mixResults.map( listGame => {
     return {
       name: listGame.name,
       slug: listGame.slug,
@@ -135,7 +194,7 @@ export const getGamesByGenre = async ( genre ) => {
     }
   })
   // debugger
-  return {gameByGenre, next2, previous, count}
+  return {dataGames, previous, count, next}
   } catch (error) {
     console.error(new Error(error))
   }
@@ -201,12 +260,16 @@ export const getGameByName = async ( searchInput ) => {
   const response = await fetch(inputSearch)
   const { results, next, previous } = await response.json();
 
-  const response2 = await fetch(next)
-  const {results: results2, next: next2} = await response2.json()
+  // const response2 = await fetch(next)
+  // const {results: results2, next: next2} = await response2.json()
 
-  const mixResults = [...results, ...results2]
+  const mixResults = [...results]
   // debugger
-  const searchResult = mixResults.map( result => {
+  const dataGames = mixResults.filter(item => {
+    // debugger
+    return item.rating > 1
+  }).map( result => {
+    // debugger
     return {
       id: result.id,
       name: result.name,
@@ -219,7 +282,9 @@ export const getGameByName = async ( searchInput ) => {
       checked: false
     }
   })
-  return [searchResult,next2, previous]
+
+  // debugger
+  return {dataGames,next, previous}
   } catch (error) {
     console.error(error)
   }

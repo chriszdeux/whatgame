@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../context/DataFetchContext';
 import { menuList } from '../../data/menu';
@@ -29,9 +29,16 @@ export const MenuItem = ({list}) => {
 
 
   const [ openContent, handleOpen ] = useShowContent()
+  const mounted = useRef(true)
+  // debugger
+  // debugger
 
-  // debugger
-  // debugger
+  useEffect(() => {
+  
+    return () => {
+      mounted.current = false
+    }
+  }, [ openContent ])
 
   const handleOpenSubMenu = () => {
     scrollTop()
@@ -52,6 +59,7 @@ export const MenuItem = ({list}) => {
         >
           {/* { JSON.parse((item)) } */}
           {
+            mounted.current &&
             (!list.subMenu) 
             ? <Link 
                 to={ list.page }

@@ -13,6 +13,7 @@ import { SubMenuItem } from './SubMenuItem';
 import { LoadingComponent } from '../loading/LoadingComponent';
 import { useHistory } from 'react-router';
 import { ListGenresMobile } from './ListGenresMobile';
+import { ApiComponent } from '../api-component/ApiComponent';
 
 
 export const ListItem = ( { handleOpenContent } ) => {
@@ -26,7 +27,7 @@ export const ListItem = ( { handleOpenContent } ) => {
   const handleClickSubmit = (e) => {
     e.preventDefault()
     handleOpenContent(false)
-    console.log('click')
+    // console.log('click')
     scrollTop()
     // unmountComponentAtNode(document.getElementById('root'));
 
@@ -44,10 +45,12 @@ export const ListItem = ( { handleOpenContent } ) => {
   const [sliceFavList, setSliceFavList] = useState(favoriteGames)
 
   useEffect(() => {
-    setSliceFavList(sliceFavList.slice(0,6))
+    const sliceFav = setSliceFavList(sliceFavList.slice(0,6))
+    return () => {
+      clearImmediate(sliceFav)
+    }
   }, [ favoriteGames.length ])
-
-  // const favGameListSliced = favoriteGames.slice(0, 6)
+    // const favGameListSliced = favoriteGames.slice(0, 6)
   const { show, show2 } = showComponent
   // debugger
   const handleShow = () => {
@@ -85,13 +88,13 @@ export const ListItem = ( { handleOpenContent } ) => {
   return (
     <ul className="menu__list">
       {
-        menuList.map(({name, page, subMenu, count, saved}) => (
+        menuList.map(({name, page, subMenu, count, saved, link}) => (
           (saved)
            ? <li 
               key={name}
               className="list--item"
               onClick={ handleShow }  
-            > {name}!!
+            > {name}
               <span className="items--saved--mobile"> { favoriteGames.length }</span>
               {
                 show && <FavGames 
@@ -122,7 +125,7 @@ export const ListItem = ( { handleOpenContent } ) => {
         { name }
       </li> */}
           <li key={genreList}
-            className="list--item"
+            className="list--sub"
             onClick={ handleShow2 }
           >
             { genreList }
@@ -130,7 +133,9 @@ export const ListItem = ( { handleOpenContent } ) => {
                show2 && <ListGenresMobile values={{ changeAnimation2, handleGenrePage }}/>
                
              }
-          </li>    
+          </li>
+
+
     </ul>
   )
 }

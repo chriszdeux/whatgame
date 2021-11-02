@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GameSmallCard } from './GameSmallCard';
 import '../../styles/games-lists.css';
 import { useGamesByGenre } from '../../hooks/useFetchGame';
@@ -6,61 +6,114 @@ import { IoIosArrowBack as LeftArrow, IoIosArrowForward as RightArrow } from 're
 
 import { ArrowsSelectors } from './ArrowsSelectors';
 import { LoadingComponent } from '../loading/LoadingComponent';
+import { LoadingText } from '../loading/LoadingText';
+import { ScrollTop } from '../helpers/ScrollTop';
+import { Slider } from '../helpers/Slider';
+import { FixedSizeList } from 'react-window';
+import { DataContext } from '../../context/DataFetchContext';
+import { cleanup } from '@testing-library/react';
+
+
 // import { ListItem } from '../header/ListItem';
-export const GameList = ({ genre: { slug, name } }) => {
-  
-  const { data, loading } = useGamesByGenre( slug )
-  const { gameByGenre } = !!data && data
+export const GameList = ({ genre: { genre, data, id } }) => {
+  const { dataGames } = !!data && data
+  // const { genreCollection, genreLoading } = useContext(DataContext)
   // debugger
-  // const handleScrollVertical = () => {
+  // const { data, loading } = useGamesByGenre( slug )
+  // const [collectData, setCollectData] = useState([])
+  // if(genreCollection.length > 0) {
+  //   debugger
+  // }
+  // debugger
+  const [fullLoad, setFullLoad] = useState(true)
+
+  // useEffect(() => {
+  // }, [ genreCollection ])
+  const refSlider = useRef()
+  
+  
+  useEffect(() => {
+    const settingLoading = setTimeout(() => {
+      setFullLoad(!fullLoad)
+    }, 2000);
+
+    return () => {
+      cleanup(settingLoading)
+    }
+  }, [  ])
+
+  // debugger
+  // const { dataGames } = !!data && data
+  // debugger
+  // const { 
+  //   allGenresGames,
+  //   handleAllGenresGames } = useContext(DataContext)
+
+  // useEffect(() => {
+  //   setCollectData(c => [...c, dataGames])
+  //   // handleAllGenresGames(data)
+  // }, [data])
+
+  // useEffect(() => {
+  //   console.log('GAMES--MAP')
+  // }, [])
+  // debugger
+  // console.log(allGenresGames)
+  // if(collectData.length > 10) {
+  //   console.log(collectData)
+  //   debugger
+  // }
+
+ 
+  // const memoData = React.memo( handleData )
+  // const handleScrollVertical = () =>   {
   //   return window.scroll({
   //     righ: 200,
   //     behavior: 'smooth'
   //   })
   // }
   // debugger
-  const ref = useRef( null )
 
-  const handleRightArrow = ( moveToLeft  ) => {
-  ref.current.scrollLeft += moveToLeft;
-}
-
-const handleLeftArrow = ( moveToRight  ) => {
-  ref.current.scrollLeft -= moveToRight;
-}
-  
-  useEffect(() => {
-
-  }, [ data ])
   // debugger
-  if(loading === false) {
-    // debugger
-  }
+  // useEffect(() => {
+
+  // }, [ data ])
+  // // debugger
+  // if(loading === false) {
+  //   // debugger
+  // }
+  // debugger
   return (
-    <section className="main__container games__list animate__animated animate__fadeIn">
-      <h2 className="list--title">Best <span className="highlight--text">{ name }</span> Games</h2>
+    <section 
+      className=" games__list animate__animated animate__fadeIn"
+    >
+      <h2 className="list--title">Best <span className="highlight--text">{ genre }</span> Games</h2>
       {/* <button onClick={() => handleScroll(1000) }>Click to move</button> */}
           {/* <div className="cards__container" ref={ ref }> */}
         {/* <ArrowsSelectors handleRightArrow={ {
           handleRightArrow,  handleLeftArrow
         }}/> */}
-          <LeftArrow 
-            className="left--arrow"
-            onClick={ () => handleLeftArrow(1100) }
-          />
-          <RightArrow 
-            className="right--arrow"
-            onClick={ () => handleRightArrow(1100) }
-          />
-          <div className="cards__container" ref={ ref }>
+          
+
+        {/* debugger */}
+
+        <Slider refSlider={refSlider}/>
+          <ul
+            className="cards__container"
+            // width={`100%`}
+            // height={500}
+            // itemSize={160}
+            // itemCount={ data.length } 
+            ref={ refSlider }
+          >
           {
-            loading
-              ? <LoadingComponent />
-              : gameByGenre.map(data => (
-                <GameSmallCard key={ data.slug } data={ data }/>
+            fullLoad
+              ? <LoadingText />
+              : dataGames.map(item => (
+                <GameSmallCard key={ item.slug } item={ item }/>
               ))
           }
-          </div>
+          </ul>
           {/* </div> */}
     </section>
   )

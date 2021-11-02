@@ -14,7 +14,7 @@ export const ListDropDown = () => {
           ? <LoadingComponent />
           : dataGenres.map(({id, name}) => (
             <li key={id} className="list--item">
-              <Link>{ name }</Link>
+              <Link to="/genres">{ name }</Link>
             </li>
           ) )
       }

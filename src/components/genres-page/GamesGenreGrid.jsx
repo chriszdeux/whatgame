@@ -8,6 +8,7 @@ import { GameMediumCard } from '../videogames-lists/GameMediumCard'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ShowMoreButton } from '../helpers/ShowMoreButton'
 import { useFullData } from '../../hooks/useFullData'
+import { BackgroundAnimation } from '../animations/BackgroundAnimation'
 
 
 export const GamesGenreGrid = (  ) => {
@@ -24,23 +25,25 @@ export const GamesGenreGrid = (  ) => {
   }, [ gamesByGenre ])
     
   const { data, loading } = useGamesByGenre( page )
-  // debugger
+  // const { dataGames } = !!data && data 
   const {moreLoad, pagination, fullData, setMoreLoad} = useFullData( !!data && data )
-  const { next } = !!pagination && pagination
-
+  // debugger
   useEffect(() => {
-    setMyLoad(loading)
-  }, [ data ])
-
-  useEffect(() => {
-    setMyLoad(true)
     setMoreLoad([])
-    setLoadMoreGames(true)
   }, [ gamesByGenre ])
+  // debugger
+  const { next, count } = !!pagination && pagination
+  // debugger
+  useEffect(() => {
+    setMyLoad(false)
+    setLoadMoreGames(true)
+    
+  }, [ data ])
 
   useEffect(() => {
     setLoadMoreGames(false)
   }, [ fullData ])
+
 
   const [buttonLoad, setButtonLoad] = useState(true)
   useEffect(() => {
@@ -51,12 +54,14 @@ export const GamesGenreGrid = (  ) => {
   // debugger
   return (
     <>
-      <h2 className="list--title">{ gamesByGenre }</h2>
     {
-      myLoad
-        ? <LoadingComponent />
-        :<>
-        <section id="scrollableDiv" className="genre__games__grid second__container animate__animated animate__fadeIn">
+      loading
+      ? <LoadingComponent />
+      :<>
+        
+        <div id="scrollableDiv" className="genres animate__animated animate__fadeIn">
+          <ul className="games__container">
+
           {/* <InfiniteScroll
              dataLength={data[0].length}
              next={ () => setNextPage(next) }
@@ -64,7 +69,7 @@ export const GamesGenreGrid = (  ) => {
              loader={<h4>Loading...</h4>}
              scrollableTarget="scrollableDiv"
              
-          > */}
+            > */}
          {
            fullData.map(data => (
              <GameMediumCard key={ data.id } data={ data }/>
@@ -72,10 +77,14 @@ export const GamesGenreGrid = (  ) => {
             }
           {/* </InfiniteScroll> */}
         {/* <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/> */}
-        </section>
+            </ul>
         {
-          !buttonLoad && <ShowMoreButton myData={ {next, handleNextPage, loadMoreGames} }/>
+          fullData.length > 0 &&
+          <ShowMoreButton values={ {next, handleNextPage, loadMoreGames} }/>
         }
+        <BackgroundAnimation />
+        </div>
+        
         </>
     }
     </>
