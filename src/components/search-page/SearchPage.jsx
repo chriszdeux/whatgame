@@ -10,6 +10,7 @@ import { Pagination } from '../pagination/Pagination'
 import { usePagination } from '../../hooks/usePagination'
 import { useFullData } from '../../hooks/useFullData'
 import { ShowMoreButton } from '../helpers/ShowMoreButton'
+import { BackgroundAnimation } from '../animations/BackgroundAnimation'
 
 export const SearchPage = () => {
   const { searchGame } = useContext( DataContext )
@@ -77,15 +78,16 @@ useEffect(() => {
         ? <LoadingComponent data={ searchGame }/>
         : <section className="second__container games__list">
           <ResultHeader searchGame={ searchGame }/> 
-          <div className="games__container">
+          <ul className="games__container">
               {
-                fullData.map( data => (
-                  <GameMediumCard key={ data.id.toString() }  className="animate__animated animate__fadeIn" data={ data }/>
+                fullData.map( (data, index) => (
+                  <GameMediumCard key={ data.id.toString() }  className="animate__animated animate__fadeIn" values={{ data, index }}/>
                 ))
               }
-            </div>
+            </ul>
             <ShowMoreButton className="animate__animated animate__fadeIn" values={ {next, handleNextPage, loadMoreGames} }/>
             {/* <Pagination pagination={{ handleNextPage, handlePreviousPage, currentPage, next, previous }}/> */}
+            <BackgroundAnimation />
             </section>
       }
             </>

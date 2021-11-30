@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export const useShowContent = ( initialState = false ) => {
   const [openContent, setOpenContent] = useState(initialState);
-  const [animation, setAnimation] = useState(false)
+  const [animation, setAnimation] = useState(false);
+
+  // const { handle } = useContext(contextValue)
   const handleOpenContent = () => {
     setAnimation(!animation)
     setTimeout(() => {

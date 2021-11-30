@@ -57,7 +57,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
       />
       {/* <Link to="/genres"> 
       </Link> */}
-      <SearchButton />
+      {/* <SearchButton /> */}
     </form>
         </>
   )

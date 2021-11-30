@@ -39,8 +39,9 @@ a {
 }
 
 .paragraph {
-  font-size: var(--large-font-size);
+  font-size: var(--regular-font-size);
   text-align:center;
+  letter-spacing: 1px;
   color: var(--main-font-color);
   margin: 1rem 0;
 }

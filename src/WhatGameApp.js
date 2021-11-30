@@ -10,7 +10,16 @@ import { GameRouter } from './router/GameRouter';
 export const WhatGameApp = () => {
   const [ searchGame, setSearchGame ] = useState( );
   const { resultData, loading } = useGetGamesByName( searchGame )
+  const [mainModal, setMainModal] = useState({
+    name: '',
+    image: '',
+    open: false
+  })
 
+
+  // const handleMainModal = (name, image) => {
+
+  // }
 
   
 
@@ -31,7 +40,7 @@ export const WhatGameApp = () => {
   //   }].filter(item => item !== undefined))
   // }
   // const { data: dataGenres, loading: genreLoading } = useFetchGenres();
-  console.log(dataGenres)
+  // console.log(dataGenres)
   // debugger
   // console.log(dataGenres)
   const init = () => {
@@ -42,8 +51,10 @@ export const WhatGameApp = () => {
   // debugger
   const [gamesByGenre, setGamesByGenre] = useState( '' )
   
-  const [favoriteGames, dispatch] = useReducer(favoritesReducer, [], init)
+  const [favoriteGames, dispatch,] = useReducer(favoritesReducer, [], init)
   // debugger
+
+  const [handleModal, setHandleModal] = useState({})
   useEffect(() => {
     localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames))
   }, [ favoriteGames ])
@@ -66,7 +77,11 @@ export const WhatGameApp = () => {
           setGamesByGenre,
           favoriteGames,
           dispatch,
-          genreCollection
+          genreCollection,
+          setHandleModal,
+          handleModal,
+          setMainModal,
+          mainModal
           // genreData
           // allGenresGames,
           // handleAllGenresGames

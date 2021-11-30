@@ -1,4 +1,6 @@
 .result {
+  display: flex;
+  justify-content: space-between;
   margin-top: 80px;
   animation: fadeIn;
   animation-duration: 1s;
@@ -10,7 +12,21 @@
   align-items: center;
   height: auto;
 }
+.page__form {
+  height: 3rem;
+  /* display: ; */
+}
+.page--input--label {
+  color: var(--active-color);
+}
+.page--input {
+  width: 30rem;
+  height: inherit;
+}
 
+.page--input[type=number]::-webkit-inner-spin-button {
+  display: none;
+}
 .order__options {
   width: 80px;
   color: var(--second-font-color);

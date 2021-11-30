@@ -5,7 +5,7 @@ export const SubMenuFavGames = ({ favoriteGames }) => {
   return (
     <ul className="fav__games__list">
       {
-        favoriteGames.slice(0,6).reverse().map(item => (
+        favoriteGames.slice(0,6).map(item => (
           <li className="fav--games--item">
             {item.name}
           </li>

@@ -29,6 +29,13 @@ export const FavSubmit = ( data, dispatch ) => {
 
     setAddToggle(!addToggle)
   }
+
+  const handleRemoveAll = () => {
+    dispatch({
+      type: 'remove',
+      payload: data
+    })
+  }
   // debugger
-  return { handleAdd, handleRemove, addToggle }
+  return { handleAdd, handleRemove, addToggle, handleRemoveAll }
 }

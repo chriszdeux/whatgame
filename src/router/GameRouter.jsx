@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react';
+import Modal from 'react-modal';
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { SearchPage } from '../components/search-page/SearchPage'
 import { Header } from '../components/header/Header'
@@ -22,17 +23,20 @@ import { GamesMap } from '../components/videogames-lists/GamesMap'
 import { FavGamesPage } from '../components/favorite-games-page/FavGamesPage'
 import { ApiComponent } from '../components/api-component/ApiComponent'
 import { ScrollTop } from '../components/helpers/ScrollTop'
-import { GamesDataContext } from '../context/DataFetchContext'
+import { DataContext, GamesDataContext } from '../context/DataFetchContext'
 import { usePagination } from '../hooks/usePagination'
 import { useFullData } from '../hooks/useFullData'
 import { BackgroundAnimation } from '../components/animations/BackgroundAnimation'
+import { CardContent } from '../components/modal/CardContent'
 
+import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 
 
 export const GameRouter = () => {
   // const dataSlice =  data.slice(6, 11);
   // debugger
-
+  const {handleModal} = useContext(DataContext)
+  const { openContent, name, slug, handleOpenModal, animation } = handleModal
   const {
     handleNextPage, 
     handlePreviousPage, 
@@ -44,6 +48,8 @@ export const GameRouter = () => {
   const { data, loading } = useFetchGames( page )
 
   const {moreLoad, pagination, fullData} = useFullData( data )
+
+
   const {next}  = !!pagination && pagination
   useEffect(() => {
     setMyLoad(false)
@@ -86,6 +92,21 @@ export const GameRouter = () => {
           </Route>
         </GamesDataContext.Provider>
       </Switch>
+{/* 
+      <Modal
+        isOpen={ openContent }
+        onRequestClose={ handleOpenModal }
+        ariaHideApp={false}
+        className="Modal "
+        overlayClassName="Overlay--cards"
+        
+        >
+        <CloseIcon 
+          className="close--icon animate__animated animate__fadeIn"
+          onClick={ handleOpenModal }
+          />
+        <CardContent values={{ slug, animation }}/>
+      </Modal> */}
       {/* <ScrollTop /> */}
       </Router>
 
