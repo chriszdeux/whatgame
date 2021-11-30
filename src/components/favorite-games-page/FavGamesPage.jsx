@@ -13,12 +13,15 @@ import { GameMediumCard } from '../videogames-lists/GameMediumCard';
 import { ScrollTop } from '../helpers/ScrollTop';
 import { BackgroundAnimation } from '../animations/BackgroundAnimation';
 import { cleanup } from '@testing-library/react';
+import { FavSubmit } from '../helpers/FavSubmit';
 
 
 export const FavGamesPage = () => {
   
 
-  const { favoriteGames } = useContext( DataContext )
+  const { favoriteGames, dispatch } = useContext( DataContext )
+
+  const { handleRemoveAll } = FavSubmit(favoriteGames, dispatch)
   // const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
   // debugger
   const { scrollTop } = useScrollTop()
@@ -57,6 +60,10 @@ export const FavGamesPage = () => {
     
   }
   
+  const handleRemoveGames = () => {
+    setFavGame([])
+  }
+
   const handleToTop = () => {
     scrollTop()
   }
@@ -73,14 +80,23 @@ export const FavGamesPage = () => {
   // debugger
   return (
     <>
-      <section className="favorite__page">
-      
-      <h2 className="favorite--games--title">Favorite Games: { favoriteGames.length }</h2>
+      <section className="favorite__page ">
+      <div className="page__header">
+        <h2 className="favorite--games--title">Favorite Games: { favoriteGames.length }</h2>
+        {
+          favoriteGames.length > 0 &&
+            <button 
+              className="btn btn--remove"
+              onClick={ handleRemoveAll }
+            >Remove All</button>
+
+        }
+      </div>
       <div className="games__container">
         {
            
-           removeRepeatElement.map(data => (
-            <GameMediumCard key={ data.id }  className="animate__animated animate__fadeIn" data={ data }/>
+           favoriteGames.map((data, index) => (
+            <GameMediumCard key={ data.id }  className="animate__animated animate__fadeIn" values={{ data, index }}/>
             
           ))
         }
@@ -119,6 +135,7 @@ export const FavGamesPage = () => {
         favoriteGames.length > 10 &&
         <ScrollTop />
       }
+      
       <BackgroundAnimation />
 
     </section>

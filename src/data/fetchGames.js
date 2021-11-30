@@ -37,6 +37,7 @@ export const GetGames = async ( page ) => {
     const randomResult = results[Math.floor( Math.random() * results.length )]
     // debugger
     const dataGames = mixGames.map(game => {
+      // debugger
       return {
         id: game.id,
         name: game.name,
@@ -107,7 +108,7 @@ export const getGenreGames = async () => {
     return  handleGamesByGenre(item.slug)
   });
   
-  console.log(genreCollection)
+  // console.log(genreCollection)
   // const dataGenreCollection = await dataGames.map(async (item) => {
   //   const temp = await handleGamesByGenre(item.slug).then(item => {
   //     return {
@@ -179,6 +180,7 @@ export const getGamesByGenre = async ( genre ) => {
     // debugger
   const dataGames = mixResults.map( listGame => {
     return {
+      id: listGame.id,
       name: listGame.name,
       slug: listGame.slug,
       platforms: listGame.platforms,
@@ -201,7 +203,8 @@ export const getGamesByGenre = async ( genre ) => {
 }
 
 export const getDetailsGame = async ( game ) => {
-  const response = await fetch(`${mainUrl}games/${game}?${api_key}`)
+  try {
+    const response = await fetch(`${mainUrl}games/${game}?${api_key}`)
   const data = await response.json();
   // debugger
   return {
@@ -222,6 +225,9 @@ export const getDetailsGame = async ( game ) => {
     publishers: data?.publishers,
     clasification: data?.esrb_rating,
     tags: data?.tags
+  }
+  } catch (error) {
+    console.log(error)
   }
 }
 

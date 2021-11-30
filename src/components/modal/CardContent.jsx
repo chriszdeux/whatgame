@@ -68,7 +68,7 @@ export const CardContent = React.memo(( { values } ) => {
               <Rating data={ data }/>
               <Platforms platforms={ platforms }/>
               
-              <BackgroundAnimation />
+              {/* <BackgroundAnimation /> */}
             </div>
         }
     </div>

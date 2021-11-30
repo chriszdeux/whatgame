@@ -126,13 +126,13 @@ export const useGetGameDetails = ( game ) => {
       .then(dataGame => {
         setTimeout(() => {
           if(isMounted.current) {
-            console.log(`mounted`)
+            // console.log(`mounted`)
             setGameDetails({
               data: dataGame,
               loading: false
             })
           } else {
-            console.log(`dismounted`)
+            // console.log(`dismounted`)
           }
         }, 0);
       })

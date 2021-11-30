@@ -15,7 +15,8 @@ import { FavSubmit } from '../helpers/FavSubmit';
 import { IoTrashBinSharp as DeleteIcon } from 'react-icons/io5'
 
 
-export const GameMediumCard = ({data}) => {
+export const GameMediumCard = ({values}) => {
+  const { data, index } =  !!values && values
   const [ openContent, handleOpenContent, animation ] = useShowContent()
   // debugger
   const { dispatch } = useContext( DataContext )
@@ -34,14 +35,14 @@ export const GameMediumCard = ({data}) => {
   } else if(metacritic < 70){
     gameCalification.push(<h2 key={3} className="calification low--rate--color">{ metacritic }</h2>)
   }
-  console.log('medium--card')
+  // console.log('medium--card')
   // debugger
   return (
     <LazyLoadComponent className="game__medium__card" 
     >
       {/* <li className="game__medium__container"> */}
       <li className="game__medium__container">
-
+      <h2 className="card--position">{index + 1}</h2>
       <figure className="game__medium__container">
         <LazyLoadImage 
           // placeholderSrc="../../assets/horizon.jpg"

@@ -78,6 +78,7 @@
   bottom: 0;
   opacity: .95;
   z-index: 2;
+  /* overflow: hidden; */
   opacity: 0;
   transform: scaleX(0);
   animation-name: modal-animation;
@@ -232,6 +233,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
   font-weight: var(--heavy-font-weight);
   font-family: var(--second-font);
 }
@@ -310,8 +312,8 @@
 }
 
 .game__gallery__selection:hover {
-  border: 2px solid var(--active-color);
-  box-shadow: 0 0 11px -1px var(--active-color);
+  /* border: 2px solid var(--active-color); */
+  box-shadow: 0 0 11px 1px var(--active-color);
   /* transform: translateY(-10px); */
 }
 
@@ -423,11 +425,12 @@
 
 .carousel__item {
   display: flex;
-  height: 15rem;
+  align-items: center;
+  height: 16rem;
   /* justify-content: center; */
   overflow-x: auto;
   overflow-y: hidden;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   
 }
 /*MEDIA QUERYS*/
@@ -622,7 +625,7 @@
 
   .close--icon {
     position: relative;
-    top: 8%;
+    top: 3%;
     right: 8%;
   }
 
@@ -642,7 +645,7 @@
   }
 
   .ReactModal__Content .close--icon {
-    right: 10%;
+    right: 3%;
   }
 
   .main--gallery--image {
@@ -651,6 +654,9 @@
   }
 
   .carousel__item {
-    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    /* justify-content: center; */
   }
 }

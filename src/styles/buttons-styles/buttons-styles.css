@@ -9,6 +9,17 @@
   box-shadow: var(--shadow-button-color);
   background-color: var(--border-color);
   color: var(--main-font-color);
+  outline: none;
+}
+
+.btn--remove {
+  margin-top: 2rem;
+  transition: .3s ease-in;
+  cursor: pointer;
+}
+
+.btn--remove:active {
+  transform: scale(.9);
 }
 
 .submit--button {

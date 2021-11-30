@@ -30,6 +30,7 @@
   width: 100%;
   height: auto;
   margin: 0 1rem;
+  margin-top: 1rem;
   padding: 3rem;
   border: 1px solid var(--border-color);
   box-shadow: var(--box-shadow-color);

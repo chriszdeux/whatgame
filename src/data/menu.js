@@ -3,7 +3,7 @@ export const menuList = [
   {
     name: 'Home',
     content: false,
-    page: '/home',
+    page: '/',
     subMenu: false
   },
   {
@@ -21,7 +21,7 @@ export const menuList = [
   {
     name: 'Library',
     content: false,
-    page: 'favorite-games',
+    page: '/favorite-games',
     saved: true,
     count: true
   },

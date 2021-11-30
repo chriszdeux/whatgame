@@ -9,7 +9,7 @@ export const GamesMap = () => {
   // const { data, loading } = useFetchGenres()
   const { dataGenres, genreLoading, genreCollection } = useContext(DataContext)
   useEffect(() => {
-    console.log('GAMES--MAP')
+    // console.log('GAMES--MAP')
   }, [dataGenres])
   // debugger
   const [handleGenres, setHandleGenres] = useState([])
@@ -30,7 +30,7 @@ export const GamesMap = () => {
             ? <LoadingComponent />
             : <>
                 {
-                  handleGenres.map(genre => (
+                  handleGenres.sort().map(genre => (
                     <LazyLoadComponent 
                     key={genre.id}
                     delayTime="3000"

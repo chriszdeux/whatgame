@@ -41,7 +41,7 @@ export const GenrePage = () => {
         genreLoading
           ? <LoadingComponent />
           : <>
-            <section className="genres">
+            <section className="genres games__list" >
               {/* <h2 className="genres--title">Genres</h2> */}
               {/* <HomeImage 
                 className="genre__home__img" 

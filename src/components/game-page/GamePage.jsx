@@ -78,11 +78,12 @@ const refGames = useRef(null)
           ? <LoadingComponent />
           : <section id="games" className="second__container games__list">
           <GameResults /> 
-          <ul id="infinite__scroll" className="games__container" ref={!!refGames && refGames}>
+          <ul  className="games__container" ref={!!refGames && refGames}>
 
               {
-                fullData.map( data => (
-                  <GameMediumCard key={ data.id.toString() }  className="animate__animated animate__fadeIn" data={ data }/>
+                fullData.map( (data, index) => (
+                  data.image &&
+                  <GameMediumCard key={ data.id }   values={{ data, index }}/>
                   ))
                 }
               {/* </InfiniteScroll> */}

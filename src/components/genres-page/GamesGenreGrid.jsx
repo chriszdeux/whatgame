@@ -59,7 +59,6 @@ export const GamesGenreGrid = (  ) => {
       ? <LoadingComponent />
       :<>
         
-        <div id="scrollableDiv" className="genres animate__animated animate__fadeIn">
           <ul className="games__container">
 
           {/* <InfiniteScroll
@@ -71,8 +70,9 @@ export const GamesGenreGrid = (  ) => {
              
             > */}
          {
-           fullData.map(data => (
-             <GameMediumCard key={ data.id } data={ data }/>
+           fullData.map((data, index) => (
+             data.image &&
+             <GameMediumCard key={ data.id } values={{ data, index }}/>
              ))
             }
           {/* </InfiniteScroll> */}
@@ -83,8 +83,6 @@ export const GamesGenreGrid = (  ) => {
           <ShowMoreButton values={ {next, handleNextPage, loadMoreGames} }/>
         }
         <BackgroundAnimation />
-        </div>
-        
         </>
     }
     </>

@@ -4,6 +4,7 @@ import { useFetchGames, useGetGameDetails } from '../../hooks/useFetchGame';
 import '../../styles/home-style.css';
 import { BackgroundAnimation } from '../animations/BackgroundAnimation';
 import { LoadingComponent } from '../loading/LoadingComponent';
+import { CardContent } from '../modal/CardContent';
 import { GamesMap } from '../videogames-lists/GamesMap';
 import { CheckNow } from './CheckNow';
 
@@ -68,6 +69,7 @@ export const Home = () => {
       <BackgroundAnimation />
     </section>
       <GamesMap />
+      
   </>
   )
 }
