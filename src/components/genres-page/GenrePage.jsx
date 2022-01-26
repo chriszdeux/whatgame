@@ -36,37 +36,26 @@ export const GenrePage = () => {
   // debugger
   
   return (
-    <>
-      {
-        genreLoading
-          ? <LoadingComponent />
-          : <>
             <section className="genres games__list" >
-              {/* <h2 className="genres--title">Genres</h2> */}
-              {/* <HomeImage 
-                className="genre__home__img" 
-                data={ data }
-              />       */}
-              <div className="hero__text__content">
-              <h2 className="genre--title">{ gamesByGenre }</h2>
-                {/* <p className="hero--text">{ name }</p> */}
-              </div>
+          {
+            genreLoading
+              ? <LoadingComponent />
+              : 
+              <>
+                {/* <h2 className="genres--title">Genres</h2> */}
+                {/* <HomeImage 
+                  className="genre__home__img" 
+                  data={ data }
+                />       */}
+                <div className="hero__text__content">
+                <h2 className="genre--title">{ gamesByGenre }</h2>
+                  {/* <p className="hero--text">{ name }</p> */}
+                </div>
                 <GamesGenreGrid />
+              </>
+              } 
             </section>
 
-          {/* <GenresGrid gamesByGenre={ gamesByGenre }/> */}
-          {/* {
-            data.map(genre => (
-              <GameList 
-                key={genre.id} 
-                genre={genre}
-                onClick={ () => setGamesByGenre( genre ) }
-              />
-            ))
-          } */}
-          {/* <GamesGenreGrid slug={ slug } /> */}
-          </>
-      }
-    </>
+         
   )
 }

@@ -67,8 +67,10 @@ export const GameRouter = () => {
     <Router history={ history }>
       <Header />
       <Switch>
-        <Route  exact path="/" component={ Home } />
-        <Route   path="/WhatGame" component={ Home } />
+        <Route exact path="/whatgame" component={ Home }/>
+        <Route  exact path="/" component={ Home }>
+          <Home/>
+        </Route>
         {/* <Route  exact path="/games" component={ GamePage }>
           <Home/>
         </Route> */}
@@ -94,8 +96,6 @@ export const GameRouter = () => {
           <Route>
           </Route>
         </GamesDataContext.Provider>
-        <Route path="*" component={ Home }></Route>
-
           <Redirect to="/" />
       </Switch>
 

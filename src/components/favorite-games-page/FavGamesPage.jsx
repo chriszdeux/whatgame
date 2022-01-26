@@ -1,18 +1,11 @@
-import Masonry from 'masonry-layout';
-import React, { useContext, useEffect, useState } from 'react'
+
+import React, { useContext, useEffect } from 'react'
 import { DataContext } from '../../context/DataFetchContext'
 import { useScrollTop } from '../../hooks/useScrollTop';
-import { useShowContent } from '../../hooks/useShowContent';
 import '../../styles/favorite-games-page.css'
-import { GeneralInfo } from '../modal/GeneralInfo';
-import { RatingStar } from '../modal/RatingStar';
-import Modal from 'react-modal';
-import { CardContent } from '../modal/CardContent';
-import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 import { GameMediumCard } from '../videogames-lists/GameMediumCard';
 import { ScrollTop } from '../helpers/ScrollTop';
 import { BackgroundAnimation } from '../animations/BackgroundAnimation';
-import { cleanup } from '@testing-library/react';
 import { FavSubmit } from '../helpers/FavSubmit';
 
 
@@ -25,48 +18,48 @@ export const FavGamesPage = () => {
   // const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
   // debugger
   const { scrollTop } = useScrollTop()
-  // const [favList, setFavList] = useState(favoriteGames)
-  const [favGame, setFavGame] = useState()
-  const [showFavGame, setShowFavGame] = useState(false)
+  // // const [favList, setFavList] = useState(favoriteGames)
+  // const [favGame, setFavGame] = useState()
+  // const [showFavGame, setShowFavGame] = useState(false)
   // const [data, setData] = useState(favGame)
   // const { name, image, rating_star, metacritic, calification, released } = favGame !== undefined && favGame
-  const [ openContent, handleOpenContent, animation ] = useShowContent()
-  // debugger
-  const [slug, setSlug] = useState()
-  const [removeRepeatElement, setRemoveRepeatElement] = useState([])
+  // const [ openContent, handleOpenContent, animation ] = useShowContent()
+  // // debugger
+  // const [slug, setSlug] = useState()
+  // const [removeRepeatElement, setRemoveRepeatElement] = useState([])
 
 
-  useEffect(() => {
-    setRemoveRepeatElement([...new Set(favoriteGames)])
-    // return () => {
-    //   cleanup(remove)
-    // }
-  }, [favoriteGames])
+  // useEffect(() => {
+  //   setRemoveRepeatElement([...new Set(favoriteGames)])
+  //   // return () => {
+  //   //   cleanup(remove)
+  //   // }
+  // }, [favoriteGames])
   // debugger
-  const handleFavGameImage = ( game ) => {
+  // const handleFavGameImage = ( game ) => {
     
-    handleOpenContent()
-    setShowFavGame(false)
-    setSlug(game.slug)
+  //   handleOpenContent()
+  //   // setShowFavGame(false)
+  //   setSlug(game.slug)
     
-    setTimeout(() => {
-      // const element = document.getElementById(`${game.name}`)
-      // element.scrollIntoView(false)
-      setFavGame(game)
-      setShowFavGame(true)
-      // setShowFavGame(!showFavGame)
-      // debugger
-    }, 200);
+  //   setTimeout(() => {
+  //     // const element = document.getElementById(`${game.name}`)
+  //     // element.scrollIntoView(false)
+  //     // setFavGame(game)
+  //     // setShowFavGame(true)
+  //     // setShowFavGame(!showFavGame)
+  //     // debugger
+  //   }, 200);
     
-  }
+  // }
   
-  const handleRemoveGames = () => {
-    setFavGame([])
-  }
+  // const handleRemoveGames = () => {
+  //   // setFavGame([])
+  // }
 
-  const handleToTop = () => {
-    scrollTop()
-  }
+  // const handleToTop = () => {
+  //   scrollTop()
+  // }
   
   
   useEffect(() => {
@@ -101,7 +94,7 @@ export const FavGamesPage = () => {
           ))
         }
       </div>
-      <Modal
+      {/* <Modal
         isOpen={ openContent }
         // onAfterOpen={ handleToggleContent }
         onRequestClose={ handleOpenContent }
@@ -114,7 +107,7 @@ export const FavGamesPage = () => {
           className="close--icon"
           onClick={ handleOpenContent }
         />
-      </Modal>
+      </Modal> */}
       {/* {
         showFavGame && 
         <div className="fav__info">
