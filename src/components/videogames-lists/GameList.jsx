@@ -109,7 +109,7 @@ export const GameList = ({ genre: { genre, data, id } }) => {
           {
             fullLoad
               ? <LoadingText />
-              : dataGames.map(item => (
+              : dataGames.slice(0,15).map(item => (
                 item.image &&
                 <GameSmallCard key={ item.slug } item={ item }/>
               ))
