@@ -25,6 +25,12 @@
   transition: .2s ease;
   /* border: 2px solid red; */
 }
+
+.Modal::-webkit-scrollbar {
+  display: none;
+}
+
+
 .Modal--menu {
   overflow-y: auto;
   /* text-align: center; */
@@ -123,7 +129,7 @@
 }
 
 .card__info {
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
   transition-delay: 1s;
   /* transition: .2s ease; */
@@ -137,6 +143,9 @@
   /* filter: blur(20px); */
   /* animation: fadeIn;
   animation-duration: 1s; */
+}
+.card__info::-webkit-scrollbar {
+  display: none;
 }
 .card__modal {
   /* position: absolute;  PENDING*/
@@ -432,6 +441,9 @@
   overflow-y: hidden;
   /* margin-top: 3rem; */
   
+}
+.carousel__item::-webkit-scrollbar {
+  display: none;
 }
 /*MEDIA QUERYS*/
 
