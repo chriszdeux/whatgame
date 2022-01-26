@@ -45,7 +45,8 @@ export const GameRouter = () => {
     page, 
     myLoad,
     setMyLoad, setCurrentPage,loadMoreGames, setLoadMoreGames } = usePagination( )
-    
+    const { openGameModal, handleOpenGameModal, handleCloseGameModal } = useContext(DataContext)
+
   const { data, loading } = useFetchGames( page )
 
   const {moreLoad, pagination, fullData} = useFullData( data )
@@ -96,6 +97,21 @@ export const GameRouter = () => {
         </GamesDataContext.Provider>
           <Redirect to="/" />
       </Switch>
+
+      <Modal
+        isOpen={ openGameModal }
+        onRequestClose={ handleCloseGameModal }
+        ariaHideApp={false}
+        className="Modal "
+        overlayClassName="Overlay--cards"
+        
+        >
+        <CloseIcon 
+          className="close--icon animate__animated animate__fadeIn"
+          onClick={ handleCloseGameModal }
+          />
+        <CardContent />
+      </Modal>
 {/* 
       <Modal
         isOpen={ openContent }

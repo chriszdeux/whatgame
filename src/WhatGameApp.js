@@ -3,6 +3,7 @@ import { favoritesReducer } from './components/helpers/favoritesReducer';
 import { FavSubmit } from './components/helpers/FavSubmit';
 import { DataContext } from './context/DataFetchContext'
 import { useFetchGenres, useGetGamesByName } from './hooks/useFetchGame'
+import { useModalGame } from './hooks/useModalGame';
 import { useShowContent } from './hooks/useShowContent';
 
 import { GameRouter } from './router/GameRouter';
@@ -16,7 +17,7 @@ export const WhatGameApp = () => {
     open: false
   })
 
-
+  const { openGameModal, gameModalInfo, handleCloseGameModal, handleOpenGameModal, animation } = useModalGame()
   // const handleMainModal = (name, image) => {
 
   // }
@@ -47,7 +48,7 @@ export const WhatGameApp = () => {
     return JSON.parse(localStorage.getItem('favoriteGames')) || []
   }
 
-  const [ openContent, handleOpenContent, animation ] = useShowContent()
+  const [ openContent, handleOpenContent ] = useShowContent()
   // debugger
   const [gamesByGenre, setGamesByGenre] = useState( '' )
   
@@ -72,7 +73,7 @@ export const WhatGameApp = () => {
           setStateGenre,
           openContent,
           handleOpenContent,
-          animation,
+          // animation,
           gamesByGenre,
           setGamesByGenre,
           favoriteGames,
@@ -81,7 +82,8 @@ export const WhatGameApp = () => {
           setHandleModal,
           handleModal,
           setMainModal,
-          mainModal
+          mainModal,
+          openGameModal, gameModalInfo, handleCloseGameModal, handleOpenGameModal, animation 
           // genreData
           // allGenresGames,
           // handleAllGenresGames

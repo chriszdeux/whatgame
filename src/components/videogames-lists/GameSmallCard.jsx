@@ -12,14 +12,15 @@ import { DataContext } from '../../context/DataFetchContext';
 
 export const GameSmallCard = React.memo(({item}) => {
   const [openContent, handleOpenModal, animation] = useShowContent()
+  const { openGameModal, handleOpenGameModal, handleCloseGameModal } = useContext(DataContext)
   const { setHandleModal } = useContext(DataContext)
   const { name, slug, image } = item
 
-  useEffect(() => {
-    setHandleModal({
-      openContent, name, slug, handleOpenModal, animation
-    })
-  }, [item])
+  // useEffect(() => {
+  //   setHandleModal({
+  //     openContent, name, slug, handleOpenModal, animation
+  //   })
+  // }, [item])
  
   return (
     // <article className="game__small__card">
@@ -32,13 +33,13 @@ export const GameSmallCard = React.memo(({item}) => {
             className="game--image--small" 
             src={ image } 
             alt={ name }
-            onClick={ handleOpenModal } 
+            onClick={ () =>  handleOpenGameModal({slug}) } 
             effect="opacity"
             />
 
-          <Modal
-            isOpen={ openContent }
-            onRequestClose={ handleOpenModal }
+          {/* <Modal
+            isOpen={ openGameModal }
+            onRequestClose={ handleCloseGameModal }
             ariaHideApp={false}
             className="Modal "
             overlayClassName="Overlay--cards"
@@ -48,8 +49,8 @@ export const GameSmallCard = React.memo(({item}) => {
               className="close--icon animate__animated animate__fadeIn"
               onClick={ handleOpenModal }
               />
-            <CardContent values={{ slug, animation }}/>
-          </Modal>
+            <CardContent />
+          </Modal> */}
           {/* <fgcaption  */}
           <fgcaption className="game--name">{name}</fgcaption>
         </figure>

@@ -14,13 +14,18 @@ import { LoadingComponentSmall } from '../loading/LoadingComponentSmall';
 import { BackgroundAnimation } from '../animations/BackgroundAnimation';
 
 
-export const CardContent = React.memo(( { values } ) => {
+export const CardContent = React.memo(( ) => {
 // debugger
-  const { handleAdd } = useContext(DataContext)
-  const { slug, animation } = values
+  const { handleAdd , gameModalInfo, animation} = useContext(DataContext)
+  // debugger
+  const { slug } = !!gameModalInfo && gameModalInfo
+  // debugger
   const { data, loading } = useGetGameDetails( slug );
   const { platforms } = data
+  useEffect(() => {
 
+  }, [data])
+// debugger
   // useEffect(() => {
   //   console.log('card--content--data')
   // }, [data])
@@ -34,7 +39,7 @@ export const CardContent = React.memo(( { values } ) => {
     setHandleData(data)
   }
 
-  const dataMemo = useMemo(() => handleDataMemo, [ values ])
+  const dataMemo = useMemo(() => handleDataMemo, [ gameModalInfo ])
   // const { openContent, handleOpenModal } = useContext(DataContext)
 // const { openContent, handleOpenModal } = useContext(DataContext)
 

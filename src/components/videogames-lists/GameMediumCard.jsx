@@ -19,7 +19,7 @@ export const GameMediumCard = ({values}) => {
   const { data, index } =  !!values && values
   const [ openContent, handleOpenContent, animation ] = useShowContent()
   // debugger
-  const { dispatch } = useContext( DataContext )
+  const { dispatch, handleOpenGameModal } = useContext( DataContext )
   const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
   const { name, image, calification, metacritic, rating_star,  slug, checked } = data
   const [show, setShow] = useState(true)
@@ -66,7 +66,7 @@ export const GameMediumCard = ({values}) => {
           <RatingStar rating_star={ rating_star }/>
           <CgArrowsExpandUpRight 
             className="dots"
-            onClick={ handleOpenContent }
+            onClick={ () => handleOpenGameModal({slug}) }
             />
           
           {
@@ -93,7 +93,7 @@ export const GameMediumCard = ({values}) => {
       </figure>
       </li>
       {/* </li> */}
-      <Modal
+      {/* <Modal
         isOpen={ openContent }
         // onAfterOpen={ handleToggleContent }
         onRequestClose={ handleOpenContent }
@@ -106,7 +106,7 @@ export const GameMediumCard = ({values}) => {
           className="close--icon"
           onClick={ handleOpenContent }
         />
-      </Modal>
+      </Modal> */}
     </LazyLoadComponent>
   )
 }
