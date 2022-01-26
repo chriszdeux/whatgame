@@ -480,17 +480,19 @@
     display: none;
   }
   .Modal {
+    width: 70%;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .Overlay--cards {
     top: 10%;
-    right: 10%;
+    /* right: 10%; */
     bottom: 10%;
-    left: 10%;
+    /* left: 10%; */
   }
   .card__hero {
     /* position: relative; */
@@ -641,7 +643,7 @@
 @media only screen and ( min-width: 1600px) {
   .main__image__gallery {
     /* width: 100%; */
-    height: 80rem;
+    height: 50rem;
   }
 
   .ReactModal__Content .close--icon {

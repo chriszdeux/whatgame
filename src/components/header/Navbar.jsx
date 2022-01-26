@@ -72,9 +72,9 @@ export const Navbar = ( ) => {
           }
           
         </li>
-        <li className="list--item">
+        {/* <li className="list--item">
           <UserIcon className="user--icon"/>
-        </li>
+        </li> */}
 
       </ul>
       <ListDropDown />
