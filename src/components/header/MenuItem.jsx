@@ -23,7 +23,7 @@ export const MenuItem = ({list}) => {
     setGamesByGenre( genre )
     // debugger
     setOpenSubMenu(false)
-    history.push('./genres', null)
+    history.push('/whatgame/genres', null)
     return <LoadingComponent />
   }
 
