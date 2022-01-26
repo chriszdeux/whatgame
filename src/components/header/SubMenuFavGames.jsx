@@ -13,7 +13,7 @@ export const SubMenuFavGames = ({ favoriteGames }) => {
       }
 
       <li className="list--item ">
-        <Link to="/favorite-games" className="btn__primary">
+        <Link to="/whatgame/favorite-games" className="btn__primary">
         View More
         </Link>
       </li>
