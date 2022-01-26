@@ -33,7 +33,7 @@ export const FavGames = ({ values }) =>
     }
     
       <li className="fav--game " onClick={ handleFavPage }>
-        <Link to="/favorite-games" className="btn__primary">
+        <Link to="/whatgame/favorite-games" className="btn__primary">
           View More
         </Link>
         {/* <button className="show--more" onClick={ handleFavPage }>Show More</button> */}

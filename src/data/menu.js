@@ -3,13 +3,13 @@ export const menuList = [
   {
     name: 'Home',
     content: false,
-    page: '/',
+    page: '/whatgame',
     subMenu: false
   },
   {
     name: 'Games',
     content: false,
-    page: '/games',
+    page: '/whatgame/games',
     subMenu: false
   },
   {
@@ -21,14 +21,14 @@ export const menuList = [
   {
     name: 'Library',
     content: false,
-    page: '/favorite-games',
+    page: '/whatgame/favorite-games',
     saved: true,
     count: true
   },
   {
     name: 'API',
     content: false,
-    page: '/api',
+    page: '/whatgame/api',
     subMenu: false,
     // link: 'https://rawg.io/apidocs'
   },

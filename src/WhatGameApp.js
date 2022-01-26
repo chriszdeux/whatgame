@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { favoritesReducer } from './components/helpers/favoritesReducer';
-import { FavSubmit } from './components/helpers/FavSubmit';
 import { DataContext } from './context/DataFetchContext'
 import { useFetchGenres, useGetGamesByName } from './hooks/useFetchGame'
 import { useModalGame } from './hooks/useModalGame';
@@ -25,7 +24,6 @@ export const WhatGameApp = () => {
   
 
 
-  const [stateGenre, setStateGenre] = useState( )
   
   const { genresData, genreCollection } = useFetchGenres();
   const { data: dataGenres, loading:genreLoading } = genresData
@@ -71,7 +69,6 @@ export const WhatGameApp = () => {
           loading,
           dataGenres,
           genreLoading,
-          setStateGenre,
           openContent,
           handleOpenContent,
           // animation,

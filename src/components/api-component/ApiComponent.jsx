@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { VscChromeClose as CloseIcon } from 'react-icons/vsc';
 
 import '../../styles/rawg-styles.css';
 export const ApiComponent = () => {

@@ -67,36 +67,34 @@ export const GameRouter = () => {
     <Router history={ history }>
       <Header />
       <Switch>
-        <Route  exact path="/" component={ Home } />
-        <Route   path="/WhatGame" component={ Home } />
+        <Route exact path="/" component={ Home } />
+        <Route  exact path="/whatgame" component={ Home }/>
         {/* <Route  exact path="/games" component={ GamePage }>
           <Home/>
         </Route> */}
         
 
-        <Route exact path="/genres" component={ GenrePage }>
+        <Route exact path="/whatgame/genres" component={ GenrePage }>
         </Route>
-        <Route exact path="/search-result" component={ SearchPage }>
+        <Route exact path="/whatgame/search-result" component={ SearchPage }>
         </Route>
-        <Route exact path="/favorite-games" component={ FavGamesPage }>
+        <Route exact path="/whatgame/favorite-games" component={ FavGamesPage }>
         </Route>
-        <Route  exact path="/api" component={ ApiComponent } />
-        <GamesDataContext.Provider value={{
-          fullData,
-          loading,
-          next,
-          handleNextPage,
-          loadMoreGames
-        }}>
-          <Route exact path="/games" component={ GamePage }>
-
+        <Route  exact path="/whatgame/api" component={ ApiComponent } />
+        <Route exact path="/whatgame/games">
+          <GamesDataContext.Provider value={{
+            fullData,
+            loading,
+            next,
+            handleNextPage,
+            loadMoreGames
+          }}>
+            <GamePage />
+          </GamesDataContext.Provider>
           </Route>
           <Route>
           </Route>
-        </GamesDataContext.Provider>
-        <Route path="*" component={ Home }></Route>
-
-          <Redirect to="/" />
+          <Redirect to="/whatgame" component={ Home }/>
       </Switch>
 
       <Modal

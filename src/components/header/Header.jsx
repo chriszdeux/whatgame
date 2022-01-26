@@ -7,6 +7,7 @@ import { Navbar } from './Navbar';
 import { useShowContent } from '../../hooks/useShowContent';
 import { VscChromeClose as CloseIcon } from 'react-icons/vsc'; //YOU ARE HERE
 import { DataContext } from '../../context/DataFetchContext';
+import { Link } from 'react-router-dom';
 
 
 export const Header = () => {
@@ -18,7 +19,9 @@ export const Header = () => {
   return (
     <header className="main__container">
       <div className="header animate__animated animate__fadeIn" >
+        <Link to="/whatgame">
         <h2 className="highlight--text">WhatGame</h2>
+        </Link>
         {/* {showContent && <MenuList />} */}
         
         {
