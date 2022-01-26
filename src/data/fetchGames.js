@@ -7,6 +7,8 @@ const queryGame = 'games?';
 const queryGenres = 'genres?';
 const urlGamePage = `${mainUrl}${queryGame}${api_key}&page_size=40`;
 const randomPage = Math.floor(Math.random()* 100) + 1;
+
+
 export const GetGames = async ( page ) => {
   // debugger
   let tempPage = ''
@@ -25,7 +27,8 @@ export const GetGames = async ( page ) => {
     //  debugger
     // const { results, next, previous } = await response.json();
     // debugger
-    const response = await fetch(`${tempPage}&ordering=-metacritic`)
+    const response = await fetch(`${tempPage}`)
+    // const response = await fetch(`${tempPage}&ordering=-metacritic`)
     // debugger
     const {results, next, previous, count} = await response.json()
     // debugger
@@ -161,7 +164,8 @@ export const getGamesByGenre = async ( genre ) => {
       // debugger
       // debugger
     } else {
-      genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&ordering=-metacritic`
+      genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&`
+      // genreInput = `${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&ordering=-metacritic`
       // debugger
     }    
     // debugger

@@ -10,8 +10,8 @@ import { FavSubmit } from '../helpers/FavSubmit';
 
 
 export const CheckNow = ({ slug }) => {
-  const { dispatch } = useContext( DataContext )
-  const [ openContent, handleOpenContent, animation ] = useShowContent()
+  const { dispatch, handleOpenGameModal } = useContext( DataContext )
+  // const [ openContent, handleOpenContent, animation ] = useShowContent()
   const { data, loading } = useGetGameDetails( slug );
   const { handleAdd, handleRemove, addToggle} = FavSubmit(data, dispatch)
   // debugger
@@ -26,29 +26,11 @@ export const CheckNow = ({ slug }) => {
       <button 
         type="button"
         className="submit--button"
-        onClick={ handleOpenContent }
+        onClick={ () => handleOpenGameModal({slug}) }
       > Check Now
       </button>
       <p>Info</p>
-      <Modal
-        isOpen={ openContent }
-        // onAfterOpen={ handleToggleContent }
-        onRequestClose={ handleOpenContent }
-        className="Modal"
-        overlayClassName="Overlay--cards"
-        ariaHideApp={false}
-        style={{ backgroundImage:`url(${data.image})` }}
-      >
-        {
-          loading 
-            ? <LoadingComponent />
-            : <CardContent values={{ animation, slug }}/>
-        }
-        <CloseIcon 
-          className="close--icon"
-          onClick={ handleOpenContent }
-        />
-      </Modal>
+      
     </div>
   )
 }

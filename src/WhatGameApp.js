@@ -56,6 +56,7 @@ export const WhatGameApp = () => {
   // debugger
 
   const [handleModal, setHandleModal] = useState({})
+  
   useEffect(() => {
     localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames))
   }, [ favoriteGames ])
@@ -83,7 +84,11 @@ export const WhatGameApp = () => {
           handleModal,
           setMainModal,
           mainModal,
-          openGameModal, gameModalInfo, handleCloseGameModal, handleOpenGameModal, animation 
+          openGameModal, 
+          gameModalInfo, 
+          handleCloseGameModal, 
+          handleOpenGameModal, 
+          animation 
           // genreData
           // allGenresGames,
           // handleAllGenresGames
