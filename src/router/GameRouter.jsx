@@ -67,8 +67,15 @@ export const GameRouter = () => {
     <Router history={ history }>
       <Header />
       <Switch>
+<<<<<<< HEAD
         <Route exact path="/" component={ Home } />
         <Route  exact path="/whatgame" component={ Home }/>
+=======
+        <Route exact path="/whatgame" component={ Home }/>
+        <Route  exact path="/" component={ Home }>
+          <Home/>
+        </Route>
+>>>>>>> 494dce96885744ecb16c668e97a9e42d3b1876e3
         {/* <Route  exact path="/games" component={ GamePage }>
           <Home/>
         </Route> */}
@@ -94,7 +101,12 @@ export const GameRouter = () => {
           </Route>
           <Route>
           </Route>
+<<<<<<< HEAD
           <Redirect to="/whatgame" component={ Home }/>
+=======
+        </GamesDataContext.Provider>
+          <Redirect to="/" />
+>>>>>>> 494dce96885744ecb16c668e97a9e42d3b1876e3
       </Switch>
 
       <Modal
