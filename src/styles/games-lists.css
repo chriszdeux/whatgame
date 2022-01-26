@@ -91,7 +91,7 @@
   /* -ms-overflow-style: none;
   scrollbar-width: none; */
   overflow-x: auto;
-  overflow-y: scroll;
+  overflow-y: hidden;
   flex-shrink: 0;
   justify-content: space-between;
   scroll-behavior: smooth;

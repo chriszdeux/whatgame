@@ -67,7 +67,7 @@ export const GameRouter = () => {
     <Router history={ history }>
       <Header />
       <Switch>
-        <Route  exact path="/" component={ Home }>
+        <Route  path="/" component={ Home }>
           <Home/>
         </Route>
         {/* <Route  exact path="/games" component={ GamePage }>
@@ -82,7 +82,6 @@ export const GameRouter = () => {
         <Route exact path="/favorite-games" component={ FavGamesPage }>
         </Route>
         <Route  exact path="/api" component={ ApiComponent } />
-        <Route path="*" component={ Home }></Route>
         <GamesDataContext.Provider value={{
           fullData,
           loading,
@@ -96,6 +95,8 @@ export const GameRouter = () => {
           <Route>
           </Route>
         </GamesDataContext.Provider>
+        <Route path="*" component={ Home }></Route>
+
           <Redirect to="/" />
       </Switch>
 
