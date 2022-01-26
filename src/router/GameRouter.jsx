@@ -82,6 +82,7 @@ export const GameRouter = () => {
         <Route exact path="/favorite-games" component={ FavGamesPage }>
         </Route>
         <Route  exact path="/api" component={ ApiComponent } />
+        <Route path="*" component={ Home }></Route>
         <GamesDataContext.Provider value={{
           fullData,
           loading,

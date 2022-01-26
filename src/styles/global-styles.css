@@ -26,6 +26,27 @@ a {
   text-decoration: none;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 1.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var( --dark-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--active-shadow-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
+
+
 .title {
   font-size: var(--extra-jumbo-font-size);
   color: var(--active-color);
@@ -113,6 +134,7 @@ body::after {
 .second__container {
   width: 95%;
   margin: 0 auto;
+  height: auto;
   /* padding: 0 30px; */
 }
 
