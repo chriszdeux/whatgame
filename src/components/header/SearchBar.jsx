@@ -30,7 +30,7 @@ export const SearchBar = ( { handleOpenContent } ) => {
       setSearchGame( inputValue.toLowerCase().replace(replaceSimbols, '-') )
       setInputValue('')
       handleOpenContent(true)
-      history.push('./whatgame/search-result', null)
+      history.push('/whatgame/search-result', null)
       // debugger
       return <LoadingComponent />
     }
