@@ -79,7 +79,7 @@ export const ListItem = ( { handleOpenContent } ) => {
     // debugger
     setGamesByGenre( genre )
     // debugger
-    history.push('./genres', null)
+    history.push('/whatgame/genres', null)
     handleOpenContent()
     return <LoadingComponent />
   }

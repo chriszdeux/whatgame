@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { favoritesReducer } from './components/helpers/favoritesReducer';
 import { DataContext } from './context/DataFetchContext'
-import { useFetchGenres, useGetGamesByName } from './hooks/useFetchGame'
+import { useFetchGames, useFetchGenres, useGetGamesByName } from './hooks/useFetchGame'
 import { useModalGame } from './hooks/useModalGame';
 import { useShowContent } from './hooks/useShowContent';
 
@@ -23,6 +23,7 @@ export const WhatGameApp = () => {
 
   
 
+  const fetchGames = useFetchGames()
 
   
   const { genresData, genreCollection } = useFetchGenres();
@@ -63,6 +64,7 @@ export const WhatGameApp = () => {
     <>
       <DataContext.Provider value={ 
         {
+          fetchGames,
           resultData,
           searchGame, 
           setSearchGame, 

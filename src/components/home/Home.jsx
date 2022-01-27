@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import resident from '../../assets/re-v.jpg';
+import { DataContext } from '../../context/DataFetchContext';
 import { useFetchGames, useGetGameDetails } from '../../hooks/useFetchGame';
 import '../../styles/home-style.css';
 import { BackgroundAnimation } from '../animations/BackgroundAnimation';
@@ -9,8 +10,10 @@ import { GamesMap } from '../videogames-lists/GamesMap';
 import { CheckNow } from './CheckNow';
 
 export const Home = () => {
-  const { loading, data } = useFetchGames()
   // debugger
+  const { fetchGames: {
+    loading, data
+  } } = useContext(DataContext)
   // const  random = 
   const { id, name, background_image, slug } = !loading && data.randomResult;
   // debugger

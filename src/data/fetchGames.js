@@ -82,7 +82,7 @@ export const getGenreGames = async () => {
     const response = await fetch(`${mainUrl}${queryGenres}${api_key}`);
   const { results } = await response.json();
   
-  const dataGames = results.slice(0,6).map(genre => {
+  const dataGames = results.map(genre => {
     return {
       id: genre.id,
       slug: genre.slug,
@@ -91,25 +91,25 @@ export const getGenreGames = async () => {
       image: genre.image_background
     }
   })
-  let genreCollection = []
+  // let genreCollection = []
 
-  const handleGamesByGenre = async ( genre ) => {
-    const resp = await fetch(`${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&ordering=-metacritic`)
-    const {results} = await resp.json()
-    const tempResults = {
-      genre: genre,
-      dataByGenre: results
-    }
-    // debugger
-    return genreCollection.push(tempResults)
-    // return results
-    // debugger
-    // return  genreCollection
-  }
-  const temp = dataGames.forEach(item=> {
-    // debugger
-    return  handleGamesByGenre(item.slug)
-  });
+  // const handleGamesByGenre = async ( genre ) => {
+  //   const resp = await fetch(`${mainUrl}${queryGame}${api_key}&genres=${genre}&page_size=40&ordering=-metacritic`)
+  //   const {results} = await resp.json()
+  //   const tempResults = {
+  //     genre: genre,
+  //     dataByGenre: results
+  //   }
+  //   // debugger
+  //   return genreCollection.push(tempResults)
+  //   // return results
+  //   // debugger
+  //   // return  genreCollection
+  // }
+  // const temp = dataGames.forEach(item=> {
+  //   // debugger
+  //   return  handleGamesByGenre(item.slug)
+  // });
   
   // console.log(genreCollection)
   // const dataGenreCollection = await dataGames.map(async (item) => {

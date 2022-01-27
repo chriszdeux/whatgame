@@ -21,7 +21,7 @@ export const GameSmallCard = ({item}) => {
   //     openContent, name, slug, handleOpenModal, animation
   //   })
   // }, [item])
- 
+//  debugger
   return (
     // <article className="game__small__card">
       <li className="game__small__container">

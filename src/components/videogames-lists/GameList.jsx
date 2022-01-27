@@ -84,7 +84,7 @@ export const GameList = ({ genre: { genre, data, id } }) => {
   // }
   // debugger
   return (
-    <div 
+    <section 
       className=" games__list animate__animated animate__fadeIn"
     >
       <h2 className="list--title">Best <span className="highlight--text">{ genre }</span> Games</h2>
@@ -116,6 +116,6 @@ export const GameList = ({ genre: { genre, data, id } }) => {
           }
           </ul>
           {/* </div> */}
-    </div>
+    </section>
   )
 }
