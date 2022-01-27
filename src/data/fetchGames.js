@@ -2,7 +2,7 @@ import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 
 const mainUrl = `https://api.rawg.io/api/`;
-const api_key = 'key=35df8dd5d9ad4572b98e6f1e95d73c3e';
+const api_key = 'key=566bbd60217a466287e5e182d0437bc8';
 const queryGame = 'games?';
 const queryGenres = 'genres?';
 const urlGamePage = `${mainUrl}${queryGame}${api_key}&page_size=40`;
@@ -82,7 +82,7 @@ export const getGenreGames = async () => {
     const response = await fetch(`${mainUrl}${queryGenres}${api_key}`);
   const { results } = await response.json();
   
-  const dataGames = results.map(genre => {
+  const dataGames = results.slice(0,6).map(genre => {
     return {
       id: genre.id,
       slug: genre.slug,
@@ -100,7 +100,7 @@ export const getGenreGames = async () => {
       genre: genre,
       dataByGenre: results
     }
-
+    // debugger
     return genreCollection.push(tempResults)
     // return results
     // debugger

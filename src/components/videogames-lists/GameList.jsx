@@ -84,7 +84,7 @@ export const GameList = ({ genre: { genre, data, id } }) => {
   // }
   // debugger
   return (
-    <section 
+    <div 
       className=" games__list animate__animated animate__fadeIn"
     >
       <h2 className="list--title">Best <span className="highlight--text">{ genre }</span> Games</h2>
@@ -109,13 +109,13 @@ export const GameList = ({ genre: { genre, data, id } }) => {
           {
             fullLoad
               ? <LoadingText />
-              : dataGames.slice(0,15).map(item => (
+              : dataGames.slice(0,10).map(item => (
                 item.image &&
                 <GameSmallCard key={ item.slug } item={ item }/>
               ))
           }
           </ul>
           {/* </div> */}
-    </section>
+    </div>
   )
 }

@@ -10,7 +10,7 @@ import { useResizeImage } from '../../hooks/useFetchGame';
 import { DataContext } from '../../context/DataFetchContext';
 
 
-export const GameSmallCard = React.memo(({item}) => {
+export const GameSmallCard = ({item}) => {
   const [openContent, handleOpenModal, animation] = useShowContent()
   const { openGameModal, handleOpenGameModal, handleCloseGameModal } = useContext(DataContext)
   const { setHandleModal } = useContext(DataContext)
@@ -59,4 +59,3 @@ export const GameSmallCard = React.memo(({item}) => {
     // </article>
   )
 }
-)
