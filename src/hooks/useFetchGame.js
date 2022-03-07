@@ -64,7 +64,7 @@ export const useFetchGenres = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      genresData.data.slice(0,6).map(item => {
+      genresData.data.map(item => {
         getGamesByGenre(item.slug)
           .then(item2 => {
             setGenreCollection(c => [...c, {

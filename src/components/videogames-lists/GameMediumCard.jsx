@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
 import Horizon from '../../assets/horizon.jpg';
 import { RatingStar } from '../modal/RatingStar';
@@ -13,6 +13,8 @@ import { IoMdAdd as AddIcon } from 'react-icons/io'
 import { DataContext } from '../../context/DataFetchContext';
 import { FavSubmit } from '../helpers/FavSubmit';
 import { IoTrashBinSharp as DeleteIcon } from 'react-icons/io5'
+import { animations_object } from '../../utils/animation_object';
+import { useIntersectionObserver } from '../../hooks/useIntersection';
 
 
 export const GameMediumCard = ({values}) => {
@@ -27,6 +29,11 @@ export const GameMediumCard = ({values}) => {
   // debugger
   // debugger
 
+  const { intro, exit } = animations_object
+  const cardRef = useRef(null)
+  const isVisible = useIntersectionObserver(cardRef)
+
+
   let gameCalification = []
   if(metacritic >= 90 ) {
     gameCalification.push(<h2 key={1} className="calification high--rate--color">{ metacritic }</h2>)
@@ -38,10 +45,10 @@ export const GameMediumCard = ({values}) => {
   // console.log('medium--card')
   // debugger
   return (
-    <LazyLoadComponent className="game__medium__card" 
+    <LazyLoadComponent className={`game__medium__card `} 
     >
       {/* <li className="game__medium__container"> */}
-      <li className="game__medium__container">
+      <li className={`game__medium__container`}>
       <h2 className="card--position">{index + 1}</h2>
       <figure className="game__medium__container">
         <LazyLoadImage 

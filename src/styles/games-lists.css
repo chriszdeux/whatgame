@@ -17,9 +17,9 @@
   /* width: 100%; */
   /* position: relative; */
   /* margin-10px */
-  height: 20rem;
-  margin: 0 auto;
-  margin-bottom: 5rem;
+  height: auto;
+  margin: 1rem auto;
+  /* margin: 1rem auto; */
 }
 
 
@@ -28,9 +28,13 @@
   height: 40rem;
 }
 
+
+.games__list:nth-child(3n + 0) .cards__container {
+  height: auto;
+}
 .games__list:nth-child(3n + 0) .cards__container .game__small__container {
   width: 25rem;
-  height: 40rem;
+  height: 35rem;
 }
 .cards__container:first-child {
   box-shadow: var(--box-shadow-color);
@@ -41,6 +45,7 @@
 
 .games__list .list--title {
   text-align: start;
+  /* margin-top: 5rem; */
 }
 
 .games__list .home__animation {
@@ -101,7 +106,8 @@
   /* border: 3px solid rgb(0,0,0);
   ;
   border: 3px solid inear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(157,99,99,1) 45%, rgba(236,149,149,1) 48%, rgba(154,97,97,1) 51%, rgba(0,0,0,1) 100%); */
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
+  margin: 1rem 0;
   animation-name: border-loading;
   animation-timing-function: ease;
   animation-iteration-count: 10;
@@ -156,16 +162,16 @@
   background-color: #292929;
   position: relative;
   width: 15rem;
-  height:inherit;
+  height:20rem;
   margin-right: 15px;
   transition: .3s ease;
   opacity: 0.9;
   flex-shrink: 0;
-  animation-name: loading-card;
+  /* animation-name: loading-card;
   animation-iteration-count: 10;
   animation-duration: 3s;
   will-change: auto;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-in; */
   overflow: hidden;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -748,11 +754,11 @@
   }
   .games__list:nth-child(3n + 0) {
     /* width: 40rem; */
-    height: 60rem;
+    /* height: 60rem; */
   }
   .games__list:nth-child(3n + 0) .cards__container .game__small__container {
-    width: 50rem;
-    height: inherit;
+    width: 25rem;
+    height: 35rem;
   }
 
   .game--name {
