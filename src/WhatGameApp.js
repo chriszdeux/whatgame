@@ -17,49 +17,29 @@ export const WhatGameApp = () => {
   })
 
   const { openGameModal, gameModalInfo, handleCloseGameModal, handleOpenGameModal, animation } = useModalGame()
-  // const handleMainModal = (name, image) => {
-
-  // }
-
-  
 
   const fetchGames = useFetchGames()
 
   
   const { genresData, genreCollection } = useFetchGenres();
   const { data: dataGenres, loading:genreLoading } = genresData
-  // debugger
-  // const {data: dataGenres, loading: genreLoading,  genreCollection} = useFetchGenres();
-  // debugger
-
-  // const [allGenresGames, setAllGenresGames] = useState([])
-
-  // const handleAllGenresGames = (data) => {
-  //   setAllGenresGames(c => [...c, {
-
-  //   }].filter(item => item !== undefined))
-  // }
-  // const { data: dataGenres, loading: genreLoading } = useFetchGenres();
-  // console.log(dataGenres)
-  // debugger
-  // console.log(dataGenres)
   const init = () => {
     return JSON.parse(localStorage.getItem('favoriteGames')) || []
   }
 
   const [ openContent, handleOpenContent ] = useShowContent()
-  // debugger
+
   const [gamesByGenre, setGamesByGenre] = useState( '' )
   
   const [favoriteGames, dispatch,] = useReducer(favoritesReducer, [], init)
-  // debugger
+
 
   const [handleModal, setHandleModal] = useState({})
   
   useEffect(() => {
     localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames))
   }, [ favoriteGames ])
-  // debugger
+
   return (
     <>
       <DataContext.Provider value={ 
