@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 
 //ROUTES
 const mainRoute = require('./routes/index');
@@ -22,5 +22,6 @@ app.use(mainRoute)
 
 app.listen(port, () => {
   console.log(`server running port: ${ port }`)
+  console.log(`To end the server CTRL + C`)
 })
 
